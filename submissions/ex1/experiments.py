@@ -8,9 +8,10 @@ def run_program(command, repetitions):
     results = []
     for _ in range(repetitions):
        # Execute the command and capture its output
-        result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
 
         metric_output = result.stderr.strip().split('\n')
+        print(metric_output)
         program_output = result.stdout.strip().split('\n')
 
         # Extract relevant metrics from the output
@@ -49,7 +50,7 @@ def main():
     for program in programs:
         program_name = '../../small_samples/build/' + program
         # use underscores instead of spaces to make extracting measurement name easier
-        command = f'/usr/bin/time -f "wall_clock_time: %e\n CPU_time: %U\n system_time: %S\n max_memory_usage: %M\n" {program_name} {programs[program]}'
+        command = f'/bin/time -f "wall_clock_time: %e\n CPU_time: %U\n system_time: %S\n max_memory_usage: %M\n" {program_name} {programs[program]}'
         #check if file exists
         if not os.path.isfile(program_name):
                 print(f"Error: File '{program_name}' not found.")
