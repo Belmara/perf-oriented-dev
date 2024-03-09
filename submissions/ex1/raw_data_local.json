@@ -1,0 +1,794 @@
+[
+  {
+    "../../small_samples/build/delannoy": [
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.23,
+          "CPU_time:": 0.23,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1024.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.17,
+          "CPU_time:": 0.17,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1024.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.15,
+          "CPU_time:": 0.14,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.14,
+          "CPU_time:": 0.14,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1024.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.15,
+          "CPU_time:": 0.15,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1024.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.19,
+          "CPU_time:": 0.19,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.15,
+          "CPU_time:": 0.15,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1024.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.16,
+          "CPU_time:": 0.16,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1024.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.18,
+          "CPU_time:": 0.18,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1024.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.14,
+          "CPU_time:": 0.14,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1024.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "means": {
+          "wall_clock_time:": 0.166,
+          "CPU_time:": 0.165,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1075.2
+        }
+      },
+      {
+        "variance": {
+          "wall_clock_time:": 0.0007822222222222222,
+          "CPU_time:": 0.0008277777777777778,
+          "system_time:": 0.0,
+          "max_memory_usage:": 11650.844444444445
+        }
+      }
+    ]
+  },
+  {
+    "../../small_samples/build/filegen": [
+      {
+        "time_metrics": {
+          "wall_clock_time:": 2.28,
+          "CPU_time:": 2.2,
+          "system_time:": 0.08,
+          "max_memory_usage:": 2304.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 2.37,
+          "CPU_time:": 2.31,
+          "system_time:": 0.04,
+          "max_memory_usage:": 2280.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 2.72,
+          "CPU_time:": 2.62,
+          "system_time:": 0.09,
+          "max_memory_usage:": 2200.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 2.45,
+          "CPU_time:": 2.39,
+          "system_time:": 0.05,
+          "max_memory_usage:": 2112.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 2.45,
+          "CPU_time:": 2.29,
+          "system_time:": 0.16,
+          "max_memory_usage:": 2304.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 2.33,
+          "CPU_time:": 2.28,
+          "system_time:": 0.04,
+          "max_memory_usage:": 2048.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 2.42,
+          "CPU_time:": 2.3,
+          "system_time:": 0.1,
+          "max_memory_usage:": 2108.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 2.27,
+          "CPU_time:": 2.21,
+          "system_time:": 0.05,
+          "max_memory_usage:": 2224.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 2.36,
+          "CPU_time:": 2.3,
+          "system_time:": 0.05,
+          "max_memory_usage:": 2188.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 2.39,
+          "CPU_time:": 2.33,
+          "system_time:": 0.05,
+          "max_memory_usage:": 2048.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "means": {
+          "wall_clock_time:": 2.404,
+          "CPU_time:": 2.323,
+          "system_time:": 0.07100000000000001,
+          "max_memory_usage:": 2181.6
+        }
+      },
+      {
+        "variance": {
+          "wall_clock_time:": 0.016271111111111132,
+          "CPU_time:": 0.013867777777777786,
+          "system_time:": 0.0014322222222222223,
+          "max_memory_usage:": 9753.6
+        }
+      }
+    ]
+  },
+  {
+    "../../small_samples/build/filesearch": [
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.0,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "The largest file is ./generated/dir_11/file_13 with size 1048566 bytes"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.0,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "The largest file is ./generated/dir_11/file_13 with size 1048566 bytes"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.0,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "The largest file is ./generated/dir_11/file_13 with size 1048566 bytes"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.0,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "The largest file is ./generated/dir_11/file_13 with size 1048566 bytes"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.0,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "The largest file is ./generated/dir_11/file_13 with size 1048566 bytes"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.0,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "The largest file is ./generated/dir_11/file_13 with size 1048566 bytes"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.0,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "The largest file is ./generated/dir_11/file_13 with size 1048566 bytes"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.0,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "The largest file is ./generated/dir_11/file_13 with size 1048566 bytes"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.0,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "The largest file is ./generated/dir_11/file_13 with size 1048566 bytes"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.0,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "The largest file is ./generated/dir_11/file_13 with size 1048566 bytes"
+        ]
+      },
+      {
+        "means": {
+          "wall_clock_time:": 0.0,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        }
+      },
+      {
+        "variance": {
+          "wall_clock_time:": 0.0,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "../../small_samples/build/mmul": [
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.58,
+          "CPU_time:": 0.57,
+          "system_time:": 0.0,
+          "max_memory_usage:": 24704.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.58,
+          "CPU_time:": 0.57,
+          "system_time:": 0.0,
+          "max_memory_usage:": 24576.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.51,
+          "CPU_time:": 0.5,
+          "system_time:": 0.0,
+          "max_memory_usage:": 24416.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.57,
+          "CPU_time:": 0.56,
+          "system_time:": 0.0,
+          "max_memory_usage:": 24576.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.6,
+          "CPU_time:": 0.59,
+          "system_time:": 0.0,
+          "max_memory_usage:": 24576.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.51,
+          "CPU_time:": 0.5,
+          "system_time:": 0.0,
+          "max_memory_usage:": 24320.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.58,
+          "CPU_time:": 0.58,
+          "system_time:": 0.0,
+          "max_memory_usage:": 24576.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.54,
+          "CPU_time:": 0.54,
+          "system_time:": 0.0,
+          "max_memory_usage:": 24320.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.63,
+          "CPU_time:": 0.62,
+          "system_time:": 0.0,
+          "max_memory_usage:": 24576.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.6,
+          "CPU_time:": 0.59,
+          "system_time:": 0.0,
+          "max_memory_usage:": 24308.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "means": {
+          "wall_clock_time:": 0.57,
+          "CPU_time:": 0.5619999999999999,
+          "system_time:": 0.0,
+          "max_memory_usage:": 24494.8
+        }
+      },
+      {
+        "variance": {
+          "wall_clock_time:": 0.0015333333333333323,
+          "CPU_time:": 0.0015066666666666657,
+          "system_time:": 0.0,
+          "max_memory_usage:": 19882.844444444443
+        }
+      }
+    ]
+  },
+  {
+    "../../small_samples/build/nbody": [
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.28,
+          "CPU_time:": 0.28,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1536.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.36,
+          "CPU_time:": 0.36,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.38,
+          "CPU_time:": 0.38,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1536.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.29,
+          "CPU_time:": 0.29,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1536.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.28,
+          "CPU_time:": 0.28,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1536.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.28,
+          "CPU_time:": 0.27,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1536.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.48,
+          "CPU_time:": 0.48,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1536.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.4,
+          "CPU_time:": 0.4,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1536.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.34,
+          "CPU_time:": 0.34,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1536.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "time_metrics": {
+          "wall_clock_time:": 0.36,
+          "CPU_time:": 0.36,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          "Verification: OK"
+        ]
+      },
+      {
+        "means": {
+          "wall_clock_time:": 0.34500000000000003,
+          "CPU_time:": 0.34400000000000003,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1484.8
+        }
+      },
+      {
+        "variance": {
+          "wall_clock_time:": 0.004294444444444444,
+          "CPU_time:": 0.004448888888888888,
+          "system_time:": 0.0,
+          "max_memory_usage:": 11650.844444444445
+        }
+      }
+    ]
+  },
+  {
+    "../../small_samples/build/qap": [
+      {
+        "time_metrics": {
+          "signal": 11.0,
+          "wall_clock_time:": 0.12,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "signal": 11.0,
+          "wall_clock_time:": 0.14,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1024.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "signal": 11.0,
+          "wall_clock_time:": 0.14,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "signal": 11.0,
+          "wall_clock_time:": 0.12,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1024.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "signal": 11.0,
+          "wall_clock_time:": 0.14,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "signal": 11.0,
+          "wall_clock_time:": 0.15,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1024.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "signal": 11.0,
+          "wall_clock_time:": 0.16,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "signal": 11.0,
+          "wall_clock_time:": 0.14,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1024.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "signal": 11.0,
+          "wall_clock_time:": 0.12,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "time_metrics": {
+          "signal": 11.0,
+          "wall_clock_time:": 0.14,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1280.0
+        },
+        "program_output": [
+          ""
+        ]
+      },
+      {
+        "means": {
+          "signal": 11.0,
+          "wall_clock_time:": 0.137,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 1177.6
+        }
+      },
+      {
+        "variance": {
+          "signal": 0.0,
+          "wall_clock_time:": 0.000178888888888889,
+          "CPU_time:": 0.0,
+          "system_time:": 0.0,
+          "max_memory_usage:": 17476.266666666666
+        }
+      }
+    ]
+  }
+]
