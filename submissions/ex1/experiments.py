@@ -11,7 +11,6 @@ def run_program(command, repetitions):
         result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
 
         metric_output = result.stderr.strip().split('\n')
-        print(metric_output)
         program_output = result.stdout.strip().split('\n')
 
         # Extract relevant metrics from the output
