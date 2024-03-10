@@ -33,12 +33,13 @@ def main():
     args = parser.parse_args()
 
     # could be changeed to list of triple to configure different repetitions for each program
-    programs = {'delannoy': '12',
+    programs = {
+                'delannoy': '12',
                 'filegen': '15 15 1024000 1048576',
                 'filesearch': '',
                 'mmul': '',
                 'nbody': '',
-                'qap': 'problems/chr15a.dat',
+                'qap': '../../small_samples/build/problems/chr15a.dat',
     }
     
 
