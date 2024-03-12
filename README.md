@@ -1,4 +1,4 @@
 Performance-oriented Computing
 ==============================
 
-This repo contains resources for the UIBK course.
+Fork of the lecture repo
