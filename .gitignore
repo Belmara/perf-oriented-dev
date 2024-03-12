@@ -14,4 +14,9 @@ tools/build_debug
 tools/build_release
 
 
-submissions/ex1/generated
+**/generated
+
+
+*.zip
+**/Perf2024*
+**/perf2024*
