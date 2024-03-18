@@ -1,0 +1,7 @@
+mode: local
+iterations: 5
+backgroundload: 0
+programs:
+    - name: mmul
+      iterations: 5
+      arguments: ''
