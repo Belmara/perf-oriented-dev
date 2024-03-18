@@ -52,6 +52,7 @@ def main():
     config = args.config
     program_name = args.program_name
 
+    print('running benchmarks for' + program_name)
     with open(config, 'r') as fc:
         benchmark_config = yaml.safe_load(fc)
     mode = benchmark_config['mode']

@@ -6,26 +6,28 @@ import argparse
 import os
 
     
-def generate_job_script(program_name, execution_command, with_load):
+def generate_job_script(program_name, execution_command):
+    if not os.path.exists('jobscripts'):
+        os.mkdir('jobscripts')
     if not os.path.isfile(f'{program_name}.sh'):
-        with open(f'./jobscripts/{program_name}.sh') as job:
+        with open(f'./jobscripts/{program_name}.sh', 'w') as job:
             job.write(
                 f'''#!/bin/bash
-                    # Execute job in the partition "lva" unless you have special requirements.1
-                    #SBATCH --partition=lva
-                    # Name your job to be able to identify it later
-                    #SBATCH --job-name test
-                    # Redirect output stream to this file
-                    #SBATCH --output=output.log
-                    # Maximum number of tasks (=processes) to start in total
-                    #SBATCH --ntasks=1
-                    # Maximum number of tasks (=processes) to start per node
-                    #SBATCH --ntasks-per-node=1
-                    # Enforce exclusive node allocation, do not share with other jobs
-                    #SBATCH --exclusive
+# Execute job in the partition "lva" unless you have special requirements.1
+#SBATCH --partition=lva
+# Name your job to be able to identify it later
+#SBATCH --job-name benchmark {program_name}
+# Redirect output stream to this file
+#SBATCH --output=output.log
+# Maximum number of tasks (=processes) to start in total
+#SBATCH --ntasks=1
+# Maximum number of tasks (=processes) to start per node
+#SBATCH --ntasks-per-node=1
+# Enforce exclusive node allocation, do not share with other jobs
+#SBATCH --exclusive
 
-                    {execution_command}
-                '''
+{execution_command}
+'''
             )
     return
 
