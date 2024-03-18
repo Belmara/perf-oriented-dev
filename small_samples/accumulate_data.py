@@ -13,7 +13,7 @@ def parse_measurements():
 
         result_data = {
             'time_metrics': dict(zip(metric_names, time_metrics)),
-            'program_output': program_output,
+            'metric_names': metric_names,
         }
 
         return result_data
