@@ -14,7 +14,10 @@ tools/build_debug
 tools/build_release
 
 
+**/build
 **/generated
+**/results
+**/jobs
 
 
 *.zip
