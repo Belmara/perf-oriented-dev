@@ -1,4 +1,4 @@
-mode: local
+mode: lcc3
 iterations: 5
 backgroundload: 0
 confidence: 0.99
