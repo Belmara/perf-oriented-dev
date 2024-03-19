@@ -41,20 +41,18 @@ def calculate_confidence_interval(data, confidence):
     return margin_of_error * 2
 
 
-def persist_result(result, program_name, iteration):
+def persist_result(result):
     # write results into file for accumulate_data.py
     if not os.path.exists('results'):
         os.mkdir('results')
-    target_folder = f'results/{program_name}'
-    if not os.path.exists(target_folder):
-        os.mkdir(target_folder)
+    
 
-    result_file = f'{target_folder}/iteration_{iteration}.json'
+    result_file = f'results/{result["name"]}.json'
     with open(result_file, 'w') as res:
         json.dump(result, res, indent=2)
 
-def parse_result(result):
-    print(result)
+
+def parse_metrics(result):
     metric_output = result.stderr.strip().split('\n')
     program_output = result.stdout.strip().split('\n')
 
@@ -93,13 +91,14 @@ def main():
         print("invalid execution mode")
             
     
+    
     time_results = []
     for iteration in range(0, benchmark_config['iterations']):
         # run & time the program
         raw_data = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
         print(raw_data)
 
-        parsed_result = parse_result(raw_data)
+        parsed_result = parse_metrics(raw_data)
         time_results.append(parsed_result)
         
         # calculate mean & variance for each metric
@@ -107,7 +106,6 @@ def main():
         time_metrics = [item['time_metrics'].values() for item in time_results]
         
         print(parsed_result)
-        persist_result(parsed_result, program_name, iteration)
         
         # calculate confidence interval
         confidence_intervals = {metric: calculate_confidence_interval(metric, confidence) for metric in zip(*time_metrics)}
@@ -117,6 +115,16 @@ def main():
         if all(interval < confidence for interval in confidence_intervals.values()) and iteration > 0:
             break
             
+    mean_metrics = dict(zip(metric_names, [statistics.mean(metric) for metric in zip(*time_metrics)]))
+    variance_metrics = dict(zip(metric_names, [statistics.variance(metric) for metric in zip(*time_metrics)]))
+    res = {'name': program_name,
+                'iterations:': time_results,
+                'means': mean_metrics,
+                'variance': variance_metrics}
+    
+    persist_result(res)
+    
+
         
 if __name__ == "__main__":
     main()

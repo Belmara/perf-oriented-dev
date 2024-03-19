@@ -40,8 +40,8 @@ def main():
                 print('Invalid execution mode! Choose "lcc3" or "local" ')
 
         run_command = f'python3 ./run_benchmark.py {config} {program}'
-        subprocess.run(run_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
-        
+        res = subprocess.Popen(run_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+        print(res)
 
 if __name__ == "__main__":
     main()

@@ -1,23 +1,16 @@
-mode: lcc3
-iterations: 5
-backgroundload: 0
-confidence: 0.99
+mode: local
+iterations: 10
+confidence: 0.95
 programs:
     mmul:
-      iterations: 5
       arguments: ''
     delannoy:
-      iterations: 5
       arguments: '12'
     nbody:
-      iterations: 5
       arguments: ''
     filegen:
-      iterations: 5
       arguments: '15 15 1024000 1048576'
     filesearch:
-      iterations: 5
       arguments: ''
     qap:
-      iterations: 5
       arguments: 'problems/chr15a.dat'
