@@ -3,7 +3,7 @@
 ## Exercise A) External CPU load
 
 Um die Messungen am Lcc3 durchzuführen muss man nur das exec_with_workstation_heavy.sh script laufen lassen. Das wurde so bearbeitet, dass es unser dispatch_benchmarks.py script ausführt, welches alle Messungen jeden Programmes, welche im dazugehörigen YAML file definiert sind auf einer eigenen Node durch.
-Außerdem werden dann, im run_benchmark.py file, für jede Iteration ebenfalls eine neue Node verwendet. Falls das Confidenceinterval für alle metriken erreicht wurde, dann werden die Iterationen früher abgebrochen. Die Ergebnisse werden für jedes definierte Programm in ein seperates JSON file geschrieben.
+Falls das Confidenceinterval für alle metriken erreicht wurde, dann werden die Iterationen früher abgebrochen. Die Ergebnisse werden für jedes definierte Programm in ein seperates JSON file geschrieben. Wenn man das script lokal laufen lassen will, dann muss man einfach im YAML file den mode string auf "local" setzen ansonsten "lcc3".
 
 running this code on a virtual machine on windows as host
 
