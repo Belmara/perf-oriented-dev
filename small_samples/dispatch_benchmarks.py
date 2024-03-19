@@ -7,7 +7,10 @@ import os
 
 
 def generate_job_script(program_name, config, with_load):
-    if not os.path.isfile(f'{program_name}.sh'):
+    if not os.path.exists('jobscripts'):
+        os.mkdir('jobscripts')
+    
+    if not os.path.isfile(f'jobscripts/{program_name}.sh'):
         with open(f'./jobscripts/{program_name}.sh', 'w') as job:
             if(with_load):
                 job.write(
