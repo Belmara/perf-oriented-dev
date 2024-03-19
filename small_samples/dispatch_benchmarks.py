@@ -5,47 +5,19 @@ import yaml
 import argparse
 import os
 
-    
-def generate_job_script(program_name, execution_command):
-    if not os.path.exists('jobscripts'):
-        os.mkdir('jobscripts')
-    if not os.path.isfile(f'{program_name}.sh'):
-        with open(f'./jobscripts/{program_name}.sh', 'w') as job:
-            job.write(
-                f'''#!/bin/bash
-# Execute job in the partition "lva" unless you have special requirements.1
-#SBATCH --partition=lva
-# Name your job to be able to identify it later
-#SBATCH --job-name benchmark {program_name}
-# Redirect output stream to this file
-#SBATCH --output=output.log
-# Maximum number of tasks (=processes) to start in total
-#SBATCH --ntasks=1
-# Maximum number of tasks (=processes) to start per node
-#SBATCH --ntasks-per-node=1
-# Enforce exclusive node allocation, do not share with other jobs
-#SBATCH --exclusive
-
-{execution_command}
-'''
-            )
-    return
-
-
-# write program and benchmark output into file
 
 def main():
-    # parser = argparse.ArgumentParser(description='Run benchmarks for programs specified in config')
-    # parser.add_argument('config', type=str, help='Yaml config file for to be benchmarked programs')
-    # args = parser.parse_args()
-    # config = args.config
-    config = 'benchmark_config.yaml'
+    parser = argparse.ArgumentParser(description='Run benchmarks for programs specified in config')
+    parser.add_argument('config', type=str, help='Yaml config file for to be benchmarked programs')
+    args = parser.parse_args()
+    config = args.config
 
-    with open('benchmark_config.yaml', 'r') as fc:
+    with open(config, 'r') as fc:
         benchmark_config = yaml.safe_load(fc)
 
-    print(benchmark_config)   
-
+    if(benchmark_config['confidence'] not in [0.99, 0.95, 0.9]):
+        print('Invalid confidence: choose 0.99, 0.95 or 0.9')
+        return
 
     programs = benchmark_config['programs']
     print(programs)
@@ -66,14 +38,10 @@ def main():
         mode = benchmark_config['mode']
         if  (mode != "local" and mode != "lcc3"):
                 print('Invalid execution mode! Choose "lcc3" or "local" ')
-        elif (mode == "lcc3"):
-            generate_job_script(program, execution_command)
 
         run_command = f'python3 ./run_benchmark.py {config} {program}'
         subprocess.run(run_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
-
-
-   
+        
 
 if __name__ == "__main__":
     main()

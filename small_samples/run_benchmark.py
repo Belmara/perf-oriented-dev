@@ -8,7 +8,7 @@ import yaml
 
 def calculate_t_value(confidence, degrees_of_freedom):
     # Critical t-values for different confidence levels
-    # Degrees of freedom: 1, 2, ..., 30
+
     t_values = {
         0.9: [3.078, 1.886, 1.638, 1.533, 1.476, 1.440, 1.415, 1.397, 1.383, 1.372, 1.363,
               1.356, 1.350, 1.345, 1.341, 1.337, 1.333, 1.330, 1.328, 1.325, 1.323, 1.321,
@@ -99,12 +99,9 @@ def main():
         raw_data = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
         print(raw_data)
 
-
         parsed_result = parse_result(raw_data)
         time_results.append(parsed_result)
-
         
-
         # calculate mean & variance for each metric
         metric_names = time_results[0]['time_metrics'].keys() 
         time_metrics = [item['time_metrics'].values() for item in time_results]
@@ -121,7 +118,5 @@ def main():
             break
             
         
-
-
 if __name__ == "__main__":
     main()
