@@ -39,8 +39,8 @@ def main():
         if  (mode != "local" and mode != "lcc3"):
                 print('Invalid execution mode! Choose "lcc3" or "local" ')
 
-        run_command = f'python3 ./run_benchmark.py {config} {program}'
-        res = subprocess.Popen(run_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+        run_command = f'sbatch python3 ./run_benchmark.py {config} {program}'
+        res = subprocess.run(f'sbatch ./jobscripts/{program_name}.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
         print(res)
 
 if __name__ == "__main__":

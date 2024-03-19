@@ -1,8 +1,9 @@
 #!/bin/bash
-# Execute job in the partition "lva" unless you have special requirements.1
+
+# Execute job in the partition "lva" unless you have special requirements.
 #SBATCH --partition=lva
 # Name your job to be able to identify it later
-#SBATCH --job-name benchmark delannoy
+#SBATCH --job-name benchmarks-am
 # Redirect output stream to this file
 #SBATCH --output=output.log
 # Maximum number of tasks (=processes) to start in total
@@ -12,4 +13,5 @@
 # Enforce exclusive node allocation, do not share with other jobs
 #SBATCH --exclusive
 
-./build/delannoy 12
+
+python3 ./run_benchmark.py ./benchmark_config.yaml delannoy 
