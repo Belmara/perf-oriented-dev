@@ -1,4 +1,5 @@
-mode: local
+mode: lcc3
+load: false
 iterations: 10
 confidence: 0.95
 programs:
@@ -13,4 +14,4 @@ programs:
     filesearch:
       arguments: ''
     qap:
-      arguments: 'problems/chr15a.dat'
+      arguments: './build/problems/chr15a.dat'

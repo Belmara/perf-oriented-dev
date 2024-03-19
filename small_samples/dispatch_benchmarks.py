@@ -6,6 +6,61 @@ import argparse
 import os
 
 
+def generate_job_script(program_name, config, with_load):
+    if not os.path.isfile(f'{program_name}.sh'):
+        with open(f'./jobscripts/{program_name}.sh', 'w') as job:
+            if(with_load):
+                job.write(
+                f'''#!/bin/bash
+
+# Execute job in the partition "lva" unless you have special requirements.
+#SBATCH --partition=lva
+# Name your job to be able to identify it later
+#SBATCH --job-name benchmarks-am
+# Redirect output stream to this file
+#SBATCH --output=output.log
+# Maximum number of tasks (=processes) to start in total
+#SBATCH --ntasks=1
+# Maximum number of tasks (=processes) to start per node
+#SBATCH --ntasks-per-node=1
+# Enforce exclusive node allocation, do not share with other jobs
+#SBATCH --exclusive
+
+killall loadgen &> /dev/null
+./loadgen mc3 workstation/sys_load_profile_workstation_excerpt.txt &> /dev/null &
+./loadgen mc3 workstation/sys_load_profile_workstation_excerpt.txt &> /dev/null &
+./loadgen mc3 workstation/sys_load_profile_workstation_excerpt.txt &> /dev/null &
+./loadgen mc3 workstation/sys_load_profile_workstation_excerpt.txt &> /dev/null &
+./loadgen mc3 workstation/sys_load_profile_workstation_excerpt.txt &> /dev/null &
+./loadgen mc3 workstation/sys_load_profile_workstation_excerpt.txt &> /dev/null &
+#time -p nice -n 100 $1
+nice -n 1000 python3 ./run_benchmark.py {config} {program_name} 
+killall loadgen &> /dev/null
+                '''
+            )
+            else:
+                job.write(
+                    f'''#!/bin/bash
+
+                        # Execute job in the partition "lva" unless you have special requirements.1
+                        #SBATCH --partition=lva
+                        # Name your job to be able to identify it later
+                        #SBATCH --job-name test
+                        # Redirect output stream to this file
+                        #SBATCH --output=output.log
+                        # Maximum number of tasks (=processes) to start in total
+                        #SBATCH --ntasks=1
+                        # Maximum number of tasks (=processes) to start per node
+                        #SBATCH --ntasks-per-node=1
+                        # Enforce exclusive node allocation, do not share with other jobs
+                        #SBATCH --exclusive
+                        python3 ./run_benchmark.py {config} {program_name} 
+                    '''
+                )
+    return
+
+
+
 def main():
     parser = argparse.ArgumentParser(description='Run benchmarks for programs specified in config')
     parser.add_argument('config', type=str, help='Yaml config file for to be benchmarked programs')
@@ -38,9 +93,12 @@ def main():
         mode = benchmark_config['mode']
         if  (mode != "local" and mode != "lcc3"):
                 print('Invalid execution mode! Choose "lcc3" or "local" ')
+        if(mode == "lcc3"):
+            generate_job_script(program_name, config, benchmark_config["load"])
 
-        run_command = f'sbatch python3 ./run_benchmark.py {config} {program}'
-        res = subprocess.run(f'sbatch ./jobscripts/{program_name}.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+
+        run_command = f'python3 ./run_benchmark.py {config} {program}' if mode == 'local' else f'sbatch ./jobscripts/{program_name}.sh'
+        res = subprocess.run(run_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
         print(res)
 
 if __name__ == "__main__":
