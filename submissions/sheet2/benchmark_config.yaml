@@ -1,0 +1,17 @@
+mode: lcc3
+load: true
+iterations: 10
+confidence: 0.95
+programs:
+    mmul:
+      arguments: ''
+    delannoy:
+      arguments: '12'
+    nbody:
+      arguments: ''
+    filegen:
+      arguments: '15 15 1024000 1048576'
+    filesearch:
+      arguments: ''
+    qap:
+      arguments: './build/problems/chr15a.dat'
