@@ -1,0 +1,105 @@
+
+
+ NAS Parallel Benchmarks (NPB3.3-OMP-C) - BT Benchmark
+
+ No input file inputbt.data. Using compiled defaults
+ Size:   64x  64x  64
+ Iterations:  200       dt:   0.0008000
+
+ Time step    1
+ Time step   20
+ Time step   40
+ Time step   60
+ Time step   80
+ Time step  100
+ Time step  120
+ Time step  140
+ Time step  160
+ Time step  180
+ Time step  200
+ Verification being performed for class A
+ accuracy setting for epsilon =  1.0000000000000E-08
+ Comparison of RMS-norms of residual
+           1 1.0806346714637E+02 1.0806346714637E+02 7.4957683679475E-15
+           2 1.1319730901221E+01 1.1319730901221E+01 4.7077713814080E-15
+           3 2.5974354511582E+01 2.5974354511582E+01 5.7446653560951E-15
+           4 2.3665622544679E+01 2.3665622544679E+01 1.1409217698756E-14
+           5 2.5278963211749E+02 2.5278963211748E+02 1.1917819470629E-14
+ Comparison of RMS-norms of solution error
+           1 4.2348416040525E+00 4.2348416040525E+00 2.0973120195338E-16
+           2 4.4390282496996E-01 4.4390282496996E-01 0.0000000000000E+00
+           3 9.6692480136346E-01 9.6692480136346E-01 2.2963999331895E-16
+           4 8.8302063039765E-01 8.8302063039765E-01 0.0000000000000E+00
+           5 9.7379901770829E+00 9.7379901770829E+00 1.8241513978733E-16
+ Verification Successful
+
+
+ BT Benchmark Completed.
+ Class           =                        A
+ Size            =             64x  64x  64
+ Iterations      =                      200
+ Total threads   =                        1
+ Avail threads   =                        1
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              11 Nov 2013
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = (unknown)
+    CLINKFLAGS   = (unknown)
+    RAND         = (none)
+
+--------------------------------------
+ Please send all errors/feedbacks to:
+ Center for Manycore Programming
+ cmp@aces.snu.ac.kr
+ http://aces.snu.ac.kr
+--------------------------------------
+
+
+ Performance counter stats for './build/npb_bt_a':
+
+     6,881,287,874      L1-dcache-load-misses:u   #    4.25% of all L1-dcache accesses  (10.71%)
+   162,015,359,496      L1-dcache-loads:u                                             (14.28%)
+     4,671,265,286      L1-dcache-prefetch-misses:u                                     (14.28%)
+                13      L1-dcache-prefetches:u                                        (14.29%)
+     2,424,631,549      L1-dcache-store-misses:u                                      (14.29%)
+    69,893,114,830      L1-dcache-stores:u                                            (14.29%)
+        38,267,328      L1-icache-load-misses:u   #    0.03% of all L1-icache accesses  (14.29%)
+   141,012,223,914      L1-icache-loads:u                                             (14.29%)
+       306,820,032      LLC-load-misses:u         #   48.27% of all LL-cache accesses  (14.29%)
+       635,654,289      LLC-loads:u                                                   (14.29%)
+       456,424,268      LLC-prefetch-misses:u                                         (7.14%)
+       729,967,287      LLC-prefetches:u                                              (7.14%)
+        20,209,842      LLC-store-misses:u                                            (7.14%)
+       449,178,554      LLC-stores:u                                                  (7.14%)
+     1,829,418,515      branch-load-misses:u                                          (10.72%)
+     1,854,150,266      branch-loads:u                                                (14.29%)
+         1,163,591      dTLB-load-misses:u        #    0.00% of all dTLB cache accesses  (14.29%)
+   161,821,850,461      dTLB-loads:u                                                  (14.29%)
+           286,213      dTLB-store-misses:u                                           (14.29%)
+    69,892,022,064      dTLB-stores:u                                                 (14.29%)
+             7,013      iTLB-load-misses:u        #    0.00% of all iTLB cache accesses  (14.29%)
+   383,216,239,144      iTLB-loads:u                                                  (14.29%)
+                41      node-load-misses:u                                            (14.29%)
+       302,663,270      node-loads:u                                                  (14.29%)
+             1,428      node-prefetch-misses:u                                        (7.14%)
+       493,854,977      node-prefetches:u                                             (7.14%)
+                 0      node-store-misses:u                                           (7.14%)
+        33,402,347      node-stores:u                                                 (7.14%)
+
+      71.571213481 seconds time elapsed
+
+      70.670190000 seconds user
+       0.011829000 seconds sys
+
+
+
+real	1m11.599s
+user	1m10.684s
+sys	0m0.025s
