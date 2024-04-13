@@ -99,6 +99,7 @@ def main():
         print(raw_data)
 
         parsed_result = parse_metrics(raw_data)
+        
         time_results.append(parsed_result)
         
         # calculate mean & variance for each metric
@@ -123,7 +124,7 @@ def main():
                 'variance': variance_metrics}
     
     persist_result(res)
-    
+
 
         
 if __name__ == "__main__":

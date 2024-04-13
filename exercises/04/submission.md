@@ -8,44 +8,30 @@
 > **for nbt_bt:** problemsize = a
 > 
 
-## Exercise 1 - SSCA
+## Exercise 1 - Valgrind Massif
 
 ***Using valgrind massif:***
 ```sh
 valgrind --tool=massif ./program
 ```
-
-
-
-### Massif output
+the resulting output file (massif.out.xxxxx) can then be opened with massif visualizer
+### SSCA2
 
 ![](massif-ssc2.png)
 
 
-### Time 
-
-
-
 ### Conclusion
 
-## Exercise 1 - NPB_BT
+### NPB_BT
 npb_bt_a profiled on lcc3
 
-### Massif Output
 ![alt text](massif-npb_bt_a.png)
 
 
 
 
-### Time
-| | With valgrind | without valgrind |
-|--|--|--|
-|real | 11m8.174s | 1m10.953s |
-|user | 11m5.783s | 1m10.726s |
-|sys | 0m0.121s | 0m0.007s |
 
-
-## Exercise 2
+## Exercise 2 - Perf
  ***Profiling with perf:***  
 using the (formatted) output of *per list hwcache* as input for *perf stat*
 ```sh
@@ -93,12 +79,6 @@ perf stat -e $events ./program
 
       32.132124000 seconds user
        0.014824000 seconds sys
-
-
-
-real	0m32.610s
-user	0m32.153s
-sys	0m0.021s
 ```
 
 
@@ -138,9 +118,30 @@ sys	0m0.021s
                  0      node-store-misses:u                                           (7.14%)
         33,402,347      node-stores:u                                                 (7.14%)
 
-      71.571213481 seconds time elapsed
+      71.571213481 seconds real
 
       70.670190000 seconds user
        0.011829000 seconds sys
 ```
 
+## Perturberation
+
+### SSCA2
+
+|               | Without Profiling | With Valgrind  | With Perf       |
+|---------------|------------------:|:--------------:|----------------:|
+| **Real**      |      0m32.026s    |   1m5.345s     |     0m32.610s   |
+| **User**      |      0m31.910s    |   1m4.276s     |     0m32.153s   |
+| **Sys**       |      0m0.012s     |   0m0.111s     |     0m0.021s    |
+
+
+### NPB_BT_A
+
+|                | Without Profiling | With Valgrind  | With Perf       |
+|----------------|------------------:|:--------------:|----------------:|
+| **Real**       |        1m10.953s  |   11m8.174s    |    71.571s      |
+| **User**       |        1m10.726s  |   11m5.783s    |    70.670s      |
+| **Sys**        |         0m0.007s  |    0m0.121s    |     0.012s      |
+
+
+### Conclusion:
