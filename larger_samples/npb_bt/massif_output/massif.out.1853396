@@ -1,5 +1,5 @@
 desc: (none)
-cmd: ./npb_bt_a
+cmd: ./build/npb_bt_a
 time_unit: i
 #-----------
 snapshot=0
@@ -12,7 +12,7 @@ heap_tree=empty
 #-----------
 snapshot=1
 #-----------
-time=229641
+time=229643
 mem_heap_B=488
 mem_heap_extra_B=16
 mem_stacks_B=0
@@ -20,7 +20,7 @@ heap_tree=empty
 #-----------
 snapshot=2
 #-----------
-time=230067
+time=230069
 mem_heap_B=488
 mem_heap_extra_B=16
 mem_stacks_B=0
@@ -31,7 +31,7 @@ n1: 488 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 #-----------
 snapshot=3
 #-----------
-time=230067
+time=230069
 mem_heap_B=0
 mem_heap_extra_B=0
 mem_stacks_B=0
@@ -39,7 +39,7 @@ heap_tree=empty
 #-----------
 snapshot=4
 #-----------
-time=231095
+time=231097
 mem_heap_B=8192
 mem_heap_extra_B=8
 mem_stacks_B=0
@@ -47,7 +47,7 @@ heap_tree=empty
 #-----------
 snapshot=5
 #-----------
-time=231360
+time=231362
 mem_heap_B=8680
 mem_heap_extra_B=24
 mem_stacks_B=0
@@ -55,7 +55,7 @@ heap_tree=empty
 #-----------
 snapshot=6
 #-----------
-time=231786
+time=231788
 mem_heap_B=8680
 mem_heap_extra_B=24
 mem_stacks_B=0
@@ -73,7 +73,7 @@ n2: 8680 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 #-----------
 snapshot=7
 #-----------
-time=231786
+time=231788
 mem_heap_B=8192
 mem_heap_extra_B=8
 mem_stacks_B=0
@@ -81,7 +81,7 @@ heap_tree=empty
 #-----------
 snapshot=8
 #-----------
-time=383327475713
+time=383327475715
 mem_heap_B=0
 mem_heap_extra_B=0
 mem_stacks_B=0
