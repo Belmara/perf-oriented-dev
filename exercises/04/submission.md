@@ -32,6 +32,7 @@ valgrind --tool=massif ./program
 npb_bt_a profiled on lcc3
 
 ### Massif Output
+![alt text](massif-npb_bt_a.png)
 
 
 
