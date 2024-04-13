@@ -19,6 +19,7 @@ tools/build_release
 **/results
 **/jobs
 
+.idea
 
 *.zip
 **/Perf2024*
