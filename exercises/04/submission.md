@@ -15,25 +15,28 @@
 valgrind --tool=massif ./program
 ```
 the resulting output file (massif.out.xxxxx) can then be opened with massif visualizer
+
 ### SSCA2
 
 ![](massif-ssc2.png)
 
 
 ### Conclusion
+The peak memory allocation of 24.5 MiB was at snapshot 20.
+Looking at the graph, one can see the spike easily. The majority of the allocations are from the computeGraph and the genScalData functions, with 12 MiB each. It looks like most of this is released soon after tho. From this point on, computeGraph stays on 8 MiB allocated, while betweennessCentrality steadily keeps allocating more memory until the end of the program. The last snapshot lists 0B allocated, which hints that all allocated memory got freed correctly.
 
-### NPB_BT
-npb_bt_a profiled on lcc3
+### NPB_BT_A
 
 ![alt text](massif-npb_bt_a.png)
 
-
+### Conclusion
+NPB_BT_A allocates around 8B of heap at the beginning of the execution and succeedingly frees it over time, showing 0B allocated at the end of the program.
 
 
 
 ## Exercise 2 - Perf
  ***Profiling with perf:***  
-using the (formatted) output of *per list hwcache* as input for *perf stat*
+using the (formatted) output of *perf list hwcache* as input for *perf stat*
 ```sh
 events=$(perf list hwcache | grep -v -e "^$" -e "^List of pre-defined events" -e "^$" -e "^cpu_atom" -e "^cpu_core" | awk '{print $1}' | paste -sd "," -)
 
@@ -80,11 +83,12 @@ perf stat -e $events ./program
       32.132124000 seconds user
        0.014824000 seconds sys
 ```
-
+### Conclusion
+The cache performace of this program is rather poor.
+The most apparent finding in these stats are the L1 data cache misses. The cache load misses are especially bad at 38% of accesses, while store misses lie at around 14%. The instruction cache however is fine. Branch load performs quite bad as well, with a missing rate of around 10%. The TLB data load miss rate is also quite high. The branch misses confused us a little tbh. 
 
 
 ### NPB_BT
-
 
 ```
  Performance counter stats for './build/npb_bt_a':
@@ -124,7 +128,10 @@ perf stat -e $events ./program
        0.011829000 seconds sys
 ```
 
-## Perturberation
+### Conclusion
+
+
+## Perturbation
 
 ### SSCA2
 
@@ -139,9 +146,9 @@ perf stat -e $events ./program
 
 |                | Without Profiling | With Valgrind  | With Perf       |
 |----------------|------------------:|:--------------:|----------------:|
-| **Real**       |        1m10.953s  |   11m8.174s    |    71.571s      |
-| **User**       |        1m10.726s  |   11m5.783s    |    70.670s      |
-| **Sys**        |         0m0.007s  |    0m0.121s    |     0.012s      |
+| **Real**       |        1m10.953s  |   11m8.174s    |    1m11.571s    |
+| **User**       |        1m10.726s  |   11m5.783s    |    1m10.670s    |
+| **Sys**        |         0m0.007s  |    0m0.121s    |     0m0.012s    |
 
 
 ### Conclusion:
