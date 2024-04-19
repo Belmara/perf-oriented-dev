@@ -112,7 +112,7 @@ int solve(problem* problem) {
 
 int main(int argc, char** argv) {
 	
-	char* problem_file = "problems/chr10a.dat";
+	char* problem_file = "problems/chr15c.dat";
 	if (argc >= 2) {
 		problem_file = argv[1];
 	}

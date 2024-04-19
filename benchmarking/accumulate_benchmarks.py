@@ -1,6 +1,7 @@
 import re
 import os
 import csv
+import argparse
 from collections import defaultdict
 
 
@@ -43,22 +44,50 @@ def build_csv_line(filename):
 
 
 
+
 def main():
-    
+    parser = argparse.ArgumentParser(description='Run benchmarks with load')
+    parser.add_argument('program_name', type=str, help='program name - gets appended to output csv file name')
+    args = parser.parse_args()
+    name = args.program_name
+
+
     output = []
-    
+    accumulated_output = defaultdict(list)
+
     for filename in os.listdir('outputlogs'):
         file = os.path.join('outputlogs', filename)
-        if(not os.path.isfile(file)):
+        if not os.path.isfile(file):
             continue
         else:
-            res build(filename)
-            output.append(res)
-            
+            line = build_csv_line(filename)
+            output.append(line)
+            key = line[0] +'-'+ line[1]
+            measurements = [float(val) for val in line[3:]]  # Convert only the last 3 values to floats
+            accumulated_output[key].append(measurements)  # use first and second colum (=program name) as key, skip iteration number
 
-    with open('accumulated_output', mode='w', newline='') as file:
+
+
+    # dump raw data
+    with open(f'raw_output-{name}.csv', mode='w', newline='') as file:
         writer = csv.writer(file)
+        writer.writerow(["program", "flag", "execution_number", "cpu-time", "system-time", "wall-time"])
+        
         writer.writerows(output)
+
+    # accumulate per program
+    with open(f'accumulated_output-{name}.csv', mode='w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(["program-flag", "cpu-time", "system-time", "wall-time"])
+        for key, lines in accumulated_output.items():
+            aggregated_line = [key] + [sum(measurements) / len(measurements) for measurements in zip(*lines)]
+            writer.writerow(aggregated_line)
+
+
+
+
+
+
 
 
 if __name__ == "__main__":

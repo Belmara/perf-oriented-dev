@@ -9,4 +9,25 @@ include_directories(src/sprng2.0/include)
 link_libraries(m)
 add_definitions(-DLittleEndian, -DAdd__)
 
-add_executable(ssca2 ${SOURCE_FILES})
+add_executable(ssca2-o0 ${SOURCE_FILES})
+target_compile_options(ssca2-o0 PRIVATE -O0)
+
+add_executable(ssca2-o1 ${SOURCE_FILES})
+target_compile_options(ssca2-o1 PRIVATE -O1)
+
+add_executable(ssca2-o2 ${SOURCE_FILES})
+target_compile_options(ssca2-o2 PRIVATE -O2)
+
+add_executable(ssca2-o3 ${SOURCE_FILES})
+target_compile_options(ssca2-o3 PRIVATE -O3)
+
+add_executable(ssca2-os ${SOURCE_FILES})
+target_compile_options(ssca2-os PRIVATE -Os)
+
+add_executable(ssca2-ofast ${SOURCE_FILES})
+target_compile_options(ssca2-ofast PRIVATE -Ofast)      
+
+
+
+
+
