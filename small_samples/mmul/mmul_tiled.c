@@ -6,6 +6,8 @@
 #define M S
 #define K S
 
+#define BLOCK_SIZE 64
+
 #define MIN(X,Y) ((X)<(Y)?(X):(Y))
 #define MAX(X,Y) ((X)>(Y)?(X):(Y))
 
@@ -54,15 +56,23 @@ int main(void) {
 	}
 
 	// conduct multiplication
-	for (int i=0; i<N; i++) {
-		for (int j=0; j<K; j++) {
-			TYPE sum = 0;
-			for (int k=0; k<M; k++) {
-				sum += A[i][k] * B[k][j];
-			}
-			C[i][j] = sum;
-		}
-	}
+    for (int block_i = 0; block_i < S; block_i += BLOCK_SIZE){
+        for (int block_j = 0; block_j < S; block_j += BLOCK_SIZE){
+            for (int block_k =0; block_k < S; block_k += BLOCK_SIZE){
+
+                for (int i=block_i; i<MIN(block_i + BLOCK_SIZE, S); ++i) {
+					
+                    for (int j=block_j; j<MIN(block_j + BLOCK_SIZE, S); ++j) {
+                        TYPE sum = 0;
+                        for (int k=block_k; k<MIN(block_k + BLOCK_SIZE, S); ++k) {
+                            sum += A[i][k] * B[k][j];
+                        }
+                        C[i][j] += sum;
+                    }
+                }
+            }
+        }
+    }
 
 	// verify result
 	int success = 1;	
