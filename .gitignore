@@ -18,9 +18,14 @@ tools/build_release
 **/generated
 **/results
 **/jobs
+**/jobscripts
+**/outputlogs
 
 .idea
 
 *.zip
+
+
 **/Perf2024*
 **/perf2024*
+

@@ -1,0 +1,7 @@
+program-flag,cpu-time,system-time,wall-time
+npb_bt_w-o0,11.474,0.0,11.51
+npb_bt_w-o1,3.102,0.0,3.114
+npb_bt_w-o2,3.2120000000000006,0.0,3.226
+npb_bt_w-o3,3.006,0.0,3.0199999999999996
+npb_bt_w-ofast,2.996,0.0,3.01
+npb_bt_w-os,2.994,0.0,3.008
