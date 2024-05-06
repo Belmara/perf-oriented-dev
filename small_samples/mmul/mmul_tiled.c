@@ -6,7 +6,7 @@
 #define M S
 #define K S
 
-#define BLOCK_SIZE 64
+#define BLOCK_SIZE 8
 
 #define MIN(X,Y) ((X)<(Y)?(X):(Y))
 #define MAX(X,Y) ((X)>(Y)?(X):(Y))

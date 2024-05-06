@@ -29,17 +29,24 @@ def extract_last_measurements(filename):
 
 def build_csv_line(filename):
     filename_pattern =  r'output-(\w+)-(\w+)-(\d+).log'
+    filename_pattern2 =  r'output-(\w+)-(\d+).log'
     matches = re.match(filename_pattern, filename)
+    matches2 = re.match(filename_pattern2, filename)
+    parsed_comps = []
     if(matches):
         parsed_comps = matches.groups()
+    elif(matches2):
+        parsed_comps = matches2.groups()
     else:
         print(f"Warning: invalid filename {filename}")
 
     
     measurements = extract_last_measurements(f'outputlogs/{filename}')
-    sorted_measurements = list(zip(*sorted(measurements.items())))[1]
-    line =  parsed_comps + sorted_measurements
 
+    sorted_measurements = list(list(zip(*sorted(measurements.items())))[1])
+    line = list(parsed_comps) + sorted_measurements
+
+    print(line)
     return line
 
 
@@ -71,14 +78,14 @@ def main():
     # dump raw data
     with open(f'raw_output-{name}.csv', mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(["program", "flag", "execution_number", "cpu-time", "system-time", "wall-time"])
+        writer.writerow(["program", "tile-size", "iteration", "execution_number", "cpu-time", "system-time", "wall-time"])
         
         writer.writerows(output)
 
     # accumulate per program
     with open(f'accumulated_output-{name}.csv', mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(["program-flag", "cpu-time", "system-time", "wall-time"])
+        writer.writerow(["key", "cpu-time", "system-time", "wall-time"])
         for key, lines in accumulated_output.items():
             aggregated_line = [key] + [sum(measurements) / len(measurements) for measurements in zip(*lines)]
             writer.writerow(aggregated_line)
