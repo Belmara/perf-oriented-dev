@@ -64,7 +64,7 @@ int main(void) {
 					
                     for (int j=block_j; j<MIN(block_j + BLOCK_SIZE, S); ++j) {
                         TYPE sum = 0;
-                        for (int k=block_k; k<MIN(block_k + BLOCK_SIZE, S); ++k) {
+                        for (int k=block_k; k<MIN(block_k	 + BLOCK_SIZE, S); ++k) {
                             sum += A[i][k] * B[k][j];
                         }
                         C[i][j] += sum;
