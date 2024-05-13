@@ -24,8 +24,12 @@ tools/build_release
 .idea
 
 *.zip
+*.xlsx
+
 
 
 **/Perf2024*
 **/perf2024*
+
+
 
