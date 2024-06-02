@@ -1,0 +1,4 @@
+"C:\Users\maxis\AppData\Local\Programs\CLion Nova\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Users/maxis/AppData/Local/Programs/CLion Nova/bin/ninja/win/x64/ninja.exe" -G Ninja -S D:\Projects\perf-oriented-dev\exercises\sheet10 -B D:\Projects\perf-oriented-dev\exercises\sheet10\cmake-build-debug
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: D:/Projects/perf-oriented-dev/exercises/sheet10/cmake-build-debug

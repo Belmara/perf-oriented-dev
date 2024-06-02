@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "D:/Projects/perf-oriented-dev/exercises/sheet10/cmake-build-debug/CMakeFiles/sheet10.dir/embed.manifest"

@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "CMakeFiles\\main.dir\\src\\UnrolledLinkedList.cpp.obj",
+            "outputs": [
+                "D:\\Projects\\perf-oriented-dev\\exercises\\sheet10\\cmake-build-debug\\vc140.pdb",
+                "CMakeFiles\\main.dir\\src\\UnrolledLinkedList.cpp.obj.ddi"
+            ],
+            "requires": []
+        }
+    ]
+}
