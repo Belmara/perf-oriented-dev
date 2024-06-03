@@ -1,5 +1,3 @@
-#pragma once
-
 #include "LinkedList.hpp"
 
 template<typename T>

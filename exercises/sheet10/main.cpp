@@ -1,13 +1,10 @@
-#pragma once
-
 #include <iostream>
 #include <chrono>
 #include <cstdlib>
+#include "src/UnrolledLinkedList.cpp"
 #include "src/TieredArray.cpp"
 #include "src/ArrayList.cpp"
 #include "src/LinkedList.cpp"
-#include "src/UnrolledLinkedList.cpp"
-
 
 constexpr int singleBenchmarkTimeInSeconds = 10;
 
@@ -83,38 +80,69 @@ float performOperationsWithDistribution(IteratorBase<int> &iterator, const int p
     return static_cast<float>(operations) / singleBenchmarkTimeInSeconds;
 }
 
-template<typename T>
-void fillContainer(Container<T> &container, size_t numberOfElements) {
-    for (int index = 0; index < numberOfElements; index++) {
-        container.insert(index, index);
+void fillArrayList(ArrayList<int> &arrayList) {
+    int index = 0;
+    //we need at least one more space for our operations
+    while (arrayList.get_size() < arrayList.get_capacity() - 1) {
+        arrayList.insert(index, index);
+        index++;
     }
 }
 
-template<typename T>
-void benchmark(const int numberOfElements, const int elementSize, const int percentageInsertDeletes, Container<T> &container) {
+void fillLinkedList(LinkedList<int> &linkedList, size_t numberOfElements) {
+    for (int index = 0; index < numberOfElements; index++) {
+        linkedList.insert(index, index);
+    }
+}
+
+void fillUnrolledLinkedList(UnrolledLinkedList<int> &linkedList, size_t numberOfElements) {
+    for (int index = 0; index < numberOfElements; index++) {
+        linkedList.insert(index, index);
+    }
+}
+
+void benchmarkContainer(int numberOfElements, const int elementSize, const int percentageInsertDeletes) {
 
     //TODO: use elementSize
     //TODO: refactor to only do one container type at a time, such that not all containers must be initialized at the same time
     //TODO: find bug in destruction of the linkedList, since it takes forever...
-
+    numberOfElements = 20;
     //initialize all datastructures
+    auto arrayList = ArrayList<int>(numberOfElements + 1);
+    fillArrayList(arrayList);
 
-
+//    auto tieredArray = TieredArray<int>();
+    auto unrolledLinkedList = UnrolledLinkedList<int>();
+//
+    fillUnrolledLinkedList(unrolledLinkedList, numberOfElements);
 
     /*auto linkedList = LinkedList<int>();
     fillLinkedList(linkedList, numberOfElements);*/
 
-    auto iterator = container.begin();
+    auto arrayListIterator = arrayList.begin();
     //auto linkedListIterator = linkedList.begin();
+//    auto tieredArrayIterator = tieredArray.begin();
+    auto unrolledLinkedListIterator = unrolledLinkedList.begin();
 
-    //benchmark all datastructures
-    auto arrayListOpsPerSecond = performOperationsWithDistribution(*iterator, percentageInsertDeletes);
+
+
+    //benchmarkContainer all datastructures
+    auto arrayListOpsPerSecond = performOperationsWithDistribution(arrayListIterator, percentageInsertDeletes);
     std::cout << "Operations per second for ArrayList: " << arrayListOpsPerSecond << std::endl;
 
-    //benchmark all datastructures
+//
+//    auto tieredArrayPerSecond = performOperationsWithDistribution(tieredArrayIterator, percentageInsertDeletes);
+//    std::cout << "Operations per second for Tiered Array: " << tieredArrayPerSecond << std::endl;
+////
+    auto unrolledLinkedListPerSecond = performOperationsWithDistribution(unrolledLinkedListIterator,
+                                                                         percentageInsertDeletes);
+    std::cout << "Operations per second for Unrolled Linked List: " << unrolledLinkedListPerSecond << std::endl;
+
+    //benchmarkContainer all datastructures
     /*auto linkedListOpsPerSecond = performOperationsWithDistribution(linkedListIterator, percentageInsertDeletes);
     std::cout << "Operations per second for LinkedList: " << linkedListOpsPerSecond << std::endl;*/
 }
+
 
 int main(int argc, char *argv[]) {
 
@@ -139,10 +167,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    auto arrayList = ArrayList<int>(numberOfElements + 1);
-    fillContainer(arrayList, numberOfElements);
-
-    benchmark(numberOfElements, elementSize, percentageInsertDeletes, arrayList);
+    benchmarkContainer(numberOfElements, elementSize, percentageInsertDeletes);
 
     return 0;
 }

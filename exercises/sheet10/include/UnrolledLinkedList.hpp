@@ -1,24 +1,47 @@
 #pragma once
 
-#include "Container.hpp"
-#include "IteratorBase.hpp"
+#include <iostream>
 #include <vector>
 #include <stdexcept>
+#include "IteratorBase.hpp"
 
 template<typename T>
-class UnrolledLinkedList : public Container<T> {
+class UnrolledLinkedList {
+    struct Node {
+        std::vector<T> elements;
+        Node *next;
+
+        Node(size_t capacity) : elements(), next(nullptr) {
+            elements.reserve(capacity);
+        }
+    };
+
+    Node *head;
+    Node *tail;
+    size_t nodeCapacity;
+    size_t size;
+
 public:
-    UnrolledLinkedList();
+    UnrolledLinkedList(size_t capacity = 4);
+
     ~UnrolledLinkedList();
 
-    void insert(size_t index, const T &value) override;
-    void remove(size_t index) override;
-    T& operator[](size_t index) override;
-    size_t get_size() const override;
+    void insert(size_t index, const T &value);
+
+    void remove(size_t index);
+
+    T &operator[](size_t index);
+
+    size_t get_size() const;
 
     class Iterator : public IteratorBase<T> {
+        UnrolledLinkedList *unrolledLinkedList;
+        Node *currentNode;
+        size_t elementIndex;
+
     public:
-        Iterator(UnrolledLinkedList *unrolledLinkedList, size_t chunkIndex, size_t elementIndex);
+        Iterator(UnrolledLinkedList *unrolledLinkedList, Node *currentNode, size_t elementIndex);
+
         T &read() const override;
 
         void write(const T &value) override;
@@ -30,23 +53,21 @@ public:
         bool is_end() const override;
 
         void next() override;
-    private:
-        UnrolledLinkedList *unrolledLinkedList;
-        size_t nodeIndex;
-        size_t elementIndex;
+
+        T &operator*() { return read(); }
+
+        Iterator &operator++() {
+            next();
+            return *this;
+        }
+
+        bool operator!=(const Iterator &other) const {
+            return !is_end() && (currentNode != other.currentNode || elementIndex != other.elementIndex);
+        }
     };
 
     Iterator begin();
+
     Iterator end();
-
-private:
-    struct Node {
-        std::vector<T> elements;
-        Node *next;
-        Node() : next(nullptr) {}
-    };
-
-    Node *head;
-    size_t size;
-    static const size_t NODE_SIZE = 10;
 };
+

@@ -46,7 +46,7 @@ void TieredArray<T>::remove(size_t index) {
 }
 
 template<typename T>
-T& TieredArray<T>::operator[](size_t index) {
+T &TieredArray<T>::operator[](size_t index) {
     if (index >= size) {
         throw std::out_of_range("Index out of range");
     }
