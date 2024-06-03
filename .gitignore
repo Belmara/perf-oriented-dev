@@ -20,6 +20,7 @@ tools/build_release
 **/jobs
 **/jobscripts
 **/outputlogs
+**/cmake-build-debug
 
 .idea
 
