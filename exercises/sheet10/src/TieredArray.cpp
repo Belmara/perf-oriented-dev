@@ -1,63 +1,124 @@
-#pragma once
 #include "TieredArray.hpp"
 
-template <typename T>
-TieredArray<T>::TieredArray(size_t tier_size)
-        : tier_size(tier_size), current_size(0) {
-    add_tier();
-}
+template<typename T>
+TieredArray<T>::TieredArray() : size(0) {}
 
-template <typename T>
+template<typename T>
 TieredArray<T>::~TieredArray() {
-    for (auto tier : tiers) {
-        delete[] tier;
-    }
+    data.clear();
 }
 
-template <typename T>
-void TieredArray<T>::insert(const T& value) {
-    if (current_size == tiers.size() * tier_size) {
-        add_tier();
+template<typename T>
+void TieredArray<T>::insert(size_t index, const T &value) {
+    if (index > size) {
+        throw std::out_of_range("Index out of range");
     }
-    size_t tier_index = current_size / tier_size;
-    size_t index_in_tier = current_size % tier_size;
-    tiers[tier_index][index_in_tier] = value;
-    current_size++;
+    size_t chunkIndex = index / CHUNK_SIZE;
+    size_t elementIndex = index % CHUNK_SIZE;
+
+    if (chunkIndex >= data.size()) {
+        data.resize(chunkIndex + 1);
+    }
+
+    if (data[chunkIndex].size() >= CHUNK_SIZE) {
+        data.insert(data.begin() + chunkIndex + 1, std::vector<T>());
+        data[chunkIndex + 1].push_back(data[chunkIndex].back());
+        data[chunkIndex].pop_back();
+    }
+
+    data[chunkIndex].insert(data[chunkIndex].begin() + elementIndex, value);
+    ++size;
 }
 
-template <typename T>
+template<typename T>
 void TieredArray<T>::remove(size_t index) {
-    if (index >= current_size) {
+    if (index >= size) {
         throw std::out_of_range("Index out of range");
     }
-    size_t tier_index = index / tier_size;
-    size_t index_in_tier = index % tier_size;
-    for (size_t i = index; i < current_size - 1; ++i) {
-        size_t next_tier_index = (i + 1) / tier_size;
-        size_t next_index_in_tier = (i + 1) % tier_size;
-        tiers[tier_index][index_in_tier] = tiers[next_tier_index][next_index_in_tier];
-        tier_index = next_tier_index;
-        index_in_tier = next_index_in_tier;
+    size_t chunkIndex = index / CHUNK_SIZE;
+    size_t elementIndex = index % CHUNK_SIZE;
+
+    data[chunkIndex].erase(data[chunkIndex].begin() + elementIndex);
+    if (data[chunkIndex].empty()) {
+        data.erase(data.begin() + chunkIndex);
     }
-    current_size--;
+    --size;
 }
 
-template <typename T>
-T TieredArray<T>::get(size_t index) const {
-    if (index >= current_size) {
+template<typename T>
+T& TieredArray<T>::operator[](size_t index) {
+    if (index >= size) {
         throw std::out_of_range("Index out of range");
     }
-    size_t tier_index = index / tier_size;
-    size_t index_in_tier = index % tier_size;
-    return tiers[tier_index][index_in_tier];
+    size_t chunkIndex = index / CHUNK_SIZE;
+    size_t elementIndex = index % CHUNK_SIZE;
+    return data[chunkIndex][elementIndex];
 }
 
-template <typename T>
-size_t TieredArray<T>::size() const {
-    return current_size;
+template<typename T>
+size_t TieredArray<T>::get_size() const {
+    return size;
 }
 
-template <typename T>
-void TieredArray<T>::add_tier() {
-    tiers.push_back(new T[tier_size]);
+template<typename T>
+typename TieredArray<T>::Iterator TieredArray<T>::begin() {
+    return Iterator(this, 0, 0);
+}
+
+template<typename T>
+typename TieredArray<T>::Iterator TieredArray<T>::end() {
+    return Iterator(this, data.size(), 0);
+}
+
+template<typename T>
+TieredArray<T>::Iterator::Iterator(TieredArray *tieredArray, size_t chunkIndex, size_t elementIndex)
+        : tieredArray(tieredArray), chunkIndex(chunkIndex), elementIndex(elementIndex) {}
+
+template<typename T>
+T &TieredArray<T>::Iterator::read() const {
+    if (chunkIndex >= tieredArray->data.size() || elementIndex >= tieredArray->data[chunkIndex].size()) {
+        throw std::out_of_range("Iterator out of range");
+    }
+    return tieredArray->data[chunkIndex][elementIndex];
+}
+
+template<typename T>
+void TieredArray<T>::Iterator::write(const T &value) {
+    if (chunkIndex >= tieredArray->data.size() || elementIndex >= tieredArray->data[chunkIndex].size()) {
+        throw std::out_of_range("Iterator out of range");
+    }
+    tieredArray->data[chunkIndex][elementIndex] = value;
+}
+
+template<typename T>
+void TieredArray<T>::Iterator::insert(const T &value) {
+    tieredArray->insert(chunkIndex * TieredArray::CHUNK_SIZE + elementIndex, value);
+    ++elementIndex;
+    if (elementIndex >= TieredArray::CHUNK_SIZE) {
+        elementIndex = 0;
+        ++chunkIndex;
+    }
+}
+
+template<typename T>
+void TieredArray<T>::Iterator::remove() {
+    tieredArray->remove(chunkIndex * TieredArray::CHUNK_SIZE + elementIndex);
+    if (elementIndex >= tieredArray->data[chunkIndex].size()) {
+        elementIndex = 0;
+        ++chunkIndex;
+    }
+}
+
+template<typename T>
+bool TieredArray<T>::Iterator::is_end() const {
+    return chunkIndex >= tieredArray->data.size();
+}
+
+template<typename T>
+void TieredArray<T>::Iterator::next() {
+    ++elementIndex;
+    if (elementIndex >= tieredArray->data[chunkIndex].size()) {
+        elementIndex = 0;
+        ++chunkIndex;
+    }
 }

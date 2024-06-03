@@ -2,9 +2,10 @@
 
 #include <stdexcept>
 #include "IteratorBase.hpp"
+#include "Container.hpp"
 
 template<typename T>
-class LinkedList {
+class LinkedList : public Container<T> {
 private:
     struct Node {
         T data;
@@ -51,7 +52,7 @@ public:
         void next() override;
     };
 
-    Iterator begin();
+    Iterator begin() override;
 
-    Iterator end();
+    Iterator end() override;
 };
