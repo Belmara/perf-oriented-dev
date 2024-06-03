@@ -1,18 +1,3 @@
 # ninja log v5
-12	1432	7391171260870083	CMakeFiles/sheet10.dir/src/TieredArray.cpp.obj	d6a5e4259d48ffd7
-5	1495	7391260538536593	CMakeFiles/sheet10.dir/main.cpp.obj	c34feef012a62864
-1496	1669	7391260539928935	sheet10.exe	abeac15044d41958
-0	830	7391260531906367	CMakeFiles/sheet10.dir/src/ArrayList.cpp.obj	6b09993615a9d9d2
-16	1439	7391171260910918	CMakeFiles/sheet10.dir/src/UnrolledLinkedList.cpp.obj	11c247fa18ce5f8d
-6	145	7391278431538070	build.ninja	1dfe27f44c212667
-0	820	7391295628332942	CMakeFiles/sheet10.dir/src/ArrayList.cpp.obj	6b09993615a9d9d2
-10	821	7391295628320604	CMakeFiles/sheet10.dir/src/LinkedList.cpp.obj	353ed426c4e516c4
-5	492	7391296015228575	CMakeFiles/sheet10.dir/src/LinkedList.cpp.obj	353ed426c4e516c4
-1	1175	7391296022058755	CMakeFiles/sheet10.dir/main.cpp.obj	c34feef012a62864
-1175	1324	7391296023188464	sheet10.exe	99975785fb1a5a32
-5	515	7391300728858791	CMakeFiles/sheet10.dir/src/LinkedList.cpp.obj	353ed426c4e516c4
-1	1168	7391300735368647	CMakeFiles/sheet10.dir/main.cpp.obj	c34feef012a62864
-1168	1302	7391300736437585	sheet10.exe	99975785fb1a5a32
-7	602	7391306170995779	CMakeFiles/sheet10.dir/src/LinkedList.cpp.obj	353ed426c4e516c4
-1	1419	7391306179155359	CMakeFiles/sheet10.dir/main.cpp.obj	c34feef012a62864
+6	145	1717436153885579732	build.ninja	1dfe27f44c212667
 1419	1569	7391306180397786	sheet10.exe	99975785fb1a5a32
