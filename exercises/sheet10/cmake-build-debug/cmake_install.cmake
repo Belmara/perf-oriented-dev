@@ -1,4 +1,4 @@
-# Install script for directory: D:/Projects/perf-oriented-dev/exercises/sheet10
+# Install script for directory: C:/Users/marce/Documents/perf-oriented-dev/exercises/sheet10
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Projects/perf-oriented-dev/exercises/sheet10/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/marce/Documents/perf-oriented-dev/exercises/sheet10/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

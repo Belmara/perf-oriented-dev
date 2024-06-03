@@ -1,6 +1,7 @@
 #pragma once
-
+#include <stdexcept>
 #include <vector>
+
 template<typename T>
 class UnrolledLinkedList {
 private:

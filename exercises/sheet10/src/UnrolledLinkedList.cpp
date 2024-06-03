@@ -1,6 +1,6 @@
-#include <stdexcept>
-#include "../include/UnrolledLinkedList.hpp"
 #pragma once
+#include "../include/UnrolledLinkedList.hpp"
+
 template<typename T>
 UnrolledLinkedList<T>::Node::Node(int chunkSize) : elements(), next(nullptr) {
     elements.reserve(chunkSize);

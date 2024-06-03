@@ -1,7 +1,0 @@
-ninja_dyndep_version = 1.0
-build CMakeFiles\sheet10.dir\main.cpp.obj: dyndep
-
-build CMakeFiles\sheet10.dir\src\UnrolledLinkedList.cpp.obj: dyndep
-
-build CMakeFiles\sheet10.dir\src\TieredArray.cpp.obj: dyndep
-

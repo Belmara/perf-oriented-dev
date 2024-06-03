@@ -1,5 +1,0 @@
-ninja_dyndep_version = 1.0
-build CMakeFiles\main.dir\main.cpp.obj: dyndep
-
-build CMakeFiles\main.dir\src\UnrolledLinkedList.cpp.obj: dyndep
-
