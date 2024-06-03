@@ -3,10 +3,11 @@
 #include <iostream>
 #include <chrono>
 #include <cstdlib>
-#include "src/UnrolledLinkedList.cpp"
 #include "src/TieredArray.cpp"
 #include "src/ArrayList.cpp"
 #include "src/LinkedList.cpp"
+#include "src/UnrolledLinkedList.cpp"
+
 
 constexpr int singleBenchmarkTimeInSeconds = 10;
 
@@ -82,40 +83,32 @@ float performOperationsWithDistribution(IteratorBase<int> &iterator, const int p
     return static_cast<float>(operations) / singleBenchmarkTimeInSeconds;
 }
 
-void fillArrayList(ArrayList<int> &arrayList) {
-    int index = 0;
-    //we need at least one more space for our operations
-    while (arrayList.get_size() < arrayList.get_capacity() - 1) {
-        arrayList.insert(index, index);
-        index++;
-    }
-}
-
-void fillLinkedList(LinkedList<int> &linkedList, size_t numberOfElements) {
+template<typename T>
+void fillContainer(Container<T> &container, size_t numberOfElements) {
     for (int index = 0; index < numberOfElements; index++) {
-        linkedList.insert(index, index);
+        container.insert(index, index);
     }
 }
 
-void benchmark(const int numberOfElements, const int elementSize, const int percentageInsertDeletes) {
+template<typename T>
+void benchmark(const int numberOfElements, const int elementSize, const int percentageInsertDeletes, Container<T> &container) {
 
     //TODO: use elementSize
     //TODO: refactor to only do one container type at a time, such that not all containers must be initialized at the same time
     //TODO: find bug in destruction of the linkedList, since it takes forever...
 
     //initialize all datastructures
-    auto arrayList = ArrayList<int>(numberOfElements + 1);
-    fillArrayList(arrayList);
+
 
 
     /*auto linkedList = LinkedList<int>();
     fillLinkedList(linkedList, numberOfElements);*/
 
-    auto arrayListIterator = arrayList.begin();
+    auto iterator = container.begin();
     //auto linkedListIterator = linkedList.begin();
 
     //benchmark all datastructures
-    auto arrayListOpsPerSecond = performOperationsWithDistribution(arrayListIterator, percentageInsertDeletes);
+    auto arrayListOpsPerSecond = performOperationsWithDistribution(*iterator, percentageInsertDeletes);
     std::cout << "Operations per second for ArrayList: " << arrayListOpsPerSecond << std::endl;
 
     //benchmark all datastructures
@@ -146,7 +139,10 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    benchmark(numberOfElements, elementSize, percentageInsertDeletes);
+    auto arrayList = ArrayList<int>(numberOfElements + 1);
+    fillContainer(arrayList, numberOfElements);
+
+    benchmark(numberOfElements, elementSize, percentageInsertDeletes, arrayList);
 
     return 0;
 }

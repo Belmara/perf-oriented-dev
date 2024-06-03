@@ -2,9 +2,10 @@
 
 #include <stdexcept>
 #include "IteratorBase.hpp"
+#include "Container.hpp"
 
 template<typename T>
-class ArrayList {
+class ArrayList : public Container<T> {
 private:
     T *data;
     size_t capacity;
@@ -15,17 +16,17 @@ public:
 
     ~ArrayList();
 
-    void insert(const size_t index, const T &value);
+    void insert(const size_t index, const T &value) override;
 
-    void remove(const size_t index);
+    void remove(const size_t index) override;
 
-    T &operator[](const size_t index);
+    T &operator[](const size_t index) override;
 
-    size_t get_size() const;
+    size_t get_size() const override;
 
     size_t get_capacity() const;
 
-    class Iterator : public IteratorBase<T> {
+    class Iterator : public Container<T>::Iterator {
     private:
         ArrayList *arrayList;
         size_t index;
@@ -46,7 +47,7 @@ public:
         void next() override;
     };
 
-    Iterator begin();
+    Iterator* begin() override;
 
-    Iterator end();
+    Iterator* end() override;
 };

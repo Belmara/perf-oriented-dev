@@ -8,13 +8,13 @@ Perform all benchmarks on LCC3, using the benchmark structure defined in sheet 9
 A) Unrolled Linked Lists
 ------------------------
 
-Implement an "unrolled linked list" data structure (i.e. a linked list of potentially partially empty fixed-size chunks). Evaluate different chunk sizes, and benchmark it compared to arrays and standard linked lists.
+Implement an "unrolled linked list" data structure (i.e. a linked list of potentially partially empty fixed-size data). Evaluate different chunk sizes, and benchmark it compared to arrays and standard linked lists.
 
 
 B) Tiered Arrays
 ----------------
 
-Implement a "tiered array" data structure (i.e. a fixed set of indirection layers [at minimum one] which links to chunks of an array). Evaluate different configurations, and benchmark it compared to arrays and standard linked lists.
+Implement a "tiered array" data structure (i.e. a fixed set of indirection layers [at minimum one] which links to data of an array). Evaluate different configurations, and benchmark it compared to arrays and standard linked lists.
 
 
 C) Extended Benchmarking

@@ -1,3 +1,0 @@
-/home/anna/Documents/uni/s6/perf-oriented-dev/exercises/sheet10/cmake-build-debug/CMakeFiles/sheet10.dir
-/home/anna/Documents/uni/s6/perf-oriented-dev/exercises/sheet10/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/anna/Documents/uni/s6/perf-oriented-dev/exercises/sheet10/cmake-build-debug/CMakeFiles/rebuild_cache.dir

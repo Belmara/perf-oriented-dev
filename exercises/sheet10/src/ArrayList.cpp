@@ -56,10 +56,12 @@ size_t ArrayList<T>::get_capacity() const {
 }
 
 template<typename T>
-ArrayList<T>::Iterator ArrayList<T>::begin() { return Iterator(this, 0); }
+ArrayList<T>::Iterator* ArrayList<T>::begin() {
+    return new Iterator(this, 0);
+}
 
 template<typename T>
-ArrayList<T>::Iterator ArrayList<T>::end() { return Iterator(this, size); }
+ArrayList<T>::Iterator* ArrayList<T>::end() { return new Iterator(this, size); }
 
 template<typename T>
 ArrayList<T>::Iterator::Iterator(ArrayList *arrayList, size_t index) : arrayList(arrayList), index(index) {}
