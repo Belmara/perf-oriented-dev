@@ -10,7 +10,7 @@ private:
         T data;
         Node *next;
 
-        explicit Node(const T &data) {}
+        explicit Node(const T &data) : data(data), next(nullptr) {}
     };
 
     Node *head;
