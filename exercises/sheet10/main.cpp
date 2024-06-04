@@ -89,27 +89,27 @@ void fillArrayList(ArrayList<int> &arrayList) {
     }
 }
 
-void fillLinkedList(LinkedList<int> &linkedList, size_t numberOfElements) {
+void fillLinkedList(LinkedList<int> &linkedList, const size_t numberOfElements) {
     for (int index = 0; index < numberOfElements; index++) {
         linkedList.insert(index, index);
     }
 }
 
-void fillUnrolledLinkedList(UnrolledLinkedList<int> &linkedList, size_t numberOfElements) {
+void fillUnrolledLinkedList(UnrolledLinkedList<int> &linkedList, const size_t numberOfElements) {
     for (int index = 0; index < numberOfElements; index++) {
         linkedList.insert(index);
     }
 }
 
 
-void fillTieredArray(TieredArray<int> &tieredArray, size_t numberOfElements) {
+void fillTieredArray(TieredArray<int> &tieredArray, const size_t numberOfElements) {
     for (int index = 0; index < numberOfElements; index++) {
         tieredArray.insert(index, index);
     }
 }
 
 void benchmarkArrayList(const int numberOfElements, const int percentageInsertDeletes) {
-    auto arrayList = ArrayList<int>(numberOfElements + 1);
+    auto arrayList = ArrayList<int>(numberOfElements);
     fillArrayList(arrayList);
 
     auto iterator = arrayList.begin();
@@ -147,8 +147,6 @@ void benchmarkTieredArray(const int numberOfElements, const int percentageInsert
 
 int main(int argc, char *argv[]) {
 
-    //TODO: use elementSize
-
     if (argc < 3) {
         std::cerr << "Usage: " << argv[0] << " <number_of_elements> <percentage_of_insert_deletes>"
                   << std::endl;
@@ -179,6 +177,9 @@ int main(int argc, char *argv[]) {
 
     for(int chunkSize = 2; chunkSize < numberOfElements; chunkSize*=2){
         benchmarkUnrolledLinkedList(numberOfElements, percentageInsertDeletes, chunkSize);
+    }
+
+    for(int chunkSize = 2; chunkSize < numberOfElements; chunkSize*=2){
         benchmarkTieredArray(numberOfElements, percentageInsertDeletes, chunkSize);
     }
 
