@@ -10,6 +10,7 @@ class UnrolledLinkedList {
     struct Node {
         std::vector<T> elements;
         Node *next;
+        Node *prev;
 
         Node(size_t capacity) : elements(), next(nullptr) {
             elements.reserve(capacity);
@@ -26,7 +27,7 @@ public:
 
     ~UnrolledLinkedList();
 
-    void insert(size_t index, const T &value);
+    void insert(const T &value);
 
     void remove(size_t index);
 
@@ -36,7 +37,7 @@ public:
 
     class Iterator : public IteratorBase<T> {
         UnrolledLinkedList *unrolledLinkedList;
-        Node *currentNode;
+        Node *current;
         size_t elementIndex;
 
     public:
@@ -62,7 +63,7 @@ public:
         }
 
         bool operator!=(const Iterator &other) const {
-            return !is_end() && (currentNode != other.currentNode || elementIndex != other.elementIndex);
+            return !is_end() && (current != other.current || elementIndex != other.elementIndex);
         }
     };
 

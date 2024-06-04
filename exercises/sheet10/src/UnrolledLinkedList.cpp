@@ -15,54 +15,25 @@ UnrolledLinkedList<T>::~UnrolledLinkedList() {
 }
 
 template<typename T>
-void UnrolledLinkedList<T>::insert(size_t index, const T &value) {
-    //TODO: algorithm not correct yet, last node looks really weird, seems like the splitting doesnt work correctly
-    if (index > size) {
-        throw std::out_of_range("Index out of range");
-    }
-    Node *current = head;
-    size_t pos = index;
-    while (pos >= this->nodeCapacity) {
-        pos -= this->nodeCapacity;
-        if (current->next == nullptr) {
-            Node *new_node = new Node(nodeCapacity);
-            new_node->elements.assign(current->elements.begin() + nodeCapacity / 2, current->elements.end());
-            current->elements.erase(current->elements.begin() + nodeCapacity / 2, current->elements.end());
-            new_node->next = current->next;
-            current->next = new_node;
-            if (current == tail) {
-                this->tail = new_node;
-            }
+void UnrolledLinkedList<T>::insert(const T &value) {
+
+    Node *current = tail;
+    if (current->elements.size() + 1 < nodeCapacity) {
+        current->elements.push_back(value);
+    } else {
+        Node *new_node = new Node(nodeCapacity);
+        int j = 0;
+        for (int i = current->elements.size() / 2 + 1; i <= current->elements.size(); i++) {
+            new_node->elements.insert(new_node->elements.begin() + j, current->elements[i]);
+            current->elements.erase(current->elements.begin() + i);
+            j++;
         }
-        current = current->next;
-    }
-    current->elements.insert(current->elements.begin() + pos, value);
-    ++size;
-
-    /*
-      if (index > size) {
-        throw std::out_of_range("Index out of range");
-    }
-    Node* current = head;
-    size_t pos = index;
-    while (pos >= current->elements.size()) {
-        pos -= current->elements.size();
-        current = current->next;
-    }
-
-    current->elements.insert(current->elements.begin() + pos, value);
-    if (current->elements.size() > nodeCapacity) {
-        Node* new_node = new Node(nodeCapacity);
-        new_node->elements.assign(current->elements.begin() + nodeCapacity / 2, current->elements.end());
-        current->elements.erase(current->elements.begin() + nodeCapacity / 2, current->elements.end());
-        new_node->next = current->next;
+        new_node->elements.push_back(value);
         current->next = new_node;
-        if (current == tail) {
-            tail = new_node;
-        }
+        new_node->prev = current;
+        this->tail = new_node;
     }
     ++size;
-     * */
 }
 
 template<typename T>
@@ -79,16 +50,16 @@ void UnrolledLinkedList<T>::remove(size_t index) {
 
     current->elements.erase(current->elements.begin() + pos);
     if (current->elements.empty() && current != head) {
-        Node *prev = head;
-        while (prev->next != current) {
-            prev = prev->next;
-        }
-        prev->next = current->next;
-        delete current;
+        current->prev->next = current->next;
+        current->next->prev = current->prev;
         if (current == tail) {
-            tail = prev;
+            tail = current->prev;
+        }
+        if (current == head) {
+            head = current->next;
         }
     }
+    delete current;
     --size;
 }
 
@@ -108,7 +79,7 @@ T &UnrolledLinkedList<T>::operator[](size_t index) {
 
 template<typename T>
 size_t UnrolledLinkedList<T>::get_size() const {
-    return size;
+    return this->size;
 }
 
 template<typename T>
@@ -124,66 +95,113 @@ typename UnrolledLinkedList<T>::Iterator UnrolledLinkedList<T>::end() {
 template<typename T>
 UnrolledLinkedList<T>::Iterator::Iterator(UnrolledLinkedList *unrolledLinkedList, Node *currentNode,
                                           size_t elementIndex)
-        : unrolledLinkedList(unrolledLinkedList), currentNode(currentNode), elementIndex(elementIndex) {}
+        : unrolledLinkedList(unrolledLinkedList), current(currentNode), elementIndex(elementIndex) {}
 
 template<typename T>
 T &UnrolledLinkedList<T>::Iterator::read() const {
-    if (currentNode == nullptr || elementIndex >= currentNode->elements.size()) {
+    if (current == nullptr || this->elementIndex >= current->elements.size()) {
         throw std::out_of_range("Iterator out of range");
     }
-    return currentNode->elements[elementIndex];
+    return current->elements[this->elementIndex];
 }
 
 template<typename T>
 void UnrolledLinkedList<T>::Iterator::write(const T &value) {
-    if (currentNode == nullptr || elementIndex >= currentNode->elements.size()) {
-        throw std::out_of_range("Iterator out of range");
+    if (current == nullptr || this->elementIndex >= current->elements.size()) {
+        throw std::out_of_range("Iterator out of range (write)");
     }
-    currentNode->elements[elementIndex] = value;
+    this->current->elements[this->elementIndex] = value;
 }
 
 template<typename T>
 void UnrolledLinkedList<T>::Iterator::insert(const T &value) {
-    if (currentNode == nullptr) {
+    if (current == nullptr) {
         throw std::out_of_range("Iterator out of range");
     }
-    unrolledLinkedList->insert(elementIndex, value);
-    if (currentNode->elements.size() > unrolledLinkedList->nodeCapacity) {
-        next();
+    if (current->elements.size() + 1 < this->unrolledLinkedList->nodeCapacity) {
+        current->elements.insert(current->elements.begin() + this->elementIndex, value);
+    } else {
+        Node *new_node = new Node(this->unrolledLinkedList->nodeCapacity);
+        int j = 0;
+
+        // move half the values of the current node into the newly created one
+        for (int i = current->elements.size() / 2 + 1; i <= current->elements.size(); i++) {
+            new_node->elements.insert(new_node->elements.begin() + j, current->elements[i]);
+            current->elements.erase(current->elements.begin() + i);
+            j++;
+        }
+
+        //emplace value
+        if (this->elementIndex < current->elements.size()) {
+            current->elements.insert(current->elements.begin() + this->elementIndex, value);
+        } else {
+            auto new_index = this->elementIndex - current->elements.size();
+            new_node->elements.insert(new_node->elements.begin() + new_index, value);
+            this->elementIndex = new_index;
+        }
+
+        // correctly place new node BEFORE current node
+        new_node->next = current;
+        if (current == this->unrolledLinkedList->head) {
+            this->unrolledLinkedList->head = new_node;
+            current->prev = new_node;
+
+        } else {
+            new_node->next = current;
+            new_node->prev = current->prev;
+            current->prev = new_node;
+            new_node->prev->next = new_node;
+        }
+
+        current = new_node;
+
     }
+    this->unrolledLinkedList->size++;
 }
 
 template<typename T>
 void UnrolledLinkedList<T>::Iterator::remove() {
-    if (currentNode == nullptr || elementIndex >= currentNode->elements.size()) {
-        throw std::out_of_range("Iterator out of range");
+    if (current == nullptr || this->elementIndex >= current->elements.size()) {
+        throw std::out_of_range("Iterator out of range (remove)");
     }
-    unrolledLinkedList->remove(elementIndex);
-    if (currentNode->elements.empty() && currentNode != unrolledLinkedList->head) {
-        currentNode = currentNode->next;
-        elementIndex = 0;
+
+    current->elements.erase(current->elements.begin() + this->elementIndex);
+
+    if (this->current->elements.empty()) {
+        auto to_delete = this->current;
+        if (to_delete == this->unrolledLinkedList->head) {
+            this->unrolledLinkedList->head = to_delete->next;
+
+        } else if (to_delete == this->unrolledLinkedList->tail) {
+            this->unrolledLinkedList->tail = to_delete->prev;
+        } else {
+            to_delete->prev->next = to_delete->next;
+            to_delete->next->prev = to_delete->prev;
+        }
+        current = to_delete;
+        delete to_delete;
     }
+
+    this->unrolledLinkedList->size--;
 }
 
 template<typename T>
 bool UnrolledLinkedList<T>::Iterator::is_end() const {
-    return currentNode == nullptr;
+    return current == nullptr;
 }
 
 template<typename T>
 void UnrolledLinkedList<T>::Iterator::next() {
-    if (currentNode == nullptr) {
+    if (current == nullptr) {
         return;
     }
-    std::cout << "Current Node: " << currentNode << ", Element Index: " << elementIndex << std::endl;
-    if (elementIndex + 1 < currentNode->elements.size()) {
+    if (this->elementIndex + 1 < current->elements.size()) {
         this->elementIndex += 1;
-    } else if (currentNode->next != nullptr) {
-        currentNode = currentNode->next;
-        elementIndex = 0;
+    } else if (current->next != nullptr) {
+        current = current->next;
+        this->elementIndex = 0;
     } else {
-        currentNode = unrolledLinkedList->head;
-        elementIndex = 0;
+        current = unrolledLinkedList->head;
+        this->elementIndex = 0;
     }
-    std::cout << "After Next - Current Node: " << currentNode << ", Element Index: " << elementIndex << std::endl;
 }

@@ -96,12 +96,13 @@ void fillLinkedList(LinkedList<int> &linkedList, size_t numberOfElements) {
 }
 
 void fillUnrolledLinkedList(UnrolledLinkedList<int> &linkedList, size_t numberOfElements) {
+    numberOfElements = 8000;
     for (int index = 0; index < numberOfElements; index++) {
-        linkedList.insert(index, index);
+        linkedList.insert(index);
     }
 }
 
-void benchmarkArrayList(int numberOfElements, const int percentageInsertDeletes){
+void benchmarkArrayList(int numberOfElements, const int percentageInsertDeletes) {
     auto arrayList = ArrayList<int>(numberOfElements + 1);
     fillArrayList(arrayList);
 
@@ -110,7 +111,7 @@ void benchmarkArrayList(int numberOfElements, const int percentageInsertDeletes)
     std::cout << "Operations per second for ArrayList: " << opsPerSecond << std::endl;
 }
 
-void benchmarkLinkedList(int numberOfElements, const int percentageInsertDeletes){
+void benchmarkLinkedList(int numberOfElements, const int percentageInsertDeletes) {
     auto linkedList = LinkedList<int>();
     fillLinkedList(linkedList, numberOfElements);
 
@@ -119,8 +120,8 @@ void benchmarkLinkedList(int numberOfElements, const int percentageInsertDeletes
     std::cout << "Operations per second for LinkedList: " << opsPerSecond << std::endl;
 }
 
-void benchmarkUnrolledLinkedList(int numberOfElements, const int percentageInsertDeletes){
-    auto unrolledLinkedList = UnrolledLinkedList<int>();
+void benchmarkUnrolledLinkedList(int numberOfElements, const int percentageInsertDeletes) {
+    auto unrolledLinkedList = UnrolledLinkedList<int>(5);
     fillUnrolledLinkedList(unrolledLinkedList, numberOfElements);
 
     auto iterator = unrolledLinkedList.begin();
@@ -155,9 +156,9 @@ int main(int argc, char *argv[]) {
     }
 
 
-    benchmarkArrayList(numberOfElements, percentageInsertDeletes);
-    benchmarkLinkedList(numberOfElements, percentageInsertDeletes);
-    //benchmarkUnrolledLinkedList(numberOfElements, percentageInsertDeletes);
+//    benchmarkArrayList(numberOfElements, percentageInsertDeletes);
+//    benchmarkLinkedList(numberOfElements, percentageInsertDeletes);
+    benchmarkUnrolledLinkedList(20, percentageInsertDeletes);
 
     return 0;
 }
