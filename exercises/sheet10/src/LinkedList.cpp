@@ -131,11 +131,12 @@ bool LinkedList<T>::Iterator::is_end() const {
 template<typename T>
 void LinkedList<T>::Iterator::next() {
     if (node) {
-        prev = node;
         if (node->next) {
+            prev = node;
             node = node->next;
         } else {
             //wrap around
+            prev = nullptr;
             node = linkedList->head;
         }
 
