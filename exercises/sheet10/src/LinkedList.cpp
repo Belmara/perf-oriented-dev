@@ -118,7 +118,15 @@ void LinkedList<T>::Iterator::remove() {
     } else {
         prev->next = node->next;
     }
-    node = node->next;
+
+    if(node->next){
+        node = node->next;
+    } else if(linkedList->head){
+        node = linkedList->head;
+    } else {
+        node = nullptr;
+    }
+
     delete to_delete;
     --linkedList->size;
 }

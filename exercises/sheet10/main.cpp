@@ -6,7 +6,7 @@
 #include "src/ArrayList.cpp"
 #include "src/LinkedList.cpp"
 
-constexpr int singleBenchmarkTimeInSeconds = 10;
+constexpr int singleBenchmarkTimeInSeconds = 1;
 
 int greatestCommonDivisor(int a, int b) {
     while (b != 0) {
@@ -149,18 +149,17 @@ int main(int argc, char *argv[]) {
 
     //TODO: use elementSize
 
-    if (argc < 4) {
-        std::cerr << "Usage: " << argv[0] << " <number_of_elements> <element_size> <percentage_of_insert_deletes>"
+    if (argc < 3) {
+        std::cerr << "Usage: " << argv[0] << " <number_of_elements> <percentage_of_insert_deletes>"
                   << std::endl;
         return 1;
     }
 
     int numberOfElements = std::atoi(argv[1]);
-    int elementSize = std::atoi(argv[2]);
-    int percentageInsertDeletes = std::atoi(argv[3]);
+    int percentageInsertDeletes = std::atoi(argv[2]);
 
 
-    if (numberOfElements < 0 || elementSize < 0 || percentageInsertDeletes < 0) {
+    if (numberOfElements < 0 || percentageInsertDeletes < 0) {
         std::cerr << "All arguments need to be greater than 0" << std::endl;
         return 1;
     }
@@ -171,9 +170,9 @@ int main(int argc, char *argv[]) {
     }
 
 
-//    benchmarkArrayList(numberOfElements, percentageInsertDeletes);
-//    benchmarkLinkedList(numberOfElements, percentageInsertDeletes);
-    //benchmarkUnrolledLinkedList(20, percentageInsertDeletes);
+    benchmarkArrayList(numberOfElements, percentageInsertDeletes);
+    benchmarkLinkedList(numberOfElements, percentageInsertDeletes);
+    benchmarkUnrolledLinkedList(numberOfElements, percentageInsertDeletes);
     benchmarkTieredArray(numberOfElements, percentageInsertDeletes);
 
     return 0;
