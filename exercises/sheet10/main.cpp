@@ -96,7 +96,6 @@ void fillLinkedList(LinkedList<int> &linkedList, size_t numberOfElements) {
 }
 
 void fillUnrolledLinkedList(UnrolledLinkedList<int> &linkedList, size_t numberOfElements) {
-    numberOfElements = 8000;
     for (int index = 0; index < numberOfElements; index++) {
         linkedList.insert(index);
     }

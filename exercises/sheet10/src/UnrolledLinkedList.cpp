@@ -153,8 +153,6 @@ void UnrolledLinkedList<T>::Iterator::insert(const T &value) {
             new_node->prev->next = new_node;
         }
 
-        current = new_node;
-
     }
     this->unrolledLinkedList->size++;
 }
@@ -171,14 +169,16 @@ void UnrolledLinkedList<T>::Iterator::remove() {
         auto to_delete = this->current;
         if (to_delete == this->unrolledLinkedList->head) {
             this->unrolledLinkedList->head = to_delete->next;
+            this->unrolledLinkedList->head->prev = NULL;
 
         } else if (to_delete == this->unrolledLinkedList->tail) {
             this->unrolledLinkedList->tail = to_delete->prev;
+            this->unrolledLinkedList->tail->next = NULL;
         } else {
             to_delete->prev->next = to_delete->next;
             to_delete->next->prev = to_delete->prev;
         }
-        current = to_delete;
+        next();
         delete to_delete;
     }
 
@@ -193,11 +193,12 @@ bool UnrolledLinkedList<T>::Iterator::is_end() const {
 template<typename T>
 void UnrolledLinkedList<T>::Iterator::next() {
     if (current == nullptr) {
+        std::cout << "current null\n";
         return;
     }
     if (this->elementIndex + 1 < current->elements.size()) {
         this->elementIndex += 1;
-    } else if (current->next != nullptr) {
+    } else if (current != this->unrolledLinkedList->tail) {
         current = current->next;
         this->elementIndex = 0;
     } else {
