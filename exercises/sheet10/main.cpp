@@ -26,7 +26,7 @@ float performOperationsWithDistribution(IteratorBase<int> &iterator, const int p
     int insDelPerRw = insDel / gcd;
 
     bool isReadTurn = true;
-    bool isInsertTurn = true;
+    bool isInsertTurn = false;
     int operations = 0;
 
     int currentInsertDeletes = 0;
@@ -102,6 +102,13 @@ void fillUnrolledLinkedList(UnrolledLinkedList<int> &linkedList, size_t numberOf
     }
 }
 
+
+void fillTieredArray(TieredArray<int> &tieredArray, size_t numberOfElements) {
+    for (int index = 0; index < numberOfElements; index++) {
+        tieredArray.insert(index, index);
+    }
+}
+
 void benchmarkArrayList(int numberOfElements, const int percentageInsertDeletes) {
     auto arrayList = ArrayList<int>(numberOfElements + 1);
     fillArrayList(arrayList);
@@ -125,6 +132,15 @@ void benchmarkUnrolledLinkedList(int numberOfElements, const int percentageInser
     fillUnrolledLinkedList(unrolledLinkedList, numberOfElements);
 
     auto iterator = unrolledLinkedList.begin();
+    auto opsPerSecond = performOperationsWithDistribution(iterator, percentageInsertDeletes);
+    std::cout << "Operations per second for UnrolledLinkedList: " << opsPerSecond << std::endl;
+}
+
+void benchmarkTieredArray(int numberOfElements, const int percentageInsertDeletes) {
+    auto tieredArray = TieredArray<int>(numberOfElements);
+    fillTieredArray(tieredArray, numberOfElements);
+
+    auto iterator = tieredArray.begin();
     auto opsPerSecond = performOperationsWithDistribution(iterator, percentageInsertDeletes);
     std::cout << "Operations per second for UnrolledLinkedList: " << opsPerSecond << std::endl;
 }
@@ -158,7 +174,8 @@ int main(int argc, char *argv[]) {
 
 //    benchmarkArrayList(numberOfElements, percentageInsertDeletes);
 //    benchmarkLinkedList(numberOfElements, percentageInsertDeletes);
-    benchmarkUnrolledLinkedList(20, percentageInsertDeletes);
+    //benchmarkUnrolledLinkedList(20, percentageInsertDeletes);
+    benchmarkTieredArray(numberOfElements, percentageInsertDeletes);
 
     return 0;
 }
