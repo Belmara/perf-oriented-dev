@@ -99,37 +99,24 @@ TieredArray<T>::Iterator::Iterator(TieredArray *tieredArray, size_t chunkIndex, 
 
 template<typename T>
 T &TieredArray<T>::Iterator::read() const {
-    if (!isValid()) {
-        throw std::out_of_range("Iterator out of range");
-    }
     return tieredArray->data[chunkIndex][elementIndex];
 }
 
 template<typename T>
 void TieredArray<T>::Iterator::write(const T &value) {
-    if (!isValid()) {
-        throw std::out_of_range("Iterator out of range");
-    }
     tieredArray->data[chunkIndex][elementIndex] = value;
 }
 
 template<typename T>
 void TieredArray<T>::Iterator::insert(const T &value) {
     tieredArray->insert(chunkIndex * CHUNK_SIZE + elementIndex, value);
-    ++elementIndex;
-    if (elementIndex >= tieredArray->data[chunkIndex].size()) {
-        elementIndex = 0;
-        ++chunkIndex;
-    }
+    next();
 }
 
 template<typename T>
 void TieredArray<T>::Iterator::remove() {
     tieredArray->remove(chunkIndex * CHUNK_SIZE + elementIndex);
-    if (elementIndex >= tieredArray->data[chunkIndex].size()) {
-        elementIndex = 0;
-        ++chunkIndex;
-    }
+    next();
 }
 
 template<typename T>

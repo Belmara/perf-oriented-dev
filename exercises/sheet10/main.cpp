@@ -141,7 +141,7 @@ void benchmarkTieredArray(int numberOfElements, const int percentageInsertDelete
 
     auto iterator = tieredArray.begin();
     auto opsPerSecond = performOperationsWithDistribution(iterator, percentageInsertDeletes);
-    std::cout << "Operations per second for UnrolledLinkedList: " << opsPerSecond << std::endl;
+    std::cout << "Operations per second for TieredArray: " << opsPerSecond << std::endl;
 }
 
 

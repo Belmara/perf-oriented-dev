@@ -39,11 +39,6 @@ public:
         TieredArray *tieredArray;
         size_t chunkIndex;
         size_t elementIndex;
-        bool isValid() const {
-            return tieredArray != nullptr &&
-                   chunkIndex < tieredArray->data.size() &&
-                   elementIndex < CHUNK_SIZE;
-        }
     };
 
     Iterator begin();
