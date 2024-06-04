@@ -7,7 +7,7 @@
 template<typename T>
 class TieredArray {
 public:
-    TieredArray(size_t capacity);  // New constructor with capacity parameter
+    TieredArray(size_t capacity, size_t chunkSize);
 
     ~TieredArray();
 
@@ -49,5 +49,5 @@ private:
     std::vector<std::vector<T>> data;
     size_t size;
     size_t capacity;
-    static const size_t CHUNK_SIZE = 10;
+    size_t chunkSize;
 };

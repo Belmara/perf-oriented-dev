@@ -1,10 +1,10 @@
 #include "TieredArray.hpp"
 
 template<typename T>
-TieredArray<T>::TieredArray(size_t capacity) : size(0), capacity(capacity) {}
+TieredArray<T>::TieredArray(size_t capacity, size_t chunk_size) : size(0), capacity(capacity), chunkSize(chunk_size) {}
 
 template<typename T>
-TieredArray<T>::~TieredArray() {}
+TieredArray<T>::~TieredArray() = default;
 
 template<typename T>
 void TieredArray<T>::insert(size_t index, const T &value) {
@@ -15,8 +15,8 @@ void TieredArray<T>::insert(size_t index, const T &value) {
         throw std::out_of_range("Index out of range");
     }
 
-    size_t chunkIndex = index / CHUNK_SIZE;
-    size_t elementIndex = index % CHUNK_SIZE;
+    size_t chunkIndex = index / chunkSize;
+    size_t elementIndex = index % chunkSize;
 
     if (chunkIndex >= data.size()) {
         data.push_back(std::vector<T>());
@@ -27,14 +27,14 @@ void TieredArray<T>::insert(size_t index, const T &value) {
 
     // Shift elements in subsequent chunks if necessary
     for (size_t i = chunkIndex; i < data.size() - 1; ++i) {
-        if (data[i].size() > CHUNK_SIZE) {
+        if (data[i].size() > chunkSize) {
             T overflow = data[i].back();
             data[i].pop_back();
             data[i + 1].insert(data[i + 1].begin(), overflow);
         }
     }
 
-    if (data.back().size() > CHUNK_SIZE) {
+    if (data.back().size() > chunkSize) {
         T overflow = data.back().back();
         data.back().pop_back();
         data.push_back(std::vector<T>({ overflow }));
@@ -47,8 +47,8 @@ void TieredArray<T>::remove(size_t index) {
         throw std::out_of_range("Index out of range");
     }
 
-    size_t chunkIndex = index / CHUNK_SIZE;
-    size_t elementIndex = index % CHUNK_SIZE;
+    size_t chunkIndex = index / chunkSize;
+    size_t elementIndex = index % chunkSize;
 
     data[chunkIndex].erase(data[chunkIndex].begin() + elementIndex);
     --size;
@@ -73,8 +73,8 @@ T &TieredArray<T>::operator[](size_t index) {
         throw std::out_of_range("Index out of range");
     }
 
-    size_t chunkIndex = index / CHUNK_SIZE;
-    size_t elementIndex = index % CHUNK_SIZE;
+    size_t chunkIndex = index / chunkSize;
+    size_t elementIndex = index % chunkSize;
     return data[chunkIndex][elementIndex];
 }
 
@@ -109,13 +109,13 @@ void TieredArray<T>::Iterator::write(const T &value) {
 
 template<typename T>
 void TieredArray<T>::Iterator::insert(const T &value) {
-    tieredArray->insert(chunkIndex * CHUNK_SIZE + elementIndex, value);
+    tieredArray->insert(chunkIndex * tieredArray->chunkSize + elementIndex, value);
     next();
 }
 
 template<typename T>
 void TieredArray<T>::Iterator::remove() {
-    tieredArray->remove(chunkIndex * CHUNK_SIZE + elementIndex);
+    tieredArray->remove(chunkIndex * tieredArray->chunkSize + elementIndex);
     next();
 }
 
@@ -126,10 +126,10 @@ bool TieredArray<T>::Iterator::is_end() const {
 
 template<typename T>
 void TieredArray<T>::Iterator::next() {
-    if(elementIndex + 1 < this->tieredArray->CHUNK_SIZE){
+    if(elementIndex + 1 < tieredArray->chunkSize){
         elementIndex++;
 
-    } else if((chunkIndex + 1) * CHUNK_SIZE == tieredArray->capacity && elementIndex == CHUNK_SIZE)
+    } else if((chunkIndex + 1) * tieredArray->chunkSize == tieredArray->capacity && elementIndex == tieredArray->chunkSize)
     {
         elementIndex = 0;
         chunkIndex ++;

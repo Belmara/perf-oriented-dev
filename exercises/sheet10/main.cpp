@@ -108,7 +108,7 @@ void fillTieredArray(TieredArray<int> &tieredArray, size_t numberOfElements) {
     }
 }
 
-void benchmarkArrayList(int numberOfElements, const int percentageInsertDeletes) {
+void benchmarkArrayList(const int numberOfElements, const int percentageInsertDeletes) {
     auto arrayList = ArrayList<int>(numberOfElements + 1);
     fillArrayList(arrayList);
 
@@ -117,7 +117,7 @@ void benchmarkArrayList(int numberOfElements, const int percentageInsertDeletes)
     std::cout << "Operations per second for ArrayList: " << opsPerSecond << std::endl;
 }
 
-void benchmarkLinkedList(int numberOfElements, const int percentageInsertDeletes) {
+void benchmarkLinkedList(const int numberOfElements, const int percentageInsertDeletes) {
     auto linkedList = LinkedList<int>();
     fillLinkedList(linkedList, numberOfElements);
 
@@ -126,22 +126,22 @@ void benchmarkLinkedList(int numberOfElements, const int percentageInsertDeletes
     std::cout << "Operations per second for LinkedList: " << opsPerSecond << std::endl;
 }
 
-void benchmarkUnrolledLinkedList(int numberOfElements, const int percentageInsertDeletes) {
+void benchmarkUnrolledLinkedList(const int numberOfElements, const int percentageInsertDeletes, const int chunkSize) {
     auto unrolledLinkedList = UnrolledLinkedList<int>(5);
     fillUnrolledLinkedList(unrolledLinkedList, numberOfElements);
 
     auto iterator = unrolledLinkedList.begin();
     auto opsPerSecond = performOperationsWithDistribution(iterator, percentageInsertDeletes);
-    std::cout << "Operations per second for UnrolledLinkedList: " << opsPerSecond << std::endl;
+    std::cout << "Operations per second for UnrolledLinkedList (chunk size " << chunkSize << "): " << opsPerSecond << std::endl;
 }
 
-void benchmarkTieredArray(int numberOfElements, const int percentageInsertDeletes) {
-    auto tieredArray = TieredArray<int>(numberOfElements);
+void benchmarkTieredArray(const int numberOfElements, const int percentageInsertDeletes, const int chunkSize) {
+    auto tieredArray = TieredArray<int>(numberOfElements, chunkSize);
     fillTieredArray(tieredArray, numberOfElements);
 
     auto iterator = tieredArray.begin();
     auto opsPerSecond = performOperationsWithDistribution(iterator, percentageInsertDeletes);
-    std::cout << "Operations per second for TieredArray: " << opsPerSecond << std::endl;
+    std::cout << "Operations per second for TieredArray (chunk size " << chunkSize << "): " << opsPerSecond << std::endl;
 }
 
 
@@ -169,11 +169,18 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    std::cout << std::fixed;
+
+    std::cout << "Benchmark configuration: \nNumber of elements:" << numberOfElements  << "\nInsert/Deletes: " <<
+    percentageInsertDeletes << "%\nReads/Writes: " << 100 - percentageInsertDeletes << "%\nTime for each benchmark: " << singleBenchmarkTimeInSeconds << " second/s\n" << std::endl;
 
     benchmarkArrayList(numberOfElements, percentageInsertDeletes);
     benchmarkLinkedList(numberOfElements, percentageInsertDeletes);
-    benchmarkUnrolledLinkedList(numberOfElements, percentageInsertDeletes);
-    benchmarkTieredArray(numberOfElements, percentageInsertDeletes);
+
+    for(int chunkSize = 2; chunkSize < numberOfElements; chunkSize*=2){
+        benchmarkUnrolledLinkedList(numberOfElements, percentageInsertDeletes, chunkSize);
+        benchmarkTieredArray(numberOfElements, percentageInsertDeletes, chunkSize);
+    }
 
     return 0;
 }

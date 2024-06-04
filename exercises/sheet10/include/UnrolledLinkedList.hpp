@@ -23,7 +23,7 @@ class UnrolledLinkedList {
     size_t size;
 
 public:
-    UnrolledLinkedList(size_t capacity = 4);
+    explicit UnrolledLinkedList(size_t capacity);
 
     ~UnrolledLinkedList();
 
