@@ -169,11 +169,12 @@ void UnrolledLinkedList<T>::Iterator::remove() {
         auto to_delete = this->current;
         if (to_delete == this->unrolledLinkedList->head) {
             this->unrolledLinkedList->head = to_delete->next;
-            this->unrolledLinkedList->head->prev = NULL;
+            this->unrolledLinkedList->head->prev = nullptr;
 
         } else if (to_delete == this->unrolledLinkedList->tail) {
             this->unrolledLinkedList->tail = to_delete->prev;
-            this->unrolledLinkedList->tail->next = NULL;
+            this->unrolledLinkedList->tail->next = nullptr;
+            this->current = this->unrolledLinkedList->tail;
         } else {
             to_delete->prev->next = to_delete->next;
             to_delete->next->prev = to_delete->prev;
