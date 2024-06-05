@@ -90,8 +90,9 @@ void fillArrayList(ArrayList<int> &arrayList) {
 }
 
 void fillLinkedList(LinkedList<int> &linkedList, const size_t numberOfElements) {
+    auto iterator = linkedList.begin();
     for (int index = 0; index < numberOfElements; index++) {
-        linkedList.insert(index, index);
+        iterator.insert(index);
     }
 }
 
