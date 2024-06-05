@@ -129,13 +129,13 @@ void TieredArray<T>::Iterator::next() {
     if(elementIndex + 1 < tieredArray->chunkSize){
         elementIndex++;
 
-    } else if((chunkIndex + 1) * tieredArray->chunkSize == tieredArray->capacity && elementIndex == tieredArray->chunkSize)
+    } else if((chunkIndex + 1) * tieredArray->chunkSize < tieredArray->capacity && elementIndex == tieredArray->chunkSize)
     {
         elementIndex = 0;
         chunkIndex ++;
     } else {
         elementIndex = 0;
-        elementIndex = 0;
+        chunkIndex = 0;
     }
 
 }
