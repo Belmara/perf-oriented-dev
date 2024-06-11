@@ -1,0 +1,2369 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 87.14     18.83    18.83        1    18.83    20.72  luaV_execute
+  5.04     19.92     1.09 310000031     0.00     0.00  luaD_pretailcall
+  4.07     20.80     0.88 306946270     0.00     0.00  luaD_precall
+  1.90     21.21     0.41 271946189     0.00     0.00  luaH_getshortstr
+  0.37     21.29     0.08 20000290     0.00     0.00  freeobj
+  0.32     21.36     0.07 35000103     0.00     0.00  luaT_getvarargs
+  0.19     21.40     0.04   714299     0.00     0.00  dothecall
+  0.14     21.43     0.03 40000948     0.00     0.00  l_alloc
+  0.14     21.46     0.03 25000004     0.00     0.00  luaV_tointeger
+  0.14     21.49     0.03 20000364     0.00     0.00  luaM_malloc_
+  0.14     21.52     0.03 20000290     0.00     0.00  luaC_newobj
+  0.14     21.55     0.03 10000006     0.00     0.00  luaF_newLclosure
+  0.09     21.57     0.02 20000430     0.00     0.00  luaM_free_
+  0.09     21.59     0.02 10000001     0.00     0.00  luaF_findupval
+  0.05     21.60     0.01   142860     0.00     0.00  luaS_clearcache
+  0.05     21.61     0.01                             _init
+  0.00     21.61     0.00 10000002     0.00     0.00  luaF_closeupval
+  0.00     21.61     0.00   571440     0.00     0.00  clearbyvalues
+  0.00     21.61     0.00   571440     0.00     0.00  correctgraylist
+  0.00     21.61     0.00   286012     0.00     0.00  reallymarkobject
+  0.00     21.61     0.00   285781     0.00     0.00  propagatemark
+  0.00     21.61     0.00   285720     0.00     0.00  clearbykeys
+  0.00     21.61     0.00   285720     0.00     0.00  convergeephemerons
+  0.00     21.61     0.00   142868     0.00     0.00  luaE_setdebt
+  0.00     21.61     0.00   142866     0.00     0.00  luaC_step
+  0.00     21.61     0.00   142861     0.00     0.00  separatetobefnz
+  0.00     21.61     0.00   142860     0.00     0.00  atomic
+  0.00     21.61     0.00   142860     0.00     0.00  finishgencycle
+  0.00     21.61     0.00      676     0.00     0.00  save
+  0.00     21.61     0.00      576     0.00     0.00  luaS_newudata
+  0.00     21.61     0.00      395     0.00     0.00  luaH_newkey
+  0.00     21.61     0.00      373     0.00     0.00  luaH_getstr
+  0.00     21.61     0.00      362     0.00     0.00  luaS_newlstr
+  0.00     21.61     0.00      357     0.00     0.00  luaM_growaux_
+  0.00     21.61     0.00      355     0.00     0.00  internshrstr
+  0.00     21.61     0.00      323     0.00     0.00  luaS_new
+  0.00     21.61     0.00      254     0.00     0.00  luaH_finishset
+  0.00     21.61     0.00      236     0.00     0.00  luaS_remove
+  0.00     21.61     0.00      234     0.00     0.00  llex
+  0.00     21.61     0.00      234     0.00     0.00  luaX_next
+  0.00     21.61     0.00      224     0.00     0.00  luaH_get
+  0.00     21.61     0.00      214     0.00     0.00  auxsetstr
+  0.00     21.61     0.00      203     0.00     0.00  luaV_finishset
+  0.00     21.61     0.00      203     0.00     0.00  lua_setfield
+  0.00     21.61     0.00      191     0.00     0.00  luaK_dischargevars
+  0.00     21.61     0.00      168     0.00     0.00  lua_pushcclosure
+  0.00     21.61     0.00      162     0.00     0.00  savelineinfo
+  0.00     21.61     0.00      152     0.00     0.00  luaM_realloc_
+  0.00     21.61     0.00      126     0.00     0.00  luaK_code
+  0.00     21.61     0.00      123     0.00     0.00  check_match
+  0.00     21.61     0.00      122     0.00     0.00  luaX_newstring
+  0.00     21.61     0.00      110     0.00     0.00  luaH_realasize
+  0.00     21.61     0.00       96     0.00     0.00  luaE_incCstack
+  0.00     21.61     0.00       82     0.00     0.00  lua_settop
+  0.00     21.61     0.00       70     0.00     0.00  index2value
+  0.00     21.61     0.00       66     0.00     0.00  discharge2reg
+  0.00     21.61     0.00       66     0.00     0.00  exp2reg
+  0.00     21.61     0.00       63     0.00     0.00  luaK_exp2nextreg
+  0.00     21.61     0.00       58     0.00     0.00  singlevar
+  0.00     21.61     0.00       55     0.00     0.00  subexpr
+  0.00     21.61     0.00       55     0.00     0.00  suffixedexp
+  0.00     21.61     0.00       49     0.00     0.00  luaC_fix
+  0.00     21.61     0.00       44     0.00     0.00  luaY_nvarstack
+  0.00     21.61     0.00       43     0.00     0.00  inclinenumber
+  0.00     21.61     0.00       42     0.00     0.00  addk
+  0.00     21.61     0.00       42     0.00     0.00  luaM_shrinkvector_
+  0.00     21.61     0.00       41     0.00     0.00  luaH_resize
+  0.00     21.61     0.00       41     0.00     0.00  luaK_exp2anyreg
+  0.00     21.61     0.00       40     0.00     0.00  luaO_ceillog2
+  0.00     21.61     0.00       40     0.00     0.00  lua_pushvalue
+  0.00     21.61     0.00       37     0.00     0.00  luaK_exp2anyregup
+  0.00     21.61     0.00       37     0.00     0.00  luaK_indexed
+  0.00     21.61     0.00       36     0.00     0.00  luaK_fixline
+  0.00     21.61     0.00       36     0.00     0.00  lua_getfield
+  0.00     21.61     0.00       34     0.00     0.00  luaV_equalobj
+  0.00     21.61     0.00       33     0.00     0.00  luaE_extendCI
+  0.00     21.61     0.00       31     0.00     0.00  luaD_poscall
+  0.00     21.61     0.00       29     0.00     0.00  luaG_traceexec
+  0.00     21.61     0.00       28     0.00     0.00  statement
+  0.00     21.61     0.00       24     0.00     0.00  lua_pushstring
+  0.00     21.61     0.00       22     0.00     0.00  new_localvar
+  0.00     21.61     0.00       21     0.00     0.00  luaH_free
+  0.00     21.61     0.00       21     0.00     0.00  luaH_new
+  0.00     21.61     0.00       19     0.00     0.00  addstr2buff
+  0.00     21.61     0.00       19     0.00     0.00  luaK_codeABCk
+  0.00     21.61     0.00       18     0.00     0.00  luaK_ret
+  0.00     21.61     0.00       18     0.00     0.00  lua_createtable
+  0.00     21.61     0.00       17     0.00     0.00  luaO_str2num
+  0.00     21.61     0.00       17     0.00     0.00  lua_pushboolean
+  0.00     21.61     0.00       17     0.00     0.00  lua_rotate
+  0.00     21.61     0.00       17     0.00     0.00  read_numeral
+  0.00     21.61     0.00       16     0.00     0.00  funcargs
+  0.00     21.61     0.00       16     0.00     0.00  luaD_callnoyield
+  0.00     21.61     0.00       16     0.00     0.00  lua_checkstack
+  0.00     21.61     0.00       15     0.00     0.00  luaL_setfuncs
+  0.00     21.61     0.00       15     0.00     0.00  lua_absindex
+  0.00     21.61     0.00       15     0.00     0.00  lua_getmetatable
+  0.00     21.61     0.00       14     0.00     0.00  adjustlocalvars
+  0.00     21.61     0.00       14     0.00     0.00  leaveblock
+  0.00     21.61     0.00       14     0.00     0.00  luaK_int
+  0.00     21.61     0.00       14     0.00     0.00  luaV_finishget
+  0.00     21.61     0.00       13     0.00     0.00  check_readonly
+  0.00     21.61     0.00       13     0.00     0.00  luaK_reserveregs
+  0.00     21.61     0.00       13     0.00     0.00  luaK_storevar
+  0.00     21.61     0.00       13     0.00     0.00  luaL_getsubtable
+  0.00     21.61     0.00       13     0.00     0.00  lua_tolstring
+  0.00     21.61     0.00       12     0.00     0.00  luaH_getint
+  0.00     21.61     0.00       12     0.00     0.00  prepbuffsize
+  0.00     21.61     0.00       11     0.00     0.00  luaS_hashlongstr
+  0.00     21.61     0.00       11     0.00     0.00  lua_setglobal
+  0.00     21.61     0.00       11     0.00     0.00  lua_toboolean
+  0.00     21.61     0.00       11     0.00     0.00  removevalues
+  0.00     21.61     0.00       10     0.00     0.00  codeABRK
+  0.00     21.61     0.00       10     0.00     0.00  luaK_setreturns
+  0.00     21.61     0.00       10     0.00     0.00  luaL_checkversion_
+  0.00     21.61     0.00       10     0.00     0.00  luaL_requiref
+  0.00     21.61     0.00       10     0.00     0.00  lua_callk
+  0.00     21.61     0.00       10     0.00     0.00  lua_touserdata
+  0.00     21.61     0.00       10     0.00     0.00  lua_version
+  0.00     21.61     0.00        9     0.00     0.00  freeexps
+  0.00     21.61     0.00        9     0.00     0.00  luaD_rawrunprotected
+  0.00     21.61     0.00        9     0.00     0.00  luaK_codeABx
+  0.00     21.61     0.00        9     0.00     0.00  luaK_infix
+  0.00     21.61     0.00        9     0.00     0.00  luaK_posfix
+  0.00     21.61     0.00        9     0.00     0.00  luaL_checkudata
+  0.00     21.61     0.00        9     0.00     0.00  luaL_prepbuffsize
+  0.00     21.61     0.00        9     0.00     0.00  luaL_testudata
+  0.00     21.61     0.00        9     0.00     0.00  lua_rawequal
+  0.00     21.61     0.00        8     0.00     0.00  lua_gettop
+  0.00     21.61     0.00        8     0.00     0.00  lua_pushnumber
+  0.00     21.61     0.00        7     0.00     0.00  constfolding
+  0.00     21.61     0.00        7     0.00     0.00  finishbinexpval
+  0.00     21.61     0.00        7     0.00     0.00  getgeneric
+  0.00     21.61     0.00        7     0.00     0.00  luaD_pcall
+  0.00     21.61     0.00        7     0.00     0.00  luaF_newCclosure
+  0.00     21.61     0.00        6     0.00     0.00  close_func
+  0.00     21.61     0.00        6     0.00     0.00  luaF_freeproto
+  0.00     21.61     0.00        6     0.00     0.00  luaF_newproto
+  0.00     21.61     0.00        6     0.00     0.00  luaH_setint
+  0.00     21.61     0.00        6     0.00     0.00  luaK_finish
+  0.00     21.61     0.00        6     0.00     0.00  luaL_callmeta
+  0.00     21.61     0.00        6     0.00     0.00  luaL_tolstring
+  0.00     21.61     0.00        6     0.00     0.00  luaO_pushvfstring
+  0.00     21.61     0.00        6     0.00     0.00  luaT_gettm
+  0.00     21.61     0.00        6     0.00     0.00  lua_pushfstring
+  0.00     21.61     0.00        6     0.00     0.00  lua_rawseti
+  0.00     21.61     0.00        6     0.00     0.00  lua_tointegerx
+  0.00     21.61     0.00        6     0.00     0.00  lua_type
+  0.00     21.61     0.00        6     0.00     0.00  open_func
+  0.00     21.61     0.00        6     0.00     0.00  os_clock
+  0.00     21.61     0.00        6     0.00     0.00  patchlistaux
+  0.00     21.61     0.00        6     0.00     0.00  pushstr
+  0.00     21.61     0.00        5     0.00     0.00  body
+  0.00     21.61     0.00        5     0.00     0.00  fieldsel
+  0.00     21.61     0.00        5     0.00     0.00  luaK_setoneret
+  0.00     21.61     0.00        5     0.00     0.00  lua_pushinteger
+  0.00     21.61     0.00        5     0.00     0.00  lua_setmetatable
+  0.00     21.61     0.00        5     0.00     0.00  restassign
+  0.00     21.61     0.00        4     0.00     3.09  GCTM
+  0.00     21.61     0.00        4     0.00     0.00  allocupvalue
+  0.00     21.61     0.00        4     0.00     0.00  check_next2
+  0.00     21.61     0.00        4     0.00     0.00  codearith
+  0.00     21.61     0.00        4     0.00     0.00  finishbinexpneg
+  0.00     21.61     0.00        4     0.00     0.00  luaC_checkfinalizer
+  0.00     21.61     0.00        4     0.00     0.00  luaK_getlabel
+  0.00     21.61     0.00        4     0.00     0.00  luaK_patchtohere
+  0.00     21.61     0.00        4     0.00     0.00  luaT_adjustvarargs
+  0.00     21.61     0.00        4     0.00     0.00  luaT_gettmbyobj
+  0.00     21.61     0.00        4     0.00     0.00  lua_newuserdatauv
+  0.00     21.61     0.00        4     0.00     0.00  lua_pushlightuserdata
+  0.00     21.61     0.00        4     0.00     0.00  lua_pushlstring
+  0.00     21.61     0.00        3     0.00     0.00  addlenmod
+  0.00     21.61     0.00        3     0.00     0.00  checkformat
+  0.00     21.61     0.00        3     0.00     0.00  f_gc
+  0.00     21.61     0.00        3     0.00     0.00  getF
+  0.00     21.61     0.00        3     0.00     0.00  io_noclose
+  0.00     21.61     0.00        3     0.00     0.00  isSCnumber
+  0.00     21.61     0.00        3     0.00     0.00  luaB_print
+  0.00     21.61     0.00        3     0.00     0.00  luaL_addvalue
+  0.00     21.61     0.00        3     0.00     0.00  luaL_buffinit
+  0.00     21.61     0.00        3     0.00     0.00  luaL_checklstring
+  0.00     21.61     0.00        3     0.00     0.00  luaL_checknumber
+  0.00     21.61     0.00        3     0.00     0.00  luaL_pushresult
+  0.00     21.61     0.00        3     0.00     0.00  luaL_setmetatable
+  0.00     21.61     0.00        3     0.00     0.00  luaM_saferealloc_
+  0.00     21.61     0.00        3     0.00     0.00  luaS_eqlngstr
+  0.00     21.61     0.00        3     0.00     0.00  luaZ_fill
+  0.00     21.61     0.00        3     0.00     0.00  lua_gc
+  0.00     21.61     0.00        3     0.00     0.00  lua_isinteger
+  0.00     21.61     0.00        3     0.00     0.00  lua_pushnil
+  0.00     21.61     0.00        3     0.00     0.00  lua_rawget
+  0.00     21.61     0.00        3     0.00     0.00  lua_tonumberx
+  0.00     21.61     0.00        3     0.00     0.00  str_format
+  0.00     21.61     0.00        3     0.00     0.00  sweep2old
+  0.00     21.61     0.00        3     0.00     0.00  tostringbuff
+  0.00     21.61     0.00        3     0.00     0.00  warnfon
+  0.00     21.61     0.00        2     0.00     0.00  block
+  0.00     21.61     0.00        2     0.00     0.00  correctstack
+  0.00     21.61     0.00        2     0.00     0.00  createlabel
+  0.00     21.61     0.00        2     0.00     0.00  f_call
+  0.00     21.61     0.00        2     0.00     0.00  forbody
+  0.00     21.61     0.00        2     0.00     0.00  luaD_growstack
+  0.00     21.61     0.00        2     0.00     0.00  luaD_inctop
+  0.00     21.61     0.00        2     0.00     0.00  luaD_reallocstack
+  0.00     21.61     0.00        2     0.00     0.00  luaH_getn
+  0.00     21.61     0.00        2     0.00     0.00  luaK_concat
+  0.00     21.61     0.00        2     0.00     0.00  luaK_goiftrue
+  0.00     21.61     0.00        2     0.00     0.00  luaL_len
+  0.00     21.61     0.00        2     0.00     0.00  luaV_objlen
+  0.00     21.61     0.00        2     0.00     0.00  lua_len
+  0.00     21.61     0.00        2     0.00     0.00  lua_pcallk
+  0.00     21.61     0.00        2     0.00     0.00  lua_rawgeti
+  0.00     21.61     0.00        2     0.00     0.00  setpath
+  0.00     21.61     0.00        2     0.00     0.00  test_then_block
+  0.00     21.61     0.00        1     0.00     0.00  atomic2gen
+  0.00     21.61     0.00        1     0.00    15.43  close_state
+  0.00     21.61     0.00        1     0.00     0.00  closepaux
+  0.00     21.61     0.00        1     0.00     0.00  docall
+  0.00     21.61     0.00        1     0.00     0.00  entergen
+  0.00     21.61     0.00        1     0.00     0.00  enterinc
+  0.00     21.61     0.00        1     0.00     0.00  f_luaopen
+  0.00     21.61     0.00        1     0.00     0.00  f_parser
+  0.00     21.61     0.00        1     0.00     0.00  gctm
+  0.00     21.61     0.00        1     0.00     0.00  luaC_barrierback_
+  0.00     21.61     0.00        1     0.00     0.00  luaC_changemode
+  0.00     21.61     0.00        1     0.00    12.34  luaC_freeallobjects
+  0.00     21.61     0.00        1     0.00     3.09  luaD_closeprotected
+  0.00     21.61     0.00        1     0.00     0.00  luaD_protectedparser
+  0.00     21.61     0.00        1     0.00     0.00  luaF_close
+  0.00     21.61     0.00        1     0.00     0.00  luaF_initupvals
+  0.00     21.61     0.00        1     0.00     0.00  luaK_nil
+  0.00     21.61     0.00        1     0.00     0.00  luaL_checkstack
+  0.00     21.61     0.00        1     0.00     0.00  luaL_loadfilex
+  0.00     21.61     0.00        1     0.00     0.00  luaL_newmetatable
+  0.00     21.61     0.00        1     0.00     3.09  luaL_newstate
+  0.00     21.61     0.00        1     0.00     0.00  luaL_openlibs
+  0.00     21.61     0.00        1     0.00     0.00  luaS_hash
+  0.00     21.61     0.00        1     0.00     0.00  luaS_init
+  0.00     21.61     0.00        1     0.00     0.00  luaS_resize
+  0.00     21.61     0.00        1     0.00     0.00  luaT_init
+  0.00     21.61     0.00        1     0.00     0.00  luaX_init
+  0.00     21.61     0.00        1     0.00     0.00  luaX_setinput
+  0.00     21.61     0.00        1     0.00     0.00  luaY_parser
+  0.00     21.61     0.00        1     0.00     0.00  luaZ_init
+  0.00     21.61     0.00        1     0.00     0.00  lua_atpanic
+  0.00     21.61     0.00        1     0.00     0.00  lua_close
+  0.00     21.61     0.00        1     0.00     0.00  lua_getglobal
+  0.00     21.61     0.00        1     0.00     0.00  lua_load
+  0.00     21.61     0.00        1     0.00     3.09  lua_newstate
+  0.00     21.61     0.00        1     0.00     0.00  lua_setwarnf
+  0.00     21.61     0.00        1     0.00     0.00  luaopen_base
+  0.00     21.61     0.00        1     0.00     0.00  luaopen_coroutine
+  0.00     21.61     0.00        1     0.00     0.00  luaopen_debug
+  0.00     21.61     0.00        1     0.00     0.00  luaopen_io
+  0.00     21.61     0.00        1     0.00     0.00  luaopen_math
+  0.00     21.61     0.00        1     0.00     0.00  luaopen_os
+  0.00     21.61     0.00        1     0.00     0.00  luaopen_package
+  0.00     21.61     0.00        1     0.00     0.00  luaopen_string
+  0.00     21.61     0.00        1     0.00     0.00  luaopen_table
+  0.00     21.61     0.00        1     0.00     0.00  luaopen_utf8
+  0.00     21.61     0.00        1     0.00     0.00  pmain
+  0.00     21.61     0.00        1     0.00     0.00  singlestep
+  0.00     21.61     0.00        1     0.00     0.00  skipcomment
+  0.00     21.61     0.00        1     0.00     0.00  stack_init
+  0.00     21.61     0.00        1     0.00     0.00  tablerehash
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.05% of 21.61 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.00   21.60                 main [1]
+                0.00   15.43       1/1           close_state [4]
+                0.00    3.09       1/1           luaL_newstate [7]
+                2.82    0.27       1/7           lua_pcallk <cycle 1> [254]
+                0.00    0.00       1/3           lua_gc [68]
+                0.00    0.00       1/40000948     l_alloc [22]
+                0.00    0.00       1/168         lua_pushcclosure [94]
+                0.00    0.00       1/5           lua_pushinteger [226]
+                0.00    0.00       1/4           lua_pushlightuserdata [232]
+                0.00    0.00       1/11          lua_toboolean [204]
+                0.00    0.00       1/1           lua_close [265]
+-----------------------------------------------
+[2]    100.0   19.71    1.89       7+306946324 <cycle 1 as a whole> [2]
+               18.83    1.89       1             luaV_execute <cycle 1> [3]
+                0.88    0.00 306946270             luaD_precall <cycle 1> [11]
+                0.00    0.00       9             luaD_rawrunprotected <cycle 1> [27]
+                0.00    0.00      10             luaL_requiref <cycle 1> [33]
+                0.00    0.00       1             pmain <cycle 1> [57]
+                0.00    0.00       1             luaL_openlibs <cycle 1> [96]
+                0.00    0.00       1             luaD_protectedparser <cycle 1> [114]
+                0.00    0.00       1             luaL_loadfilex <cycle 1> [131]
+                0.00    0.00       1             docall <cycle 1> [155]
+                0.00    0.00      16             luaD_callnoyield <cycle 1> [192]
+                0.00    0.00      10             lua_callk <cycle 1> [208]
+                0.00    0.00       7             luaD_pcall <cycle 1> [218]
+                0.00    0.00       2             lua_pcallk <cycle 1> [254]
+                0.00    0.00       1             lua_load <cycle 1> [266]
+-----------------------------------------------
+                                   1             luaD_callnoyield <cycle 1> [192]
+[3]     95.9   18.83    1.89       1         luaV_execute <cycle 1> [3]
+                1.09    0.00 310000031/310000031     luaD_pretailcall [10]
+                0.41    0.00 271946179/271946189     luaH_getshortstr [12]
+                0.00    0.16  142858/142866      luaC_step [13]
+                0.07    0.00 35000103/35000103     luaT_getvarargs [17]
+                0.03    0.04 10000005/10000006     luaF_newLclosure [18]
+                0.02    0.04 10000001/10000001     luaF_findupval [19]
+                0.03    0.00 25000004/25000004     luaV_tointeger [23]
+                0.00    0.00       6/203         luaV_finishset [63]
+                0.00    0.00 10000001/10000002     luaF_closeupval [159]
+                0.00    0.00      29/29          luaG_traceexec [185]
+                0.00    0.00       4/31          luaD_poscall [184]
+                0.00    0.00       4/4           luaT_adjustvarargs [230]
+                             306946254             luaD_precall <cycle 1> [11]
+-----------------------------------------------
+                0.00   15.43       1/1           main [1]
+[4]     71.4    0.00   15.43       1         close_state [4]
+                0.00   12.34       1/1           luaC_freeallobjects [5]
+                0.00    3.09       1/1           luaD_closeprotected [9]
+                0.00    0.00      35/20000430     luaM_free_ [21]
+-----------------------------------------------
+                0.00   12.34       1/1           close_state [4]
+[5]     57.1    0.00   12.34       1         luaC_freeallobjects [5]
+                0.00   12.34       4/4           GCTM [6]
+                0.00    0.00     296/20000290     freeobj [15]
+                0.00    0.00     296/20000430     luaM_free_ [21]
+                0.00    0.00       6/6           luaF_freeproto [78]
+                0.00    0.00      20/21          luaH_free [79]
+                0.00    0.00       1/1           enterinc [257]
+                0.00    0.00       1/142861      separatetobefnz [166]
+-----------------------------------------------
+                0.00   12.34       4/4           luaC_freeallobjects [5]
+[6]     57.1    0.00   12.34       4         GCTM [6]
+               11.26    1.08       4/7           luaD_pcall <cycle 1> [218]
+                0.00    0.00       4/271946189     luaH_getshortstr [12]
+                0.00    0.00       4/4           luaT_gettmbyobj [231]
+-----------------------------------------------
+                0.00    3.09       1/1           main [1]
+[7]     14.3    0.00    3.09       1         luaL_newstate [7]
+                0.00    3.09       1/1           lua_newstate [8]
+                0.00    0.00       1/1           lua_atpanic [264]
+                0.00    0.00       1/1           lua_setwarnf [267]
+-----------------------------------------------
+                0.00    3.09       1/1           luaL_newstate [7]
+[8]     14.3    0.00    3.09       1         lua_newstate [8]
+                2.82    0.27       1/7           luaD_rawrunprotected <cycle 1> [27]
+                0.00    0.00       1/40000948     l_alloc [22]
+                0.00    0.00       1/1           luaS_hash [262]
+-----------------------------------------------
+                0.00    3.09       1/1           close_state [4]
+[9]     14.3    0.00    3.09       1         luaD_closeprotected [9]
+                2.82    0.27       1/7           luaD_rawrunprotected <cycle 1> [27]
+-----------------------------------------------
+                1.09    0.00 310000031/310000031     luaV_execute <cycle 1> [3]
+[10]     5.0    1.09    0.00 310000031         luaD_pretailcall [10]
+-----------------------------------------------
+                                  16             luaD_callnoyield <cycle 1> [192]
+                             306946254             luaV_execute <cycle 1> [3]
+[11]     4.1    0.88    0.00 306946270         luaD_precall <cycle 1> [11]
+                0.00    0.00       1/1           luaopen_package [28]
+                0.00    0.00       1/1           luaopen_string [36]
+                0.00    0.00       1/1           luaopen_debug [40]
+                0.00    0.00       1/1           luaopen_table [41]
+                0.00    0.00       1/1           luaopen_io [43]
+                0.00    0.00       1/1           luaopen_math [50]
+                0.00    0.00       3/3           f_gc [58]
+                0.00    0.00       1/1           luaopen_base [71]
+                0.00    0.00       3/3           str_format [72]
+                0.00    0.00       3/3           luaB_print [74]
+                0.00    0.00      33/33          luaE_extendCI [77]
+                0.00    0.00       1/1           luaopen_utf8 [87]
+                0.00    0.00       1/1           luaopen_os [91]
+                0.00    0.00       1/1           luaopen_coroutine [90]
+                0.00    0.00       2/2           luaD_reallocstack [141]
+                0.00    0.00       1/1           gctm [146]
+                0.00    0.00      27/31          luaD_poscall [184]
+                0.00    0.00       6/6           os_clock [223]
+                0.00    0.00       2/2           luaD_growstack [250]
+                                   1             pmain <cycle 1> [57]
+-----------------------------------------------
+                0.00    0.00       4/271946189     GCTM [6]
+                0.00    0.00       6/271946189     luaT_gettm [110]
+                0.41    0.00 271946179/271946189     luaV_execute <cycle 1> [3]
+[12]     1.9    0.41    0.00 271946189         luaH_getshortstr [12]
+-----------------------------------------------
+                0.00    0.00       1/142866      luaX_newstring [32]
+                0.00    0.00       1/142866      lua_pushstring [39]
+                0.00    0.00       1/142866      lua_newuserdatauv [42]
+                0.00    0.00       1/142866      luaL_getsubtable [38]
+                0.00    0.00       1/142866      luaopen_debug [40]
+                0.00    0.00       1/142866      luaopen_package [28]
+                0.00    0.00       1/142866      luaopen_string [36]
+                0.00    0.00       1/142866      luaopen_table [41]
+                0.00    0.16  142858/142866      luaV_execute <cycle 1> [3]
+[13]     0.8    0.00    0.16  142866         luaC_step [13]
+                0.04    0.11  714295/714299      dothecall [14]
+                0.00    0.01  142859/142860      atomic [24]
+                0.00    0.00  142859/142860      finishgencycle [167]
+                0.00    0.00  142859/142868      luaE_setdebt [165]
+                0.00    0.00      33/286012      reallymarkobject [162]
+-----------------------------------------------
+                0.00    0.00       4/714299      luaD_rawrunprotected <cycle 1> [27]
+                0.04    0.11  714295/714299      luaC_step [13]
+[14]     0.7    0.04    0.11  714299         dothecall [14]
+                0.08    0.00 19999991/20000290     freeobj [15]
+                0.02    0.01 19999991/20000430     luaM_free_ [21]
+                0.00    0.00       1/21          luaH_free [79]
+-----------------------------------------------
+                0.00    0.00       3/20000290     sweep2old [99]
+                0.00    0.00     296/20000290     luaC_freeallobjects [5]
+                0.08    0.00 19999991/20000290     dothecall [14]
+[15]     0.4    0.08    0.00 20000290         freeobj [15]
+                0.00    0.00     236/236         luaS_remove [169]
+-----------------------------------------------
+                0.00    0.00       1/20000290     luaF_initupvals [120]
+                0.00    0.00       4/20000290     luaS_newudata [106]
+                0.00    0.00       6/20000290     luaF_newproto [97]
+                0.00    0.00       7/20000290     luaF_newCclosure [95]
+                0.00    0.00       8/20000290     luaS_newlstr [93]
+                0.00    0.00      21/20000290     luaH_new [73]
+                0.00    0.00     236/20000290     internshrstr [45]
+                0.01    0.02 10000001/20000290     luaF_findupval [19]
+                0.01    0.02 10000006/20000290     luaF_newLclosure [18]
+[16]     0.3    0.03    0.04 20000290         luaC_newobj [16]
+                0.03    0.01 20000290/20000364     luaM_malloc_ [20]
+-----------------------------------------------
+                0.07    0.00 35000103/35000103     luaV_execute <cycle 1> [3]
+[17]     0.3    0.07    0.00 35000103         luaT_getvarargs [17]
+-----------------------------------------------
+                0.00    0.00       1/10000006     luaY_parser [30]
+                0.03    0.04 10000005/10000006     luaV_execute <cycle 1> [3]
+[18]     0.3    0.03    0.04 10000006         luaF_newLclosure [18]
+                0.01    0.02 10000006/20000290     luaC_newobj [16]
+-----------------------------------------------
+                0.02    0.04 10000001/10000001     luaV_execute <cycle 1> [3]
+[19]     0.3    0.02    0.04 10000001         luaF_findupval [19]
+                0.01    0.02 10000001/20000290     luaC_newobj [16]
+-----------------------------------------------
+                0.00    0.00       1/20000364     stack_init [133]
+                0.00    0.00       1/20000364     luaS_init [118]
+                0.00    0.00      33/20000364     luaE_extendCI [77]
+                0.00    0.00      39/20000364     luaH_resize <cycle 4> [64]
+                0.03    0.01 20000290/20000364     luaC_newobj [16]
+[20]     0.2    0.03    0.01 20000364         luaM_malloc_ [20]
+                0.01    0.00 20000364/40000948     l_alloc [22]
+-----------------------------------------------
+                0.00    0.00       3/20000430     luaD_protectedparser <cycle 1> [114]
+                0.00    0.00       3/20000430     sweep2old [99]
+                0.00    0.00      21/20000430     luaH_newkey <cycle 4> [83]
+                0.00    0.00      35/20000430     close_state [4]
+                0.00    0.00      39/20000430     luaH_free [79]
+                0.00    0.00      42/20000430     luaF_freeproto [78]
+                0.00    0.00     296/20000430     luaC_freeallobjects [5]
+                0.02    0.01 19999991/20000430     dothecall [14]
+[21]     0.2    0.02    0.01 20000430         luaM_free_ [21]
+                0.01    0.00 20000430/40000948     l_alloc [22]
+-----------------------------------------------
+                0.00    0.00       1/40000948     main [1]
+                0.00    0.00       1/40000948     lua_newstate [8]
+                0.00    0.00     152/40000948     luaM_realloc_ [65]
+                0.01    0.00 20000364/40000948     luaM_malloc_ [20]
+                0.01    0.00 20000430/40000948     luaM_free_ [21]
+[22]     0.1    0.03    0.00 40000948         l_alloc [22]
+-----------------------------------------------
+                0.03    0.00 25000004/25000004     luaV_execute <cycle 1> [3]
+[23]     0.1    0.03    0.00 25000004         luaV_tointeger [23]
+-----------------------------------------------
+                0.00    0.00       1/142860      entergen [69]
+                0.00    0.01  142859/142860      luaC_step [13]
+[24]     0.0    0.00    0.01  142860         atomic [24]
+                0.01    0.00  142860/142860      luaS_clearcache [25]
+                0.00    0.00  285781/285781      propagatemark [137]
+                0.00    0.00  571440/571440      clearbyvalues [160]
+                0.00    0.00  285720/285720      convergeephemerons [164]
+                0.00    0.00  285720/285720      clearbykeys [163]
+                0.00    0.00  142860/142861      separatetobefnz [166]
+-----------------------------------------------
+                0.01    0.00  142860/142860      atomic [24]
+[25]     0.0    0.01    0.00  142860         luaS_clearcache [25]
+-----------------------------------------------
+                                                 <spontaneous>
+[26]     0.0    0.01    0.00                 _init [26]
+-----------------------------------------------
+                                   7             luaD_pcall <cycle 1> [218]
+                2.82    0.27       1/7           luaD_closeprotected [9]
+                2.82    0.27       1/7           lua_newstate [8]
+[27]     0.0    0.00    0.00       9         luaD_rawrunprotected <cycle 1> [27]
+                0.00    0.00       1/1           f_parser [29]
+                0.00    0.00       4/714299      dothecall [14]
+                0.00    0.00       1/1           f_luaopen [67]
+                0.00    0.00       1/1           luaF_initupvals [120]
+                0.00    0.00       2/2           f_call [249]
+                0.00    0.00       1/1           luaF_close [259]
+                0.00    0.00       1/1           closepaux [256]
+                                   6             luaD_callnoyield <cycle 1> [192]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_precall <cycle 1> [11]
+[28]     0.0    0.00    0.00       1         luaopen_package [28]
+                0.00    0.00       1/142866      luaC_step [13]
+                0.00    0.00       3/13          luaL_getsubtable [38]
+                0.00    0.00       2/2           setpath [66]
+                0.00    0.00       2/15          luaL_setfuncs [48]
+                0.00    0.00       1/24          lua_pushstring [39]
+                0.00    0.00       3/18          lua_createtable [75]
+                0.00    0.00       5/214         auxsetstr [47]
+                0.00    0.00       1/5           lua_setmetatable [112]
+                0.00    0.00       4/6           lua_rawseti [143]
+                0.00    0.00       5/168         lua_pushcclosure [94]
+                0.00    0.00       5/203         lua_setfield [171]
+                0.00    0.00       5/82          lua_settop [174]
+                0.00    0.00       5/40          lua_pushvalue [180]
+                0.00    0.00       1/10          luaL_checkversion_ [207]
+                0.00    0.00       1/142868      luaE_setdebt [165]
+                0.00    0.00       1/2           lua_rawgeti [255]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_rawrunprotected <cycle 1> [27]
+[29]     0.0    0.00    0.00       1         f_parser [29]
+                0.00    0.00       1/1           luaY_parser [30]
+                0.00    0.00       1/3           luaZ_fill [242]
+-----------------------------------------------
+                0.00    0.00       1/1           f_parser [29]
+[30]     0.0    0.00    0.00       1         luaY_parser [30]
+                0.00    0.00      10/10          statement <cycle 2> [37]
+                0.00    0.00       1/10000006     luaF_newLclosure [18]
+                0.00    0.00       1/234         luaX_next [34]
+                0.00    0.00       1/6           close_func [88]
+                0.00    0.00       1/6           luaF_newproto [97]
+                0.00    0.00       1/21          luaH_new [73]
+                0.00    0.00       1/1           luaX_setinput [123]
+                0.00    0.00       1/323         luaS_new [46]
+                0.00    0.00       1/126         luaK_code [89]
+                0.00    0.00       1/4           allocupvalue [150]
+                0.00    0.00       2/2           luaD_inctop [251]
+                0.00    0.00       1/6           open_func [222]
+                0.00    0.00       1/19          luaK_codeABCk [187]
+-----------------------------------------------
+[31]     0.0    0.00    0.00      10+29      <cycle 2 as a whole> [31]
+                0.00    0.00      28             statement <cycle 2> [37]
+                0.00    0.00       5             body <cycle 2> [54]
+                0.00    0.00       2             test_then_block <cycle 2> [76]
+                0.00    0.00       2             forbody <cycle 2> [107]
+                0.00    0.00       2             block <cycle 2> [145]
+-----------------------------------------------
+                0.00    0.00       6/122         statement <cycle 2> [37]
+                0.00    0.00     116/122         llex [35]
+[32]     0.0    0.00    0.00     122         luaX_newstring [32]
+                0.00    0.00       1/142866      luaC_step [13]
+                0.00    0.00     119/355         internshrstr [45]
+                0.00    0.00      34/257         luaH_newkey <cycle 4> [83]
+                0.00    0.00     122/362         luaS_newlstr [93]
+                0.00    0.00     122/373         luaH_getstr [156]
+                0.00    0.00      34/254         luaH_finishset [168]
+-----------------------------------------------
+                                  10             luaL_openlibs <cycle 1> [96]
+[33]     0.0    0.00    0.00      10         luaL_requiref <cycle 1> [33]
+                0.00    0.00      10/13          luaL_getsubtable [38]
+                0.00    0.00      10/24          lua_pushstring [39]
+                0.00    0.00      10/214         auxsetstr [47]
+                0.00    0.00      10/36          lua_getfield [80]
+                0.00    0.00      10/168         lua_pushcclosure [94]
+                0.00    0.00      20/82          lua_settop [174]
+                0.00    0.00      20/40          lua_pushvalue [180]
+                0.00    0.00      10/11          lua_toboolean [204]
+                0.00    0.00      10/17          lua_rotate [191]
+                0.00    0.00      10/203         lua_setfield [171]
+                                  10             lua_callk <cycle 1> [208]
+-----------------------------------------------
+                0.00    0.00       1/234         luaY_parser [30]
+                0.00    0.00       2/234         forbody <cycle 2> [107]
+                0.00    0.00       2/234         suffixedexp <cycle 3> [49]
+                0.00    0.00       4/234         test_then_block <cycle 2> [76]
+                0.00    0.00      10/234         fieldsel [81]
+                0.00    0.00      10/234         restassign [52]
+                0.00    0.00      28/234         body <cycle 2> [54]
+                0.00    0.00      30/234         subexpr <cycle 3> [55]
+                0.00    0.00      41/234         statement <cycle 2> [37]
+                0.00    0.00      48/234         funcargs <cycle 3> [53]
+                0.00    0.00      58/234         singlevar [51]
+[34]     0.0    0.00    0.00     234         luaX_next [34]
+                0.00    0.00     234/234         llex [35]
+                0.00    0.00      17/17          read_numeral [158]
+-----------------------------------------------
+                0.00    0.00     234/234         luaX_next [34]
+[35]     0.0    0.00    0.00     234         llex [35]
+                0.00    0.00     116/122         luaX_newstring [32]
+                0.00    0.00     623/676         save [148]
+                0.00    0.00      43/43          inclinenumber [178]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_precall <cycle 1> [11]
+[36]     0.0    0.00    0.00       1         luaopen_string [36]
+                0.00    0.00       1/142866      luaC_step [13]
+                0.00    0.00       2/15          luaL_setfuncs [48]
+                0.00    0.00       1/24          lua_pushstring [39]
+                0.00    0.00       2/18          lua_createtable [75]
+                0.00    0.00       1/214         auxsetstr [47]
+                0.00    0.00       1/5           lua_setmetatable [112]
+                0.00    0.00       4/82          lua_settop [174]
+                0.00    0.00       2/40          lua_pushvalue [180]
+                0.00    0.00       1/10          luaL_checkversion_ [207]
+                0.00    0.00       1/142868      luaE_setdebt [165]
+                0.00    0.00       1/203         lua_setfield [171]
+-----------------------------------------------
+                                   2             block <cycle 2> [145]
+                                   2             test_then_block <cycle 2> [76]
+                                  14             body <cycle 2> [54]
+                0.00    0.00      10/10          luaY_parser [30]
+[37]     0.0    0.00    0.00      28         statement <cycle 2> [37]
+                0.00    0.00      16/36          subexpr <cycle 3> [55]
+                0.00    0.00       5/5           restassign [52]
+                0.00    0.00      41/234         luaX_next [34]
+                0.00    0.00       8/36          suffixedexp <cycle 3> [49]
+                0.00    0.00       6/122         luaX_newstring [32]
+                0.00    0.00       4/58          singlevar [51]
+                0.00    0.00       9/126         luaK_code [89]
+                0.00    0.00      14/22          new_localvar [126]
+                0.00    0.00       7/14          adjustlocalvars [127]
+                0.00    0.00       7/66          exp2reg [109]
+                0.00    0.00       4/13          luaK_storevar [124]
+                0.00    0.00       2/14          leaveblock [115]
+                0.00    0.00       4/162         savelineinfo [98]
+                0.00    0.00       7/63          luaK_exp2nextreg [132]
+                0.00    0.00       4/41          luaK_exp2anyreg [129]
+                0.00    0.00       8/123         check_match [144]
+                0.00    0.00       2/14          luaK_int [154]
+                0.00    0.00      28/96          luaE_incCstack [173]
+                0.00    0.00       7/18          luaK_ret [188]
+                0.00    0.00       4/13          check_readonly [197]
+                0.00    0.00       4/36          luaK_fixline [182]
+                0.00    0.00       3/13          luaK_reserveregs [198]
+                0.00    0.00       2/6           patchlistaux [224]
+                0.00    0.00       2/4           luaK_patchtohere [229]
+                0.00    0.00       2/10          luaK_setreturns [206]
+                                   5             body <cycle 2> [54]
+                                   2             test_then_block <cycle 2> [76]
+                                   2             forbody <cycle 2> [107]
+-----------------------------------------------
+                0.00    0.00       3/13          luaopen_package [28]
+                0.00    0.00      10/13          luaL_requiref <cycle 1> [33]
+[38]     0.0    0.00    0.00      13         luaL_getsubtable [38]
+                0.00    0.00       1/142866      luaC_step [13]
+                0.00    0.00      13/36          lua_getfield [80]
+                0.00    0.00       3/18          lua_createtable [75]
+                0.00    0.00       3/214         auxsetstr [47]
+                0.00    0.00       3/15          lua_absindex [194]
+                0.00    0.00       3/82          lua_settop [174]
+                0.00    0.00       3/40          lua_pushvalue [180]
+                0.00    0.00       3/203         lua_setfield [171]
+                0.00    0.00       1/142868      luaE_setdebt [165]
+-----------------------------------------------
+                0.00    0.00       1/24          luaL_newmetatable [82]
+                0.00    0.00       1/24          luaopen_base [71]
+                0.00    0.00       1/24          luaopen_package [28]
+                0.00    0.00       1/24          luaopen_string [36]
+                0.00    0.00       2/24          pmain <cycle 1> [57]
+                0.00    0.00       2/24          setpath [66]
+                0.00    0.00       3/24          warnfon [62]
+                0.00    0.00       3/24          io_noclose [60]
+                0.00    0.00      10/24          luaL_requiref <cycle 1> [33]
+[39]     0.0    0.00    0.00      24         lua_pushstring [39]
+                0.00    0.00       1/142866      luaC_step [13]
+                0.00    0.00      24/323         luaS_new [46]
+                0.00    0.00       1/142868      luaE_setdebt [165]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_precall <cycle 1> [11]
+[40]     0.0    0.00    0.00       1         luaopen_debug [40]
+                0.00    0.00       1/142866      luaC_step [13]
+                0.00    0.00       1/15          luaL_setfuncs [48]
+                0.00    0.00       1/18          lua_createtable [75]
+                0.00    0.00       1/10          luaL_checkversion_ [207]
+                0.00    0.00       1/142868      luaE_setdebt [165]
+                0.00    0.00       1/82          lua_settop [174]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_precall <cycle 1> [11]
+[41]     0.0    0.00    0.00       1         luaopen_table [41]
+                0.00    0.00       1/142866      luaC_step [13]
+                0.00    0.00       1/15          luaL_setfuncs [48]
+                0.00    0.00       1/18          lua_createtable [75]
+                0.00    0.00       1/10          luaL_checkversion_ [207]
+                0.00    0.00       1/142868      luaE_setdebt [165]
+                0.00    0.00       1/82          lua_settop [174]
+-----------------------------------------------
+                0.00    0.00       1/4           luaopen_math [50]
+                0.00    0.00       3/4           luaopen_io [43]
+[42]     0.0    0.00    0.00       4         lua_newuserdatauv [42]
+                0.00    0.00       1/142866      luaC_step [13]
+                0.00    0.00       4/576         luaS_newudata [106]
+                0.00    0.00       1/142868      luaE_setdebt [165]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_precall <cycle 1> [11]
+[43]     0.0    0.00    0.00       1         luaopen_io [43]
+                0.00    0.00       3/4           lua_newuserdatauv [42]
+                0.00    0.00       3/15          luaL_setfuncs [48]
+                0.00    0.00       1/1           luaL_newmetatable [82]
+                0.00    0.00       6/214         auxsetstr [47]
+                0.00    0.00       2/18          lua_createtable [75]
+                0.00    0.00       3/3           luaL_setmetatable [116]
+                0.00    0.00       3/5           lua_setmetatable [112]
+                0.00    0.00       6/203         lua_setfield [171]
+                0.00    0.00       4/82          lua_settop [174]
+                0.00    0.00       2/40          lua_pushvalue [180]
+                0.00    0.00       1/10          luaL_checkversion_ [207]
+-----------------------------------------------
+[44]     0.0    0.00    0.00      36+90      <cycle 3 as a whole> [44]
+                0.00    0.00      55             suffixedexp <cycle 3> [49]
+                0.00    0.00      16             funcargs <cycle 3> [53]
+                0.00    0.00      55+9           subexpr <cycle 3> [55]
+-----------------------------------------------
+                0.00    0.00       1/355         lua_pushlstring [128]
+                0.00    0.00       1/355         luaS_init [118]
+                0.00    0.00       1/355         luaX_init [86]
+                0.00    0.00       1/355         luaX_setinput [123]
+                0.00    0.00       2/355         leaveblock [115]
+                0.00    0.00       6/355         pushstr [105]
+                0.00    0.00     119/355         luaX_newstring [32]
+                0.00    0.00     224/355         luaS_new [46]
+[45]     0.0    0.00    0.00     355         internshrstr [45]
+                0.00    0.00     236/20000290     luaC_newobj [16]
+                0.00    0.00       1/1           luaS_resize [147]
+                0.00    0.00       1/1           tablerehash [270]
+-----------------------------------------------
+                0.00    0.00       1/323         lua_getglobal [136]
+                0.00    0.00       1/323         luaY_parser [30]
+                0.00    0.00      22/323         luaX_init [86]
+                0.00    0.00      24/323         lua_pushstring [39]
+                0.00    0.00      25/323         luaT_init [85]
+                0.00    0.00      36/323         lua_getfield [80]
+                0.00    0.00     214/323         auxsetstr [47]
+[46]     0.0    0.00    0.00     323         luaS_new [46]
+                0.00    0.00     224/355         internshrstr [45]
+                0.00    0.00     226/362         luaS_newlstr [93]
+-----------------------------------------------
+                0.00    0.00       1/214         pmain <cycle 1> [57]
+                0.00    0.00       1/214         luaopen_string [36]
+                0.00    0.00       1/214         luaopen_utf8 [87]
+                0.00    0.00       2/214         luaL_newmetatable [82]
+                0.00    0.00       2/214         luaopen_base [71]
+                0.00    0.00       2/214         setpath [66]
+                0.00    0.00       3/214         luaL_getsubtable [38]
+                0.00    0.00       4/214         luaopen_math [50]
+                0.00    0.00       5/214         luaopen_package [28]
+                0.00    0.00       6/214         luaopen_io [43]
+                0.00    0.00      10/214         luaL_requiref <cycle 1> [33]
+                0.00    0.00      10/214         luaL_openlibs <cycle 1> [96]
+                0.00    0.00     167/214         luaL_setfuncs [48]
+[47]     0.0    0.00    0.00     214         auxsetstr [47]
+                0.00    0.00     214/323         luaS_new [46]
+                0.00    0.00     197/203         luaV_finishset [63]
+                0.00    0.00     214/373         luaH_getstr [156]
+-----------------------------------------------
+                0.00    0.00       1/15          luaopen_base [71]
+                0.00    0.00       1/15          luaopen_coroutine [90]
+                0.00    0.00       1/15          luaopen_debug [40]
+                0.00    0.00       1/15          luaopen_os [91]
+                0.00    0.00       1/15          luaopen_table [41]
+                0.00    0.00       1/15          luaopen_utf8 [87]
+                0.00    0.00       2/15          luaopen_math [50]
+                0.00    0.00       2/15          luaopen_package [28]
+                0.00    0.00       2/15          luaopen_string [36]
+                0.00    0.00       3/15          luaopen_io [43]
+[48]     0.0    0.00    0.00      15         luaL_setfuncs [48]
+                0.00    0.00     167/214         auxsetstr [47]
+                0.00    0.00     151/168         lua_pushcclosure [94]
+                0.00    0.00     167/203         lua_setfield [171]
+                0.00    0.00      16/17          lua_pushboolean [190]
+                0.00    0.00      15/16          lua_checkstack [193]
+                0.00    0.00       3/40          lua_pushvalue [180]
+-----------------------------------------------
+                                  43             subexpr <cycle 3> [55]
+                0.00    0.00       4/36          restassign [52]
+                0.00    0.00       8/36          statement <cycle 2> [37]
+[49]     0.0    0.00    0.00      55         suffixedexp <cycle 3> [49]
+                0.00    0.00      54/58          singlevar [51]
+                0.00    0.00       5/5           fieldsel [81]
+                0.00    0.00       2/234         luaX_next [34]
+                0.00    0.00      16/66          exp2reg [109]
+                0.00    0.00      16/63          luaK_exp2nextreg [132]
+                0.00    0.00       1/191         luaK_dischargevars [111]
+                0.00    0.00       1/123         check_match [144]
+                                  16             funcargs <cycle 3> [53]
+                                   1             subexpr <cycle 3> [55]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_precall <cycle 1> [11]
+[50]     0.0    0.00    0.00       1         luaopen_math [50]
+                0.00    0.00       1/4           lua_newuserdatauv [42]
+                0.00    0.00       2/15          luaL_setfuncs [48]
+                0.00    0.00       4/214         auxsetstr [47]
+                0.00    0.00       1/18          lua_createtable [75]
+                0.00    0.00       4/203         lua_setfield [171]
+                0.00    0.00       4/5           lua_pushinteger [226]
+                0.00    0.00       3/82          lua_settop [174]
+                0.00    0.00       2/8           lua_pushnumber [216]
+                0.00    0.00       1/10          luaL_checkversion_ [207]
+-----------------------------------------------
+                0.00    0.00       4/58          statement <cycle 2> [37]
+                0.00    0.00      54/58          suffixedexp <cycle 3> [49]
+[51]     0.0    0.00    0.00      58         singlevar [51]
+                0.00    0.00      58/234         luaX_next [34]
+                0.00    0.00      32/37          luaK_indexed [125]
+                0.00    0.00      90/123         check_match [144]
+                0.00    0.00      32/37          luaK_exp2anyregup [181]
+-----------------------------------------------
+                                   4             restassign [52]
+                0.00    0.00       5/5           statement <cycle 2> [37]
+[52]     0.0    0.00    0.00       5+4       restassign [52]
+                0.00    0.00       6/36          subexpr <cycle 3> [55]
+                0.00    0.00       4/36          suffixedexp <cycle 3> [49]
+                0.00    0.00      10/234         luaX_next [34]
+                0.00    0.00       9/13          luaK_storevar [124]
+                0.00    0.00       4/66          exp2reg [109]
+                0.00    0.00       1/63          luaK_exp2nextreg [132]
+                0.00    0.00       3/123         check_match [144]
+                0.00    0.00       9/13          check_readonly [197]
+                0.00    0.00       4/96          luaE_incCstack [173]
+                0.00    0.00       3/13          luaK_reserveregs [198]
+                0.00    0.00       2/5           luaK_setoneret [225]
+                                   4             restassign [52]
+-----------------------------------------------
+                                  16             suffixedexp <cycle 3> [49]
+[53]     0.0    0.00    0.00      16         funcargs <cycle 3> [53]
+                0.00    0.00      48/234         luaX_next [34]
+                0.00    0.00      16/126         luaK_code [89]
+                0.00    0.00      26/66          exp2reg [109]
+                0.00    0.00      16/162         savelineinfo [98]
+                0.00    0.00      26/63          luaK_exp2nextreg [132]
+                0.00    0.00      16/123         check_match [144]
+                0.00    0.00      16/19          luaK_codeABCk [187]
+                0.00    0.00      16/36          luaK_fixline [182]
+                0.00    0.00       4/10          luaK_setreturns [206]
+                                  30             subexpr <cycle 3> [55]
+-----------------------------------------------
+                                   5             statement <cycle 2> [37]
+[54]     0.0    0.00    0.00       5         body <cycle 2> [54]
+                0.00    0.00      28/234         luaX_next [34]
+                0.00    0.00       5/6           close_func [88]
+                0.00    0.00       5/6           luaF_newproto [97]
+                0.00    0.00       6/126         luaK_code [89]
+                0.00    0.00       8/22          new_localvar [126]
+                0.00    0.00       5/14          adjustlocalvars [127]
+                0.00    0.00       5/66          exp2reg [109]
+                0.00    0.00       2/357         luaM_growaux_ [84]
+                0.00    0.00       5/63          luaK_exp2nextreg [132]
+                0.00    0.00       5/123         check_match [144]
+                0.00    0.00       5/6           open_func [222]
+                0.00    0.00       5/13          luaK_reserveregs [198]
+                0.00    0.00       5/9           luaK_codeABx [212]
+                0.00    0.00       1/19          luaK_codeABCk [187]
+                                  14             statement <cycle 2> [37]
+-----------------------------------------------
+                                   9             subexpr <cycle 3> [55]
+                                   1             suffixedexp <cycle 3> [49]
+                                  30             funcargs <cycle 3> [53]
+                0.00    0.00       2/36          test_then_block <cycle 2> [76]
+                0.00    0.00       6/36          restassign [52]
+                0.00    0.00      16/36          statement <cycle 2> [37]
+[55]     0.0    0.00    0.00      55+9       subexpr <cycle 3> [55]
+                0.00    0.00      30/234         luaX_next [34]
+                0.00    0.00       9/9           luaK_posfix [119]
+                0.00    0.00       4/4           codearith [121]
+                0.00    0.00       9/41          luaK_exp2anyreg [129]
+                0.00    0.00       9/9           luaK_infix [151]
+                0.00    0.00       1/126         luaK_code [89]
+                0.00    0.00      64/96          luaE_incCstack [173]
+                0.00    0.00       1/19          luaK_codeABCk [187]
+                                  43             suffixedexp <cycle 3> [49]
+                                   9             subexpr <cycle 3> [55]
+-----------------------------------------------
+[56]     0.0    0.00    0.00     257+179     <cycle 4 as a whole> [56]
+                0.00    0.00      41             luaH_resize <cycle 4> [64]
+                0.00    0.00     395+25          luaH_newkey <cycle 4> [83]
+-----------------------------------------------
+                                   1             luaD_precall <cycle 1> [11]
+[57]     0.0    0.00    0.00       1         pmain <cycle 1> [57]
+                0.00    0.00       2/24          lua_pushstring [39]
+                0.00    0.00       2/3           lua_gc [68]
+                0.00    0.00       1/18          lua_createtable [75]
+                0.00    0.00       1/214         auxsetstr [47]
+                0.00    0.00       1/1           lua_getglobal [136]
+                0.00    0.00       1/2           luaL_len [138]
+                0.00    0.00       2/6           lua_rawseti [143]
+                0.00    0.00       1/6           lua_tointegerx [220]
+                0.00    0.00       1/10          lua_touserdata [209]
+                0.00    0.00       1/11          lua_setglobal [203]
+                0.00    0.00       1/10          luaL_checkversion_ [207]
+                0.00    0.00       1/17          lua_pushboolean [190]
+                0.00    0.00       1/1           luaL_checkstack [261]
+                0.00    0.00       1/17          lua_rotate [191]
+                0.00    0.00       1/82          lua_settop [174]
+                                   1             luaL_openlibs <cycle 1> [96]
+                                   1             luaL_loadfilex <cycle 1> [131]
+                                   1             docall <cycle 1> [155]
+-----------------------------------------------
+                0.00    0.00       3/3           luaD_precall <cycle 1> [11]
+[58]     0.0    0.00    0.00       3         f_gc [58]
+                0.00    0.00       3/3           io_noclose [60]
+                0.00    0.00       6/9           luaL_checkudata [101]
+-----------------------------------------------
+                0.00    0.00       3/6           luaB_print [74]
+                0.00    0.00       3/6           str_format [72]
+[59]     0.0    0.00    0.00       6         luaL_tolstring [59]
+                0.00    0.00       6/6           luaL_callmeta [61]
+                0.00    0.00       3/6           lua_pushfstring [104]
+                0.00    0.00       6/15          lua_absindex [194]
+                0.00    0.00       6/6           lua_type [221]
+                0.00    0.00       3/40          lua_pushvalue [180]
+                0.00    0.00       3/3           lua_isinteger [243]
+                0.00    0.00       3/6           lua_tointegerx [220]
+-----------------------------------------------
+                0.00    0.00       3/3           f_gc [58]
+[60]     0.0    0.00    0.00       3         io_noclose [60]
+                0.00    0.00       3/24          lua_pushstring [39]
+                0.00    0.00       3/9           luaL_checkudata [101]
+                0.00    0.00       3/3           lua_pushnil [244]
+-----------------------------------------------
+                0.00    0.00       6/6           luaL_tolstring [59]
+[61]     0.0    0.00    0.00       6         luaL_callmeta [61]
+                0.00    0.00       3/3           warnfon [62]
+                0.00    0.00       6/15          lua_absindex [194]
+                0.00    0.00       6/15          lua_getmetatable [195]
+-----------------------------------------------
+                0.00    0.00       3/3           luaL_callmeta [61]
+[62]     0.0    0.00    0.00       3         warnfon [62]
+                0.00    0.00       3/24          lua_pushstring [39]
+                0.00    0.00       3/3           lua_rawget [245]
+                0.00    0.00       3/82          lua_settop [174]
+-----------------------------------------------
+                0.00    0.00       6/203         luaV_execute <cycle 1> [3]
+                0.00    0.00     197/203         auxsetstr [47]
+[63]     0.0    0.00    0.00     203         luaV_finishset [63]
+                0.00    0.00     203/257         luaH_newkey <cycle 4> [83]
+                0.00    0.00     203/254         luaH_finishset [168]
+-----------------------------------------------
+                                  25             luaH_newkey <cycle 4> [83]
+                0.00    0.00       1/257         f_luaopen [67]
+                0.00    0.00      15/257         lua_createtable [75]
+[64]     0.0    0.00    0.00      41         luaH_resize <cycle 4> [64]
+                0.00    0.00      39/20000364     luaM_malloc_ [20]
+                0.00    0.00      41/152         luaM_realloc_ [65]
+                0.00    0.00       1/7           getgeneric [153]
+                0.00    0.00     154/224         luaH_get [170]
+                0.00    0.00      41/110         luaH_realasize [172]
+                0.00    0.00      39/40          luaO_ceillog2 [179]
+                                 154             luaH_newkey <cycle 4> [83]
+-----------------------------------------------
+                0.00    0.00       1/152         luaS_resize [147]
+                0.00    0.00       2/152         luaD_reallocstack [141]
+                0.00    0.00       3/152         luaM_saferealloc_ [134]
+                0.00    0.00      41/152         luaH_resize <cycle 4> [64]
+                0.00    0.00      42/152         luaM_shrinkvector_ [92]
+                0.00    0.00      63/152         luaM_growaux_ [84]
+[65]     0.0    0.00    0.00     152         luaM_realloc_ [65]
+                0.00    0.00     152/40000948     l_alloc [22]
+-----------------------------------------------
+                0.00    0.00       2/2           luaopen_package [28]
+[66]     0.0    0.00    0.00       2         setpath [66]
+                0.00    0.00       2/24          lua_pushstring [39]
+                0.00    0.00       2/6           lua_pushfstring [104]
+                0.00    0.00       2/214         auxsetstr [47]
+                0.00    0.00       2/203         lua_setfield [171]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_rawrunprotected <cycle 1> [27]
+[67]     0.0    0.00    0.00       1         f_luaopen [67]
+                0.00    0.00       1/1           luaT_init [85]
+                0.00    0.00       1/1           luaX_init [86]
+                0.00    0.00       2/21          luaH_new [73]
+                0.00    0.00       1/1           luaS_init [118]
+                0.00    0.00       1/1           stack_init [133]
+                0.00    0.00       1/257         luaH_resize <cycle 4> [64]
+-----------------------------------------------
+                0.00    0.00       1/3           main [1]
+                0.00    0.00       2/3           pmain <cycle 1> [57]
+[68]     0.0    0.00    0.00       3         lua_gc [68]
+                0.00    0.00       1/1           luaC_changemode [70]
+                0.00    0.00       1/142868      luaE_setdebt [165]
+-----------------------------------------------
+                0.00    0.00       1/1           luaC_changemode [70]
+[69]     0.0    0.00    0.00       1         entergen [69]
+                0.00    0.00       1/142860      atomic [24]
+                0.00    0.00       1/1           atomic2gen [100]
+                0.00    0.00       1/1           singlestep [268]
+                0.00    0.00       1/142860      finishgencycle [167]
+                0.00    0.00       1/142868      luaE_setdebt [165]
+-----------------------------------------------
+                0.00    0.00       1/1           lua_gc [68]
+[70]     0.0    0.00    0.00       1         luaC_changemode [70]
+                0.00    0.00       1/1           entergen [69]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_precall <cycle 1> [11]
+[71]     0.0    0.00    0.00       1         luaopen_base [71]
+                0.00    0.00       1/24          lua_pushstring [39]
+                0.00    0.00       1/15          luaL_setfuncs [48]
+                0.00    0.00       2/214         auxsetstr [47]
+                0.00    0.00       2/203         lua_setfield [171]
+                0.00    0.00       1/2           lua_rawgeti [255]
+                0.00    0.00       1/82          lua_settop [174]
+                0.00    0.00       1/40          lua_pushvalue [180]
+-----------------------------------------------
+                0.00    0.00       3/3           luaD_precall <cycle 1> [11]
+[72]     0.0    0.00    0.00       3         str_format [72]
+                0.00    0.00       3/6           luaL_tolstring [59]
+                0.00    0.00       3/3           luaL_pushresult [135]
+                0.00    0.00       9/12          prepbuffsize [201]
+                0.00    0.00       9/9           luaL_prepbuffsize [213]
+                0.00    0.00       3/8           lua_gettop [215]
+                0.00    0.00       3/3           luaL_checklstring [239]
+                0.00    0.00       3/4           lua_pushlightuserdata [232]
+                0.00    0.00       3/3           luaL_buffinit [238]
+                0.00    0.00       3/82          lua_settop [174]
+                0.00    0.00       3/3           luaL_checknumber [240]
+                0.00    0.00       3/3           checkformat [234]
+                0.00    0.00       3/3           addlenmod [233]
+                0.00    0.00       3/13          lua_tolstring [199]
+                0.00    0.00       3/3           luaL_addvalue [237]
+-----------------------------------------------
+                0.00    0.00       1/21          luaY_parser [30]
+                0.00    0.00       2/21          f_luaopen [67]
+                0.00    0.00      18/21          lua_createtable [75]
+[73]     0.0    0.00    0.00      21         luaH_new [73]
+                0.00    0.00      21/20000290     luaC_newobj [16]
+-----------------------------------------------
+                0.00    0.00       3/3           luaD_precall <cycle 1> [11]
+[74]     0.0    0.00    0.00       3         luaB_print [74]
+                0.00    0.00       3/6           luaL_tolstring [59]
+                0.00    0.00       3/8           lua_gettop [215]
+                0.00    0.00       3/13          lua_tolstring [199]
+                0.00    0.00       3/82          lua_settop [174]
+-----------------------------------------------
+                0.00    0.00       1/18          pmain <cycle 1> [57]
+                0.00    0.00       1/18          luaL_newmetatable [82]
+                0.00    0.00       1/18          luaopen_coroutine [90]
+                0.00    0.00       1/18          luaopen_debug [40]
+                0.00    0.00       1/18          luaopen_math [50]
+                0.00    0.00       1/18          luaopen_os [91]
+                0.00    0.00       1/18          luaopen_table [41]
+                0.00    0.00       1/18          luaopen_utf8 [87]
+                0.00    0.00       2/18          luaopen_io [43]
+                0.00    0.00       2/18          luaopen_string [36]
+                0.00    0.00       3/18          luaL_getsubtable [38]
+                0.00    0.00       3/18          luaopen_package [28]
+[75]     0.0    0.00    0.00      18         lua_createtable [75]
+                0.00    0.00      18/21          luaH_new [73]
+                0.00    0.00      15/257         luaH_resize <cycle 4> [64]
+-----------------------------------------------
+                                   2             statement <cycle 2> [37]
+[76]     0.0    0.00    0.00       2         test_then_block <cycle 2> [76]
+                0.00    0.00       2/36          subexpr <cycle 3> [55]
+                0.00    0.00       4/234         luaX_next [34]
+                0.00    0.00       2/14          leaveblock [115]
+                0.00    0.00       2/2           luaK_goiftrue [157]
+                0.00    0.00       2/6           patchlistaux [224]
+                0.00    0.00       2/4           luaK_patchtohere [229]
+                                   2             statement <cycle 2> [37]
+-----------------------------------------------
+                0.00    0.00      33/33          luaD_precall <cycle 1> [11]
+[77]     0.0    0.00    0.00      33         luaE_extendCI [77]
+                0.00    0.00      33/20000364     luaM_malloc_ [20]
+-----------------------------------------------
+                0.00    0.00       6/6           luaC_freeallobjects [5]
+[78]     0.0    0.00    0.00       6         luaF_freeproto [78]
+                0.00    0.00      42/20000430     luaM_free_ [21]
+-----------------------------------------------
+                0.00    0.00       1/21          dothecall [14]
+                0.00    0.00      20/21          luaC_freeallobjects [5]
+[79]     0.0    0.00    0.00      21         luaH_free [79]
+                0.00    0.00      39/20000430     luaM_free_ [21]
+                0.00    0.00      21/110         luaH_realasize [172]
+-----------------------------------------------
+                0.00    0.00       1/36          luaL_newmetatable [82]
+                0.00    0.00       3/36          luaL_setmetatable [116]
+                0.00    0.00       9/36          luaL_testudata [102]
+                0.00    0.00      10/36          luaL_requiref <cycle 1> [33]
+                0.00    0.00      13/36          luaL_getsubtable [38]
+[80]     0.0    0.00    0.00      36         lua_getfield [80]
+                0.00    0.00      36/323         luaS_new [46]
+                0.00    0.00      36/373         luaH_getstr [156]
+                0.00    0.00      36/70          index2value [175]
+                0.00    0.00      14/14          luaV_finishget [196]
+-----------------------------------------------
+                0.00    0.00       5/5           suffixedexp <cycle 3> [49]
+[81]     0.0    0.00    0.00       5         fieldsel [81]
+                0.00    0.00      10/234         luaX_next [34]
+                0.00    0.00       5/37          luaK_indexed [125]
+                0.00    0.00       5/41          luaK_exp2anyreg [129]
+                0.00    0.00       5/37          luaK_exp2anyregup [181]
+-----------------------------------------------
+                0.00    0.00       1/1           luaopen_io [43]
+[82]     0.0    0.00    0.00       1         luaL_newmetatable [82]
+                0.00    0.00       1/24          lua_pushstring [39]
+                0.00    0.00       2/214         auxsetstr [47]
+                0.00    0.00       1/18          lua_createtable [75]
+                0.00    0.00       1/36          lua_getfield [80]
+                0.00    0.00       2/203         lua_setfield [171]
+                0.00    0.00       1/82          lua_settop [174]
+                0.00    0.00       1/40          lua_pushvalue [180]
+-----------------------------------------------
+                                  25             luaH_newkey <cycle 4> [83]
+                                 154             luaH_resize <cycle 4> [64]
+                0.00    0.00       2/257         luaH_setint [142]
+                0.00    0.00       2/257         addk [122]
+                0.00    0.00      34/257         luaX_newstring [32]
+                0.00    0.00     203/257         luaV_finishset [63]
+[83]     0.0    0.00    0.00     395+25      luaH_newkey <cycle 4> [83]
+                0.00    0.00      21/20000430     luaM_free_ [21]
+                0.00    0.00     565/576         luaS_newudata [106]
+                0.00    0.00      25/110         luaH_realasize [172]
+                0.00    0.00      25/224         luaH_get [170]
+                0.00    0.00       1/1           luaC_barrierback_ [258]
+                0.00    0.00       1/12          luaH_getint [200]
+                0.00    0.00       1/40          luaO_ceillog2 [179]
+                                  25             luaH_resize <cycle 4> [64]
+                                  25             luaH_newkey <cycle 4> [83]
+-----------------------------------------------
+                0.00    0.00       2/357         createlabel [152]
+                0.00    0.00       2/357         body <cycle 2> [54]
+                0.00    0.00       4/357         allocupvalue [150]
+                0.00    0.00      17/357         addk [122]
+                0.00    0.00      22/357         new_localvar [126]
+                0.00    0.00      22/357         adjustlocalvars [127]
+                0.00    0.00     126/357         luaK_code [89]
+                0.00    0.00     162/357         savelineinfo [98]
+[84]     0.0    0.00    0.00     357         luaM_growaux_ [84]
+                0.00    0.00      63/152         luaM_realloc_ [65]
+-----------------------------------------------
+                0.00    0.00       1/1           f_luaopen [67]
+[85]     0.0    0.00    0.00       1         luaT_init [85]
+                0.00    0.00      25/323         luaS_new [46]
+                0.00    0.00      25/49          luaC_fix [176]
+-----------------------------------------------
+                0.00    0.00       1/1           f_luaopen [67]
+[86]     0.0    0.00    0.00       1         luaX_init [86]
+                0.00    0.00      22/323         luaS_new [46]
+                0.00    0.00       1/355         internshrstr [45]
+                0.00    0.00       1/362         luaS_newlstr [93]
+                0.00    0.00      23/49          luaC_fix [176]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_precall <cycle 1> [11]
+[87]     0.0    0.00    0.00       1         luaopen_utf8 [87]
+                0.00    0.00       1/15          luaL_setfuncs [48]
+                0.00    0.00       1/18          lua_createtable [75]
+                0.00    0.00       1/214         auxsetstr [47]
+                0.00    0.00       1/4           lua_pushlstring [128]
+                0.00    0.00       1/10          luaL_checkversion_ [207]
+                0.00    0.00       1/82          lua_settop [174]
+                0.00    0.00       1/203         lua_setfield [171]
+-----------------------------------------------
+                0.00    0.00       1/6           luaY_parser [30]
+                0.00    0.00       5/6           body <cycle 2> [54]
+[88]     0.0    0.00    0.00       6         close_func [88]
+                0.00    0.00      42/42          luaM_shrinkvector_ [92]
+                0.00    0.00       6/14          leaveblock [115]
+                0.00    0.00       6/126         luaK_code [89]
+                0.00    0.00       6/18          luaK_ret [188]
+                0.00    0.00       6/6           luaK_finish [219]
+-----------------------------------------------
+                0.00    0.00       1/126         check_match [144]
+                0.00    0.00       1/126         subexpr <cycle 3> [55]
+                0.00    0.00       1/126         luaY_parser [30]
+                0.00    0.00       4/126         forbody <cycle 2> [107]
+                0.00    0.00       4/126         luaK_posfix [119]
+                0.00    0.00       6/126         close_func [88]
+                0.00    0.00       6/126         body <cycle 2> [54]
+                0.00    0.00       9/126         statement <cycle 2> [37]
+                0.00    0.00      10/126         luaK_storevar [124]
+                0.00    0.00      14/126         finishbinexpval [117]
+                0.00    0.00      16/126         funcargs <cycle 3> [53]
+                0.00    0.00      26/126         discharge2reg [108]
+                0.00    0.00      28/126         luaK_dischargevars [111]
+[89]     0.0    0.00    0.00     126         luaK_code [89]
+                0.00    0.00     126/357         luaM_growaux_ [84]
+                0.00    0.00     126/162         savelineinfo [98]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_precall <cycle 1> [11]
+[90]     0.0    0.00    0.00       1         luaopen_coroutine [90]
+                0.00    0.00       1/15          luaL_setfuncs [48]
+                0.00    0.00       1/18          lua_createtable [75]
+                0.00    0.00       1/10          luaL_checkversion_ [207]
+                0.00    0.00       1/82          lua_settop [174]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_precall <cycle 1> [11]
+[91]     0.0    0.00    0.00       1         luaopen_os [91]
+                0.00    0.00       1/15          luaL_setfuncs [48]
+                0.00    0.00       1/18          lua_createtable [75]
+                0.00    0.00       1/10          luaL_checkversion_ [207]
+                0.00    0.00       1/82          lua_settop [174]
+-----------------------------------------------
+                0.00    0.00      42/42          close_func [88]
+[92]     0.0    0.00    0.00      42         luaM_shrinkvector_ [92]
+                0.00    0.00      42/152         luaM_realloc_ [65]
+-----------------------------------------------
+                0.00    0.00       1/362         luaX_init [86]
+                0.00    0.00       1/362         luaX_setinput [123]
+                0.00    0.00       2/362         leaveblock [115]
+                0.00    0.00       4/362         lua_pushlstring [128]
+                0.00    0.00       6/362         pushstr [105]
+                0.00    0.00     122/362         luaX_newstring [32]
+                0.00    0.00     226/362         luaS_new [46]
+[93]     0.0    0.00    0.00     362         luaS_newlstr [93]
+                0.00    0.00       8/20000290     luaC_newobj [16]
+-----------------------------------------------
+                0.00    0.00       1/168         main [1]
+                0.00    0.00       1/168         docall <cycle 1> [155]
+                0.00    0.00       5/168         luaopen_package [28]
+                0.00    0.00      10/168         luaL_requiref <cycle 1> [33]
+                0.00    0.00     151/168         luaL_setfuncs [48]
+[94]     0.0    0.00    0.00     168         lua_pushcclosure [94]
+                0.00    0.00       7/7           luaF_newCclosure [95]
+-----------------------------------------------
+                0.00    0.00       7/7           lua_pushcclosure [94]
+[95]     0.0    0.00    0.00       7         luaF_newCclosure [95]
+                0.00    0.00       7/20000290     luaC_newobj [16]
+-----------------------------------------------
+                                   1             pmain <cycle 1> [57]
+[96]     0.0    0.00    0.00       1         luaL_openlibs <cycle 1> [96]
+                0.00    0.00      10/214         auxsetstr [47]
+                0.00    0.00      10/11          lua_setglobal [203]
+                0.00    0.00      10/82          lua_settop [174]
+                                  10             luaL_requiref <cycle 1> [33]
+-----------------------------------------------
+                0.00    0.00       1/6           luaY_parser [30]
+                0.00    0.00       5/6           body <cycle 2> [54]
+[97]     0.0    0.00    0.00       6         luaF_newproto [97]
+                0.00    0.00       6/20000290     luaC_newobj [16]
+-----------------------------------------------
+                0.00    0.00       2/162         forbody <cycle 2> [107]
+                0.00    0.00       3/162         finishbinexpneg [130]
+                0.00    0.00       4/162         statement <cycle 2> [37]
+                0.00    0.00       4/162         codearith [121]
+                0.00    0.00       7/162         finishbinexpval [117]
+                0.00    0.00      16/162         funcargs <cycle 3> [53]
+                0.00    0.00     126/162         luaK_code [89]
+[98]     0.0    0.00    0.00     162         savelineinfo [98]
+                0.00    0.00     162/357         luaM_growaux_ [84]
+-----------------------------------------------
+                0.00    0.00       3/3           atomic2gen [100]
+[99]     0.0    0.00    0.00       3         sweep2old [99]
+                0.00    0.00       3/20000290     freeobj [15]
+                0.00    0.00       3/20000430     luaM_free_ [21]
+-----------------------------------------------
+                0.00    0.00       1/1           entergen [69]
+[100]    0.0    0.00    0.00       1         atomic2gen [100]
+                0.00    0.00       3/3           sweep2old [99]
+-----------------------------------------------
+                0.00    0.00       3/9           io_noclose [60]
+                0.00    0.00       6/9           f_gc [58]
+[101]    0.0    0.00    0.00       9         luaL_checkudata [101]
+                0.00    0.00       9/9           luaL_testudata [102]
+-----------------------------------------------
+                0.00    0.00       9/9           luaL_checkudata [101]
+[102]    0.0    0.00    0.00       9         luaL_testudata [102]
+                0.00    0.00       9/36          lua_getfield [80]
+                0.00    0.00       9/10          lua_touserdata [209]
+                0.00    0.00       9/15          lua_getmetatable [195]
+                0.00    0.00       9/34          luaV_equalobj [183]
+                0.00    0.00       9/9           lua_rawequal [214]
+                0.00    0.00       9/82          lua_settop [174]
+-----------------------------------------------
+                0.00    0.00       6/6           lua_pushfstring [104]
+[103]    0.0    0.00    0.00       6         luaO_pushvfstring [103]
+                0.00    0.00       6/6           pushstr [105]
+                0.00    0.00      19/19          addstr2buff [186]
+                0.00    0.00       3/3           tostringbuff [247]
+-----------------------------------------------
+                0.00    0.00       1/6           luaL_loadfilex <cycle 1> [131]
+                0.00    0.00       2/6           setpath [66]
+                0.00    0.00       3/6           luaL_tolstring [59]
+[104]    0.0    0.00    0.00       6         lua_pushfstring [104]
+                0.00    0.00       6/6           luaO_pushvfstring [103]
+-----------------------------------------------
+                0.00    0.00       6/6           luaO_pushvfstring [103]
+[105]    0.0    0.00    0.00       6         pushstr [105]
+                0.00    0.00       6/355         internshrstr [45]
+                0.00    0.00       6/362         luaS_newlstr [93]
+-----------------------------------------------
+                0.00    0.00       4/576         lua_newuserdatauv [42]
+                0.00    0.00       7/576         getgeneric [153]
+                0.00    0.00     565/576         luaH_newkey <cycle 4> [83]
+[106]    0.0    0.00    0.00     576         luaS_newudata [106]
+                0.00    0.00       4/20000290     luaC_newobj [16]
+                0.00    0.00      11/11          luaS_hashlongstr [202]
+-----------------------------------------------
+                                   2             statement <cycle 2> [37]
+[107]    0.0    0.00    0.00       2         forbody <cycle 2> [107]
+                0.00    0.00       2/234         luaX_next [34]
+                0.00    0.00       4/126         luaK_code [89]
+                0.00    0.00       2/14          leaveblock [115]
+                0.00    0.00       2/14          adjustlocalvars [127]
+                0.00    0.00       2/162         savelineinfo [98]
+                0.00    0.00       4/9           luaK_codeABx [212]
+                0.00    0.00       2/13          luaK_reserveregs [198]
+                0.00    0.00       2/4           luaK_getlabel [228]
+                0.00    0.00       2/36          luaK_fixline [182]
+                                   2             block <cycle 2> [145]
+-----------------------------------------------
+                0.00    0.00      66/66          exp2reg [109]
+[108]    0.0    0.00    0.00      66         discharge2reg [108]
+                0.00    0.00      26/126         luaK_code [89]
+                0.00    0.00      66/191         luaK_dischargevars [111]
+                0.00    0.00       3/42          addk [122]
+                0.00    0.00      12/14          luaK_int [154]
+                0.00    0.00       5/18          luaK_ret [188]
+-----------------------------------------------
+                0.00    0.00       2/66          check_match [144]
+                0.00    0.00       4/66          restassign [52]
+                0.00    0.00       5/66          body <cycle 2> [54]
+                0.00    0.00       6/66          luaK_exp2anyreg [129]
+                0.00    0.00       7/66          statement <cycle 2> [37]
+                0.00    0.00      16/66          suffixedexp <cycle 3> [49]
+                0.00    0.00      26/66          funcargs <cycle 3> [53]
+[109]    0.0    0.00    0.00      66         exp2reg [109]
+                0.00    0.00      66/66          discharge2reg [108]
+-----------------------------------------------
+                0.00    0.00       1/6           propagatemark [137]
+                0.00    0.00       1/6           luaV_objlen [139]
+                0.00    0.00       4/6           luaC_checkfinalizer [113]
+[110]    0.0    0.00    0.00       6         luaT_gettm [110]
+                0.00    0.00       6/271946189     luaH_getshortstr [12]
+-----------------------------------------------
+                0.00    0.00       1/191         suffixedexp <cycle 3> [49]
+                0.00    0.00       2/191         luaK_goiftrue [157]
+                0.00    0.00       9/191         luaK_infix [151]
+                0.00    0.00       9/191         luaK_posfix [119]
+                0.00    0.00      41/191         luaK_exp2anyreg [129]
+                0.00    0.00      63/191         luaK_exp2nextreg [132]
+                0.00    0.00      66/191         discharge2reg [108]
+[111]    0.0    0.00    0.00     191         luaK_dischargevars [111]
+                0.00    0.00      28/126         luaK_code [89]
+                0.00    0.00       5/44          luaY_nvarstack [177]
+-----------------------------------------------
+                0.00    0.00       1/5           luaopen_package [28]
+                0.00    0.00       1/5           luaopen_string [36]
+                0.00    0.00       3/5           luaopen_io [43]
+[112]    0.0    0.00    0.00       5         lua_setmetatable [112]
+                0.00    0.00       4/4           luaC_checkfinalizer [113]
+                0.00    0.00       5/70          index2value [175]
+-----------------------------------------------
+                0.00    0.00       4/4           lua_setmetatable [112]
+[113]    0.0    0.00    0.00       4         luaC_checkfinalizer [113]
+                0.00    0.00       4/6           luaT_gettm [110]
+-----------------------------------------------
+                                   1             lua_load <cycle 1> [266]
+[114]    0.0    0.00    0.00       1         luaD_protectedparser <cycle 1> [114]
+                0.00    0.00       3/20000430     luaM_free_ [21]
+                0.00    0.00       1/3           luaM_saferealloc_ [134]
+                                   1             luaD_pcall <cycle 1> [218]
+-----------------------------------------------
+                0.00    0.00       2/14          statement <cycle 2> [37]
+                0.00    0.00       2/14          block <cycle 2> [145]
+                0.00    0.00       2/14          forbody <cycle 2> [107]
+                0.00    0.00       2/14          test_then_block <cycle 2> [76]
+                0.00    0.00       6/14          close_func [88]
+[115]    0.0    0.00    0.00      14         leaveblock [115]
+                0.00    0.00       2/355         internshrstr [45]
+                0.00    0.00       2/2           createlabel [152]
+                0.00    0.00       2/362         luaS_newlstr [93]
+-----------------------------------------------
+                0.00    0.00       3/3           luaopen_io [43]
+[116]    0.0    0.00    0.00       3         luaL_setmetatable [116]
+                0.00    0.00       3/36          lua_getfield [80]
+-----------------------------------------------
+                0.00    0.00       3/7           finishbinexpneg [130]
+                0.00    0.00       4/7           codearith [121]
+[117]    0.0    0.00    0.00       7         finishbinexpval [117]
+                0.00    0.00      14/126         luaK_code [89]
+                0.00    0.00       7/162         savelineinfo [98]
+                0.00    0.00       7/41          luaK_exp2anyreg [129]
+                0.00    0.00       7/9           freeexps [211]
+                0.00    0.00       7/36          luaK_fixline [182]
+-----------------------------------------------
+                0.00    0.00       1/1           f_luaopen [67]
+[118]    0.0    0.00    0.00       1         luaS_init [118]
+                0.00    0.00       1/355         internshrstr [45]
+                0.00    0.00       1/20000364     luaM_malloc_ [20]
+                0.00    0.00       1/49          luaC_fix [176]
+-----------------------------------------------
+                0.00    0.00       9/9           subexpr <cycle 3> [55]
+[119]    0.0    0.00    0.00       9         luaK_posfix [119]
+                0.00    0.00       4/4           finishbinexpneg [130]
+                0.00    0.00       4/126         luaK_code [89]
+                0.00    0.00       9/191         luaK_dischargevars [111]
+                0.00    0.00       2/41          luaK_exp2anyreg [129]
+                0.00    0.00       7/7           constfolding [217]
+                0.00    0.00       2/3           isSCnumber [236]
+                0.00    0.00       2/9           freeexps [211]
+                0.00    0.00       1/5           luaK_setoneret [225]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_rawrunprotected <cycle 1> [27]
+[120]    0.0    0.00    0.00       1         luaF_initupvals [120]
+                0.00    0.00       1/20000290     luaC_newobj [16]
+-----------------------------------------------
+                0.00    0.00       4/4           subexpr <cycle 3> [55]
+[121]    0.0    0.00    0.00       4         codearith [121]
+                0.00    0.00       4/7           finishbinexpval [117]
+                0.00    0.00       4/162         savelineinfo [98]
+                0.00    0.00       4/41          luaK_exp2anyreg [129]
+                0.00    0.00       4/36          luaK_fixline [182]
+-----------------------------------------------
+                0.00    0.00       2/42          luaK_int [154]
+                0.00    0.00       3/42          discharge2reg [108]
+                0.00    0.00      37/42          luaK_indexed [125]
+[122]    0.0    0.00    0.00      42         addk [122]
+                0.00    0.00      17/357         luaM_growaux_ [84]
+                0.00    0.00       2/257         luaH_newkey <cycle 4> [83]
+                0.00    0.00       3/7           getgeneric [153]
+                0.00    0.00      42/224         luaH_get [170]
+                0.00    0.00      25/34          luaV_equalobj [183]
+                0.00    0.00      17/254         luaH_finishset [168]
+                0.00    0.00       2/12          luaH_getint [200]
+-----------------------------------------------
+                0.00    0.00       1/1           luaY_parser [30]
+[123]    0.0    0.00    0.00       1         luaX_setinput [123]
+                0.00    0.00       1/355         internshrstr [45]
+                0.00    0.00       1/3           luaM_saferealloc_ [134]
+                0.00    0.00       1/362         luaS_newlstr [93]
+-----------------------------------------------
+                0.00    0.00       4/13          statement <cycle 2> [37]
+                0.00    0.00       9/13          restassign [52]
+[124]    0.0    0.00    0.00      13         luaK_storevar [124]
+                0.00    0.00      10/126         luaK_code [89]
+                0.00    0.00      10/10          codeABRK [149]
+                0.00    0.00      12/44          luaY_nvarstack [177]
+-----------------------------------------------
+                0.00    0.00       5/37          fieldsel [81]
+                0.00    0.00      32/37          singlevar [51]
+[125]    0.0    0.00    0.00      37         luaK_indexed [125]
+                0.00    0.00      37/42          addk [122]
+-----------------------------------------------
+                0.00    0.00       8/22          body <cycle 2> [54]
+                0.00    0.00      14/22          statement <cycle 2> [37]
+[126]    0.0    0.00    0.00      22         new_localvar [126]
+                0.00    0.00      22/357         luaM_growaux_ [84]
+-----------------------------------------------
+                0.00    0.00       2/14          forbody <cycle 2> [107]
+                0.00    0.00       5/14          body <cycle 2> [54]
+                0.00    0.00       7/14          statement <cycle 2> [37]
+[127]    0.0    0.00    0.00      14         adjustlocalvars [127]
+                0.00    0.00      22/357         luaM_growaux_ [84]
+-----------------------------------------------
+                0.00    0.00       1/4           luaopen_utf8 [87]
+                0.00    0.00       3/4           luaL_pushresult [135]
+[128]    0.0    0.00    0.00       4         lua_pushlstring [128]
+                0.00    0.00       1/355         internshrstr [45]
+                0.00    0.00       4/362         luaS_newlstr [93]
+-----------------------------------------------
+                0.00    0.00       2/41          luaK_posfix [119]
+                0.00    0.00       4/41          statement <cycle 2> [37]
+                0.00    0.00       4/41          codearith [121]
+                0.00    0.00       5/41          fieldsel [81]
+                0.00    0.00       7/41          finishbinexpval [117]
+                0.00    0.00       9/41          subexpr <cycle 3> [55]
+                0.00    0.00      10/41          codeABRK [149]
+[129]    0.0    0.00    0.00      41         luaK_exp2anyreg [129]
+                0.00    0.00      41/191         luaK_dischargevars [111]
+                0.00    0.00       6/66          exp2reg [109]
+                0.00    0.00       6/63          luaK_exp2nextreg [132]
+-----------------------------------------------
+                0.00    0.00       4/4           luaK_posfix [119]
+[130]    0.0    0.00    0.00       4         finishbinexpneg [130]
+                0.00    0.00       3/7           finishbinexpval [117]
+                0.00    0.00       3/162         savelineinfo [98]
+                0.00    0.00       3/36          luaK_fixline [182]
+-----------------------------------------------
+                                   1             pmain <cycle 1> [57]
+[131]    0.0    0.00    0.00       1         luaL_loadfilex <cycle 1> [131]
+                0.00    0.00       1/6           lua_pushfstring [104]
+                0.00    0.00       1/8           lua_gettop [215]
+                0.00    0.00       1/1           skipcomment [269]
+                0.00    0.00       1/13          lua_tolstring [199]
+                0.00    0.00       1/17          lua_rotate [191]
+                0.00    0.00       1/82          lua_settop [174]
+                                   1             lua_load <cycle 1> [266]
+-----------------------------------------------
+                0.00    0.00       1/63          restassign [52]
+                0.00    0.00       2/63          check_match [144]
+                0.00    0.00       5/63          body <cycle 2> [54]
+                0.00    0.00       6/63          luaK_exp2anyreg [129]
+                0.00    0.00       7/63          statement <cycle 2> [37]
+                0.00    0.00      16/63          suffixedexp <cycle 3> [49]
+                0.00    0.00      26/63          funcargs <cycle 3> [53]
+[132]    0.0    0.00    0.00      63         luaK_exp2nextreg [132]
+                0.00    0.00      63/191         luaK_dischargevars [111]
+                0.00    0.00       9/44          luaY_nvarstack [177]
+-----------------------------------------------
+                0.00    0.00       1/1           f_luaopen [67]
+[133]    0.0    0.00    0.00       1         stack_init [133]
+                0.00    0.00       1/20000364     luaM_malloc_ [20]
+-----------------------------------------------
+                0.00    0.00       1/3           save [148]
+                0.00    0.00       1/3           luaD_protectedparser <cycle 1> [114]
+                0.00    0.00       1/3           luaX_setinput [123]
+[134]    0.0    0.00    0.00       3         luaM_saferealloc_ [134]
+                0.00    0.00       3/152         luaM_realloc_ [65]
+-----------------------------------------------
+                0.00    0.00       3/3           str_format [72]
+[135]    0.0    0.00    0.00       3         luaL_pushresult [135]
+                0.00    0.00       3/4           lua_pushlstring [128]
+                0.00    0.00       3/17          lua_rotate [191]
+-----------------------------------------------
+                0.00    0.00       1/1           pmain <cycle 1> [57]
+[136]    0.0    0.00    0.00       1         lua_getglobal [136]
+                0.00    0.00       1/323         luaS_new [46]
+                0.00    0.00       1/373         luaH_getstr [156]
+-----------------------------------------------
+                0.00    0.00  285781/285781      atomic [24]
+[137]    0.0    0.00    0.00  285781         propagatemark [137]
+                0.00    0.00       1/6           luaT_gettm [110]
+                0.00    0.00  285976/286012      reallymarkobject [162]
+                0.00    0.00      23/110         luaH_realasize [172]
+-----------------------------------------------
+                0.00    0.00       1/2           pmain <cycle 1> [57]
+                0.00    0.00       1/2           gctm [146]
+[138]    0.0    0.00    0.00       2         luaL_len [138]
+                0.00    0.00       2/2           lua_len [140]
+                0.00    0.00       2/6           lua_tointegerx [220]
+                0.00    0.00       2/82          lua_settop [174]
+-----------------------------------------------
+                0.00    0.00       2/2           lua_len [140]
+[139]    0.0    0.00    0.00       2         luaV_objlen [139]
+                0.00    0.00       1/6           luaT_gettm [110]
+                0.00    0.00       2/2           luaH_getn [252]
+-----------------------------------------------
+                0.00    0.00       2/2           luaL_len [138]
+[140]    0.0    0.00    0.00       2         lua_len [140]
+                0.00    0.00       2/2           luaV_objlen [139]
+-----------------------------------------------
+                0.00    0.00       2/2           luaD_precall <cycle 1> [11]
+[141]    0.0    0.00    0.00       2         luaD_reallocstack [141]
+                0.00    0.00       2/152         luaM_realloc_ [65]
+                0.00    0.00       2/2           correctstack [248]
+-----------------------------------------------
+                0.00    0.00       6/6           lua_rawseti [143]
+[142]    0.0    0.00    0.00       6         luaH_setint [142]
+                0.00    0.00       2/257         luaH_newkey <cycle 4> [83]
+                0.00    0.00       6/12          luaH_getint [200]
+-----------------------------------------------
+                0.00    0.00       2/6           pmain <cycle 1> [57]
+                0.00    0.00       4/6           luaopen_package [28]
+[143]    0.0    0.00    0.00       6         lua_rawseti [143]
+                0.00    0.00       6/6           luaH_setint [142]
+                0.00    0.00       6/70          index2value [175]
+-----------------------------------------------
+                                   7             check_match [144]
+                0.00    0.00       1/123         suffixedexp <cycle 3> [49]
+                0.00    0.00       3/123         restassign [52]
+                0.00    0.00       5/123         body <cycle 2> [54]
+                0.00    0.00       8/123         statement <cycle 2> [37]
+                0.00    0.00      16/123         funcargs <cycle 3> [53]
+                0.00    0.00      90/123         singlevar [51]
+[144]    0.0    0.00    0.00     123+7       check_match [144]
+                0.00    0.00       3/4           allocupvalue [150]
+                0.00    0.00       2/66          exp2reg [109]
+                0.00    0.00       1/126         luaK_code [89]
+                0.00    0.00       2/63          luaK_exp2nextreg [132]
+                0.00    0.00       4/10          luaK_setreturns [206]
+                0.00    0.00       1/1           luaK_nil [260]
+                                   7             check_match [144]
+-----------------------------------------------
+                                   2             forbody <cycle 2> [107]
+[145]    0.0    0.00    0.00       2         block <cycle 2> [145]
+                0.00    0.00       2/14          leaveblock [115]
+                                   2             statement <cycle 2> [37]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_precall <cycle 1> [11]
+[146]    0.0    0.00    0.00       1         gctm [146]
+                0.00    0.00       1/2           luaL_len [138]
+-----------------------------------------------
+                0.00    0.00       1/1           internshrstr [45]
+[147]    0.0    0.00    0.00       1         luaS_resize [147]
+                0.00    0.00       1/152         luaM_realloc_ [65]
+-----------------------------------------------
+                0.00    0.00      53/676         read_numeral [158]
+                0.00    0.00     623/676         llex [35]
+[148]    0.0    0.00    0.00     676         save [148]
+                0.00    0.00       1/3           luaM_saferealloc_ [134]
+-----------------------------------------------
+                0.00    0.00      10/10          luaK_storevar [124]
+[149]    0.0    0.00    0.00      10         codeABRK [149]
+                0.00    0.00      10/41          luaK_exp2anyreg [129]
+                0.00    0.00      10/11          removevalues [205]
+-----------------------------------------------
+                0.00    0.00       1/4           luaY_parser [30]
+                0.00    0.00       3/4           check_match [144]
+[150]    0.0    0.00    0.00       4         allocupvalue [150]
+                0.00    0.00       4/357         luaM_growaux_ [84]
+-----------------------------------------------
+                0.00    0.00       9/9           subexpr <cycle 3> [55]
+[151]    0.0    0.00    0.00       9         luaK_infix [151]
+                0.00    0.00       9/191         luaK_dischargevars [111]
+                0.00    0.00       2/5           luaK_setoneret [225]
+                0.00    0.00       1/3           isSCnumber [236]
+                0.00    0.00       1/11          removevalues [205]
+-----------------------------------------------
+                0.00    0.00       2/2           leaveblock [115]
+[152]    0.0    0.00    0.00       2         createlabel [152]
+                0.00    0.00       2/357         luaM_growaux_ [84]
+                0.00    0.00       2/4           luaK_getlabel [228]
+-----------------------------------------------
+                0.00    0.00       1/7           luaH_resize <cycle 4> [64]
+                0.00    0.00       3/7           luaH_getstr [156]
+                0.00    0.00       3/7           addk [122]
+[153]    0.0    0.00    0.00       7         getgeneric [153]
+                0.00    0.00       7/576         luaS_newudata [106]
+                0.00    0.00       3/3           luaS_eqlngstr [241]
+-----------------------------------------------
+                0.00    0.00       2/14          statement <cycle 2> [37]
+                0.00    0.00      12/14          discharge2reg [108]
+[154]    0.0    0.00    0.00      14         luaK_int [154]
+                0.00    0.00       2/42          addk [122]
+-----------------------------------------------
+                                   1             pmain <cycle 1> [57]
+[155]    0.0    0.00    0.00       1         docall <cycle 1> [155]
+                0.00    0.00       1/168         lua_pushcclosure [94]
+                0.00    0.00       2/17          lua_rotate [191]
+                0.00    0.00       1/8           lua_gettop [215]
+                0.00    0.00       1/82          lua_settop [174]
+                                   1             lua_pcallk <cycle 1> [254]
+-----------------------------------------------
+                0.00    0.00       1/373         lua_getglobal [136]
+                0.00    0.00      36/373         lua_getfield [80]
+                0.00    0.00     122/373         luaX_newstring [32]
+                0.00    0.00     214/373         auxsetstr [47]
+[156]    0.0    0.00    0.00     373         luaH_getstr [156]
+                0.00    0.00       3/7           getgeneric [153]
+-----------------------------------------------
+                0.00    0.00       2/2           test_then_block <cycle 2> [76]
+[157]    0.0    0.00    0.00       2         luaK_goiftrue [157]
+                0.00    0.00       2/191         luaK_dischargevars [111]
+                0.00    0.00       2/2           luaK_concat [253]
+                0.00    0.00       2/6           patchlistaux [224]
+-----------------------------------------------
+                0.00    0.00      17/17          luaX_next [34]
+[158]    0.0    0.00    0.00      17         read_numeral [158]
+                0.00    0.00      53/676         save [148]
+                0.00    0.00      17/17          luaO_str2num [189]
+                0.00    0.00       4/4           check_next2 [227]
+-----------------------------------------------
+                0.00    0.00       1/10000002     luaF_close [259]
+                0.00    0.00 10000001/10000002     luaV_execute <cycle 1> [3]
+[159]    0.0    0.00    0.00 10000002         luaF_closeupval [159]
+-----------------------------------------------
+                0.00    0.00  571440/571440      atomic [24]
+[160]    0.0    0.00    0.00  571440         clearbyvalues [160]
+-----------------------------------------------
+                0.00    0.00  571440/571440      finishgencycle [167]
+[161]    0.0    0.00    0.00  571440         correctgraylist [161]
+-----------------------------------------------
+                                   1             reallymarkobject [162]
+                0.00    0.00       3/286012      singlestep [268]
+                0.00    0.00      33/286012      luaC_step [13]
+                0.00    0.00  285976/286012      propagatemark [137]
+[162]    0.0    0.00    0.00  286012+1       reallymarkobject [162]
+                                   1             reallymarkobject [162]
+-----------------------------------------------
+                0.00    0.00  285720/285720      atomic [24]
+[163]    0.0    0.00    0.00  285720         clearbykeys [163]
+-----------------------------------------------
+                0.00    0.00  285720/285720      atomic [24]
+[164]    0.0    0.00    0.00  285720         convergeephemerons [164]
+-----------------------------------------------
+                0.00    0.00       1/142868      lua_pushstring [39]
+                0.00    0.00       1/142868      lua_gc [68]
+                0.00    0.00       1/142868      lua_newuserdatauv [42]
+                0.00    0.00       1/142868      entergen [69]
+                0.00    0.00       1/142868      luaL_getsubtable [38]
+                0.00    0.00       1/142868      luaopen_debug [40]
+                0.00    0.00       1/142868      luaopen_package [28]
+                0.00    0.00       1/142868      luaopen_string [36]
+                0.00    0.00       1/142868      luaopen_table [41]
+                0.00    0.00  142859/142868      luaC_step [13]
+[165]    0.0    0.00    0.00  142868         luaE_setdebt [165]
+-----------------------------------------------
+                0.00    0.00       1/142861      luaC_freeallobjects [5]
+                0.00    0.00  142860/142861      atomic [24]
+[166]    0.0    0.00    0.00  142861         separatetobefnz [166]
+-----------------------------------------------
+                0.00    0.00       1/142860      entergen [69]
+                0.00    0.00  142859/142860      luaC_step [13]
+[167]    0.0    0.00    0.00  142860         finishgencycle [167]
+                0.00    0.00  571440/571440      correctgraylist [161]
+-----------------------------------------------
+                0.00    0.00      17/254         addk [122]
+                0.00    0.00      34/254         luaX_newstring [32]
+                0.00    0.00     203/254         luaV_finishset [63]
+[168]    0.0    0.00    0.00     254         luaH_finishset [168]
+-----------------------------------------------
+                0.00    0.00     236/236         freeobj [15]
+[169]    0.0    0.00    0.00     236         luaS_remove [169]
+-----------------------------------------------
+                0.00    0.00       3/224         lua_rawget [245]
+                0.00    0.00      25/224         luaH_newkey <cycle 4> [83]
+                0.00    0.00      42/224         addk [122]
+                0.00    0.00     154/224         luaH_resize <cycle 4> [64]
+[170]    0.0    0.00    0.00     224         luaH_get [170]
+-----------------------------------------------
+                0.00    0.00       1/203         luaopen_string [36]
+                0.00    0.00       1/203         luaopen_utf8 [87]
+                0.00    0.00       2/203         luaL_newmetatable [82]
+                0.00    0.00       2/203         luaopen_base [71]
+                0.00    0.00       2/203         setpath [66]
+                0.00    0.00       3/203         luaL_getsubtable [38]
+                0.00    0.00       4/203         luaopen_math [50]
+                0.00    0.00       5/203         luaopen_package [28]
+                0.00    0.00       6/203         luaopen_io [43]
+                0.00    0.00      10/203         luaL_requiref <cycle 1> [33]
+                0.00    0.00     167/203         luaL_setfuncs [48]
+[171]    0.0    0.00    0.00     203         lua_setfield [171]
+-----------------------------------------------
+                0.00    0.00      21/110         luaH_free [79]
+                0.00    0.00      23/110         propagatemark [137]
+                0.00    0.00      25/110         luaH_newkey <cycle 4> [83]
+                0.00    0.00      41/110         luaH_resize <cycle 4> [64]
+[172]    0.0    0.00    0.00     110         luaH_realasize [172]
+-----------------------------------------------
+                0.00    0.00       4/96          restassign [52]
+                0.00    0.00      28/96          statement <cycle 2> [37]
+                0.00    0.00      64/96          subexpr <cycle 3> [55]
+[173]    0.0    0.00    0.00      96         luaE_incCstack [173]
+-----------------------------------------------
+                0.00    0.00       1/82          docall <cycle 1> [155]
+                0.00    0.00       1/82          pmain <cycle 1> [57]
+                0.00    0.00       1/82          luaL_newmetatable [82]
+                0.00    0.00       1/82          luaL_loadfilex <cycle 1> [131]
+                0.00    0.00       1/82          luaopen_base [71]
+                0.00    0.00       1/82          luaopen_coroutine [90]
+                0.00    0.00       1/82          luaopen_debug [40]
+                0.00    0.00       1/82          luaopen_os [91]
+                0.00    0.00       1/82          luaopen_table [41]
+                0.00    0.00       1/82          luaopen_utf8 [87]
+                0.00    0.00       2/82          luaL_len [138]
+                0.00    0.00       3/82          warnfon [62]
+                0.00    0.00       3/82          luaL_addvalue [237]
+                0.00    0.00       3/82          luaL_getsubtable [38]
+                0.00    0.00       3/82          luaB_print [74]
+                0.00    0.00       3/82          luaopen_math [50]
+                0.00    0.00       3/82          str_format [72]
+                0.00    0.00       4/82          luaopen_io [43]
+                0.00    0.00       4/82          luaopen_string [36]
+                0.00    0.00       5/82          luaopen_package [28]
+                0.00    0.00       9/82          luaL_testudata [102]
+                0.00    0.00      10/82          luaL_openlibs <cycle 1> [96]
+                0.00    0.00      20/82          luaL_requiref <cycle 1> [33]
+[174]    0.0    0.00    0.00      82         lua_settop [174]
+-----------------------------------------------
+                0.00    0.00       2/70          lua_rawgeti [255]
+                0.00    0.00       3/70          lua_rawget [245]
+                0.00    0.00       5/70          lua_setmetatable [112]
+                0.00    0.00       6/70          lua_rawseti [143]
+                0.00    0.00      18/70          lua_rawequal [214]
+                0.00    0.00      36/70          lua_getfield [80]
+[175]    0.0    0.00    0.00      70         index2value [175]
+-----------------------------------------------
+                0.00    0.00       1/49          luaS_init [118]
+                0.00    0.00      23/49          luaX_init [86]
+                0.00    0.00      25/49          luaT_init [85]
+[176]    0.0    0.00    0.00      49         luaC_fix [176]
+-----------------------------------------------
+                0.00    0.00       5/44          luaK_dischargevars [111]
+                0.00    0.00       9/44          luaK_exp2nextreg [132]
+                0.00    0.00      12/44          luaK_storevar [124]
+                0.00    0.00      18/44          freeexps [211]
+[177]    0.0    0.00    0.00      44         luaY_nvarstack [177]
+-----------------------------------------------
+                0.00    0.00      43/43          llex [35]
+[178]    0.0    0.00    0.00      43         inclinenumber [178]
+                0.00    0.00       2/3           luaZ_fill [242]
+-----------------------------------------------
+                0.00    0.00       1/40          luaH_newkey <cycle 4> [83]
+                0.00    0.00      39/40          luaH_resize <cycle 4> [64]
+[179]    0.0    0.00    0.00      40         luaO_ceillog2 [179]
+-----------------------------------------------
+                0.00    0.00       1/40          luaL_newmetatable [82]
+                0.00    0.00       1/40          luaopen_base [71]
+                0.00    0.00       2/40          luaopen_io [43]
+                0.00    0.00       2/40          luaopen_string [36]
+                0.00    0.00       3/40          luaL_tolstring [59]
+                0.00    0.00       3/40          luaL_setfuncs [48]
+                0.00    0.00       3/40          luaL_getsubtable [38]
+                0.00    0.00       5/40          luaopen_package [28]
+                0.00    0.00      20/40          luaL_requiref <cycle 1> [33]
+[180]    0.0    0.00    0.00      40         lua_pushvalue [180]
+-----------------------------------------------
+                0.00    0.00       5/37          fieldsel [81]
+                0.00    0.00      32/37          singlevar [51]
+[181]    0.0    0.00    0.00      37         luaK_exp2anyregup [181]
+-----------------------------------------------
+                0.00    0.00       2/36          forbody <cycle 2> [107]
+                0.00    0.00       3/36          finishbinexpneg [130]
+                0.00    0.00       4/36          statement <cycle 2> [37]
+                0.00    0.00       4/36          codearith [121]
+                0.00    0.00       7/36          finishbinexpval [117]
+                0.00    0.00      16/36          funcargs <cycle 3> [53]
+[182]    0.0    0.00    0.00      36         luaK_fixline [182]
+-----------------------------------------------
+                0.00    0.00       9/34          luaL_testudata [102]
+                0.00    0.00      25/34          addk [122]
+[183]    0.0    0.00    0.00      34         luaV_equalobj [183]
+-----------------------------------------------
+                0.00    0.00       4/31          luaV_execute <cycle 1> [3]
+                0.00    0.00      27/31          luaD_precall <cycle 1> [11]
+[184]    0.0    0.00    0.00      31         luaD_poscall [184]
+-----------------------------------------------
+                0.00    0.00      29/29          luaV_execute <cycle 1> [3]
+[185]    0.0    0.00    0.00      29         luaG_traceexec [185]
+-----------------------------------------------
+                0.00    0.00      19/19          luaO_pushvfstring [103]
+[186]    0.0    0.00    0.00      19         addstr2buff [186]
+-----------------------------------------------
+                0.00    0.00       1/19          body <cycle 2> [54]
+                0.00    0.00       1/19          subexpr <cycle 3> [55]
+                0.00    0.00       1/19          luaY_parser [30]
+                0.00    0.00      16/19          funcargs <cycle 3> [53]
+[187]    0.0    0.00    0.00      19         luaK_codeABCk [187]
+-----------------------------------------------
+                0.00    0.00       5/18          discharge2reg [108]
+                0.00    0.00       6/18          close_func [88]
+                0.00    0.00       7/18          statement <cycle 2> [37]
+[188]    0.0    0.00    0.00      18         luaK_ret [188]
+-----------------------------------------------
+                0.00    0.00      17/17          read_numeral [158]
+[189]    0.0    0.00    0.00      17         luaO_str2num [189]
+-----------------------------------------------
+                0.00    0.00       1/17          pmain <cycle 1> [57]
+                0.00    0.00      16/17          luaL_setfuncs [48]
+[190]    0.0    0.00    0.00      17         lua_pushboolean [190]
+-----------------------------------------------
+                0.00    0.00       1/17          pmain <cycle 1> [57]
+                0.00    0.00       1/17          luaL_loadfilex <cycle 1> [131]
+                0.00    0.00       2/17          docall <cycle 1> [155]
+                0.00    0.00       3/17          luaL_pushresult [135]
+                0.00    0.00      10/17          luaL_requiref <cycle 1> [33]
+[191]    0.0    0.00    0.00      17         lua_rotate [191]
+-----------------------------------------------
+                                   6             luaD_rawrunprotected <cycle 1> [27]
+                                  10             lua_callk <cycle 1> [208]
+[192]    0.0    0.00    0.00      16         luaD_callnoyield <cycle 1> [192]
+                                  16             luaD_precall <cycle 1> [11]
+                                   1             luaV_execute <cycle 1> [3]
+-----------------------------------------------
+                0.00    0.00       1/16          luaL_checkstack [261]
+                0.00    0.00      15/16          luaL_setfuncs [48]
+[193]    0.0    0.00    0.00      16         lua_checkstack [193]
+-----------------------------------------------
+                0.00    0.00       3/15          luaL_getsubtable [38]
+                0.00    0.00       6/15          luaL_callmeta [61]
+                0.00    0.00       6/15          luaL_tolstring [59]
+[194]    0.0    0.00    0.00      15         lua_absindex [194]
+-----------------------------------------------
+                0.00    0.00       6/15          luaL_callmeta [61]
+                0.00    0.00       9/15          luaL_testudata [102]
+[195]    0.0    0.00    0.00      15         lua_getmetatable [195]
+-----------------------------------------------
+                0.00    0.00      14/14          lua_getfield [80]
+[196]    0.0    0.00    0.00      14         luaV_finishget [196]
+-----------------------------------------------
+                0.00    0.00       4/13          statement <cycle 2> [37]
+                0.00    0.00       9/13          restassign [52]
+[197]    0.0    0.00    0.00      13         check_readonly [197]
+-----------------------------------------------
+                0.00    0.00       2/13          forbody <cycle 2> [107]
+                0.00    0.00       3/13          statement <cycle 2> [37]
+                0.00    0.00       3/13          restassign [52]
+                0.00    0.00       5/13          body <cycle 2> [54]
+[198]    0.0    0.00    0.00      13         luaK_reserveregs [198]
+-----------------------------------------------
+                0.00    0.00       1/13          luaL_loadfilex <cycle 1> [131]
+                0.00    0.00       3/13          luaL_checklstring [239]
+                0.00    0.00       3/13          luaL_addvalue [237]
+                0.00    0.00       3/13          luaB_print [74]
+                0.00    0.00       3/13          str_format [72]
+[199]    0.0    0.00    0.00      13         lua_tolstring [199]
+-----------------------------------------------
+                0.00    0.00       1/12          luaH_newkey <cycle 4> [83]
+                0.00    0.00       1/12          luaH_getn [252]
+                0.00    0.00       2/12          lua_rawgeti [255]
+                0.00    0.00       2/12          addk [122]
+                0.00    0.00       6/12          luaH_setint [142]
+[200]    0.0    0.00    0.00      12         luaH_getint [200]
+-----------------------------------------------
+                0.00    0.00       3/12          luaL_addvalue [237]
+                0.00    0.00       9/12          str_format [72]
+[201]    0.0    0.00    0.00      12         prepbuffsize [201]
+-----------------------------------------------
+                0.00    0.00      11/11          luaS_newudata [106]
+[202]    0.0    0.00    0.00      11         luaS_hashlongstr [202]
+-----------------------------------------------
+                0.00    0.00       1/11          pmain <cycle 1> [57]
+                0.00    0.00      10/11          luaL_openlibs <cycle 1> [96]
+[203]    0.0    0.00    0.00      11         lua_setglobal [203]
+-----------------------------------------------
+                0.00    0.00       1/11          main [1]
+                0.00    0.00      10/11          luaL_requiref <cycle 1> [33]
+[204]    0.0    0.00    0.00      11         lua_toboolean [204]
+-----------------------------------------------
+                0.00    0.00       1/11          luaK_infix [151]
+                0.00    0.00      10/11          codeABRK [149]
+[205]    0.0    0.00    0.00      11         removevalues [205]
+-----------------------------------------------
+                0.00    0.00       2/10          statement <cycle 2> [37]
+                0.00    0.00       4/10          check_match [144]
+                0.00    0.00       4/10          funcargs <cycle 3> [53]
+[206]    0.0    0.00    0.00      10         luaK_setreturns [206]
+-----------------------------------------------
+                0.00    0.00       1/10          pmain <cycle 1> [57]
+                0.00    0.00       1/10          luaopen_coroutine [90]
+                0.00    0.00       1/10          luaopen_debug [40]
+                0.00    0.00       1/10          luaopen_io [43]
+                0.00    0.00       1/10          luaopen_math [50]
+                0.00    0.00       1/10          luaopen_package [28]
+                0.00    0.00       1/10          luaopen_os [91]
+                0.00    0.00       1/10          luaopen_string [36]
+                0.00    0.00       1/10          luaopen_table [41]
+                0.00    0.00       1/10          luaopen_utf8 [87]
+[207]    0.0    0.00    0.00      10         luaL_checkversion_ [207]
+                0.00    0.00      10/10          lua_version [210]
+-----------------------------------------------
+                                  10             luaL_requiref <cycle 1> [33]
+[208]    0.0    0.00    0.00      10         lua_callk <cycle 1> [208]
+                                  10             luaD_callnoyield <cycle 1> [192]
+-----------------------------------------------
+                0.00    0.00       1/10          pmain <cycle 1> [57]
+                0.00    0.00       9/10          luaL_testudata [102]
+[209]    0.0    0.00    0.00      10         lua_touserdata [209]
+-----------------------------------------------
+                0.00    0.00      10/10          luaL_checkversion_ [207]
+[210]    0.0    0.00    0.00      10         lua_version [210]
+-----------------------------------------------
+                0.00    0.00       2/9           luaK_posfix [119]
+                0.00    0.00       7/9           finishbinexpval [117]
+[211]    0.0    0.00    0.00       9         freeexps [211]
+                0.00    0.00      18/44          luaY_nvarstack [177]
+-----------------------------------------------
+                0.00    0.00       4/9           forbody <cycle 2> [107]
+                0.00    0.00       5/9           body <cycle 2> [54]
+[212]    0.0    0.00    0.00       9         luaK_codeABx [212]
+-----------------------------------------------
+                0.00    0.00       9/9           str_format [72]
+[213]    0.0    0.00    0.00       9         luaL_prepbuffsize [213]
+-----------------------------------------------
+                0.00    0.00       9/9           luaL_testudata [102]
+[214]    0.0    0.00    0.00       9         lua_rawequal [214]
+                0.00    0.00      18/70          index2value [175]
+-----------------------------------------------
+                0.00    0.00       1/8           docall <cycle 1> [155]
+                0.00    0.00       1/8           luaL_loadfilex <cycle 1> [131]
+                0.00    0.00       3/8           luaB_print [74]
+                0.00    0.00       3/8           str_format [72]
+[215]    0.0    0.00    0.00       8         lua_gettop [215]
+-----------------------------------------------
+                0.00    0.00       2/8           luaopen_math [50]
+                0.00    0.00       6/8           os_clock [223]
+[216]    0.0    0.00    0.00       8         lua_pushnumber [216]
+-----------------------------------------------
+                0.00    0.00       7/7           luaK_posfix [119]
+[217]    0.0    0.00    0.00       7         constfolding [217]
+-----------------------------------------------
+                                   1             luaD_protectedparser <cycle 1> [114]
+                                   2             lua_pcallk <cycle 1> [254]
+               11.26    1.08       4/7           GCTM [6]
+[218]    0.0    0.00    0.00       7         luaD_pcall <cycle 1> [218]
+                                   7             luaD_rawrunprotected <cycle 1> [27]
+-----------------------------------------------
+                0.00    0.00       6/6           close_func [88]
+[219]    0.0    0.00    0.00       6         luaK_finish [219]
+-----------------------------------------------
+                0.00    0.00       1/6           pmain <cycle 1> [57]
+                0.00    0.00       2/6           luaL_len [138]
+                0.00    0.00       3/6           luaL_tolstring [59]
+[220]    0.0    0.00    0.00       6         lua_tointegerx [220]
+-----------------------------------------------
+                0.00    0.00       6/6           luaL_tolstring [59]
+[221]    0.0    0.00    0.00       6         lua_type [221]
+-----------------------------------------------
+                0.00    0.00       1/6           luaY_parser [30]
+                0.00    0.00       5/6           body <cycle 2> [54]
+[222]    0.0    0.00    0.00       6         open_func [222]
+-----------------------------------------------
+                0.00    0.00       6/6           luaD_precall <cycle 1> [11]
+[223]    0.0    0.00    0.00       6         os_clock [223]
+                0.00    0.00       6/8           lua_pushnumber [216]
+-----------------------------------------------
+                0.00    0.00       2/6           statement <cycle 2> [37]
+                0.00    0.00       2/6           test_then_block <cycle 2> [76]
+                0.00    0.00       2/6           luaK_goiftrue [157]
+[224]    0.0    0.00    0.00       6         patchlistaux [224]
+-----------------------------------------------
+                0.00    0.00       1/5           luaK_posfix [119]
+                0.00    0.00       2/5           restassign [52]
+                0.00    0.00       2/5           luaK_infix [151]
+[225]    0.0    0.00    0.00       5         luaK_setoneret [225]
+-----------------------------------------------
+                0.00    0.00       1/5           main [1]
+                0.00    0.00       4/5           luaopen_math [50]
+[226]    0.0    0.00    0.00       5         lua_pushinteger [226]
+-----------------------------------------------
+                0.00    0.00       4/4           read_numeral [158]
+[227]    0.0    0.00    0.00       4         check_next2 [227]
+-----------------------------------------------
+                0.00    0.00       2/4           createlabel [152]
+                0.00    0.00       2/4           forbody <cycle 2> [107]
+[228]    0.0    0.00    0.00       4         luaK_getlabel [228]
+-----------------------------------------------
+                0.00    0.00       2/4           statement <cycle 2> [37]
+                0.00    0.00       2/4           test_then_block <cycle 2> [76]
+[229]    0.0    0.00    0.00       4         luaK_patchtohere [229]
+-----------------------------------------------
+                0.00    0.00       4/4           luaV_execute <cycle 1> [3]
+[230]    0.0    0.00    0.00       4         luaT_adjustvarargs [230]
+-----------------------------------------------
+                0.00    0.00       4/4           GCTM [6]
+[231]    0.0    0.00    0.00       4         luaT_gettmbyobj [231]
+-----------------------------------------------
+                0.00    0.00       1/4           main [1]
+                0.00    0.00       3/4           str_format [72]
+[232]    0.0    0.00    0.00       4         lua_pushlightuserdata [232]
+-----------------------------------------------
+                0.00    0.00       3/3           str_format [72]
+[233]    0.0    0.00    0.00       3         addlenmod [233]
+-----------------------------------------------
+                0.00    0.00       3/3           str_format [72]
+[234]    0.0    0.00    0.00       3         checkformat [234]
+-----------------------------------------------
+                0.00    0.00       3/3           luaZ_fill [242]
+[235]    0.0    0.00    0.00       3         getF [235]
+-----------------------------------------------
+                0.00    0.00       1/3           luaK_infix [151]
+                0.00    0.00       2/3           luaK_posfix [119]
+[236]    0.0    0.00    0.00       3         isSCnumber [236]
+-----------------------------------------------
+                0.00    0.00       3/3           str_format [72]
+[237]    0.0    0.00    0.00       3         luaL_addvalue [237]
+                0.00    0.00       3/13          lua_tolstring [199]
+                0.00    0.00       3/12          prepbuffsize [201]
+                0.00    0.00       3/82          lua_settop [174]
+-----------------------------------------------
+                0.00    0.00       3/3           str_format [72]
+[238]    0.0    0.00    0.00       3         luaL_buffinit [238]
+-----------------------------------------------
+                0.00    0.00       3/3           str_format [72]
+[239]    0.0    0.00    0.00       3         luaL_checklstring [239]
+                0.00    0.00       3/13          lua_tolstring [199]
+-----------------------------------------------
+                0.00    0.00       3/3           str_format [72]
+[240]    0.0    0.00    0.00       3         luaL_checknumber [240]
+                0.00    0.00       3/3           lua_tonumberx [246]
+-----------------------------------------------
+                0.00    0.00       3/3           getgeneric [153]
+[241]    0.0    0.00    0.00       3         luaS_eqlngstr [241]
+-----------------------------------------------
+                0.00    0.00       1/3           f_parser [29]
+                0.00    0.00       2/3           inclinenumber [178]
+[242]    0.0    0.00    0.00       3         luaZ_fill [242]
+                0.00    0.00       3/3           getF [235]
+-----------------------------------------------
+                0.00    0.00       3/3           luaL_tolstring [59]
+[243]    0.0    0.00    0.00       3         lua_isinteger [243]
+-----------------------------------------------
+                0.00    0.00       3/3           io_noclose [60]
+[244]    0.0    0.00    0.00       3         lua_pushnil [244]
+-----------------------------------------------
+                0.00    0.00       3/3           warnfon [62]
+[245]    0.0    0.00    0.00       3         lua_rawget [245]
+                0.00    0.00       3/70          index2value [175]
+                0.00    0.00       3/224         luaH_get [170]
+-----------------------------------------------
+                0.00    0.00       3/3           luaL_checknumber [240]
+[246]    0.0    0.00    0.00       3         lua_tonumberx [246]
+-----------------------------------------------
+                0.00    0.00       3/3           luaO_pushvfstring [103]
+[247]    0.0    0.00    0.00       3         tostringbuff [247]
+-----------------------------------------------
+                0.00    0.00       2/2           luaD_reallocstack [141]
+[248]    0.0    0.00    0.00       2         correctstack [248]
+-----------------------------------------------
+                0.00    0.00       2/2           luaD_rawrunprotected <cycle 1> [27]
+[249]    0.0    0.00    0.00       2         f_call [249]
+-----------------------------------------------
+                0.00    0.00       2/2           luaD_precall <cycle 1> [11]
+[250]    0.0    0.00    0.00       2         luaD_growstack [250]
+-----------------------------------------------
+                0.00    0.00       2/2           luaY_parser [30]
+[251]    0.0    0.00    0.00       2         luaD_inctop [251]
+-----------------------------------------------
+                0.00    0.00       2/2           luaV_objlen [139]
+[252]    0.0    0.00    0.00       2         luaH_getn [252]
+                0.00    0.00       1/12          luaH_getint [200]
+-----------------------------------------------
+                0.00    0.00       2/2           luaK_goiftrue [157]
+[253]    0.0    0.00    0.00       2         luaK_concat [253]
+-----------------------------------------------
+                                   1             docall <cycle 1> [155]
+                2.82    0.27       1/7           main [1]
+[254]    0.0    0.00    0.00       2         lua_pcallk <cycle 1> [254]
+                                   2             luaD_pcall <cycle 1> [218]
+-----------------------------------------------
+                0.00    0.00       1/2           luaopen_base [71]
+                0.00    0.00       1/2           luaopen_package [28]
+[255]    0.0    0.00    0.00       2         lua_rawgeti [255]
+                0.00    0.00       2/70          index2value [175]
+                0.00    0.00       2/12          luaH_getint [200]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_rawrunprotected <cycle 1> [27]
+[256]    0.0    0.00    0.00       1         closepaux [256]
+-----------------------------------------------
+                0.00    0.00       1/1           luaC_freeallobjects [5]
+[257]    0.0    0.00    0.00       1         enterinc [257]
+-----------------------------------------------
+                0.00    0.00       1/1           luaH_newkey <cycle 4> [83]
+[258]    0.0    0.00    0.00       1         luaC_barrierback_ [258]
+-----------------------------------------------
+                0.00    0.00       1/1           luaD_rawrunprotected <cycle 1> [27]
+[259]    0.0    0.00    0.00       1         luaF_close [259]
+                0.00    0.00       1/10000002     luaF_closeupval [159]
+-----------------------------------------------
+                0.00    0.00       1/1           check_match [144]
+[260]    0.0    0.00    0.00       1         luaK_nil [260]
+-----------------------------------------------
+                0.00    0.00       1/1           pmain <cycle 1> [57]
+[261]    0.0    0.00    0.00       1         luaL_checkstack [261]
+                0.00    0.00       1/16          lua_checkstack [193]
+-----------------------------------------------
+                0.00    0.00       1/1           lua_newstate [8]
+[262]    0.0    0.00    0.00       1         luaS_hash [262]
+-----------------------------------------------
+                0.00    0.00       1/1           lua_load <cycle 1> [266]
+[263]    0.0    0.00    0.00       1         luaZ_init [263]
+-----------------------------------------------
+                0.00    0.00       1/1           luaL_newstate [7]
+[264]    0.0    0.00    0.00       1         lua_atpanic [264]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[265]    0.0    0.00    0.00       1         lua_close [265]
+-----------------------------------------------
+                                   1             luaL_loadfilex <cycle 1> [131]
+[266]    0.0    0.00    0.00       1         lua_load <cycle 1> [266]
+                0.00    0.00       1/1           luaZ_init [263]
+                                   1             luaD_protectedparser <cycle 1> [114]
+-----------------------------------------------
+                0.00    0.00       1/1           luaL_newstate [7]
+[267]    0.0    0.00    0.00       1         lua_setwarnf [267]
+-----------------------------------------------
+                0.00    0.00       1/1           entergen [69]
+[268]    0.0    0.00    0.00       1         singlestep [268]
+                0.00    0.00       3/286012      reallymarkobject [162]
+-----------------------------------------------
+                0.00    0.00       1/1           luaL_loadfilex <cycle 1> [131]
+[269]    0.0    0.00    0.00       1         skipcomment [269]
+-----------------------------------------------
+                0.00    0.00       1/1           internshrstr [45]
+[270]    0.0    0.00    0.00       1         tablerehash [270]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+   [6] GCTM                  [170] luaH_get              [242] luaZ_fill
+  [26] _init                 [200] luaH_getint           [263] luaZ_init
+ [122] addk                  [252] luaH_getn             [194] lua_absindex
+ [233] addlenmod              [12] luaH_getshortstr      [264] lua_atpanic
+ [186] addstr2buff           [156] luaH_getstr           [208] lua_callk
+ [127] adjustlocalvars        [73] luaH_new              [193] lua_checkstack
+ [150] allocupvalue           [83] luaH_newkey           [265] lua_close
+  [24] atomic                [172] luaH_realasize         [75] lua_createtable
+ [100] atomic2gen             [64] luaH_resize            [68] lua_gc
+  [47] auxsetstr             [142] luaH_setint            [80] lua_getfield
+ [145] block                  [89] luaK_code             [136] lua_getglobal
+  [54] body                  [187] luaK_codeABCk         [195] lua_getmetatable
+ [144] check_match           [212] luaK_codeABx          [215] lua_gettop
+ [227] check_next2           [253] luaK_concat           [243] lua_isinteger
+ [197] check_readonly        [111] luaK_dischargevars    [140] lua_len
+ [234] checkformat           [129] luaK_exp2anyreg       [266] lua_load
+ [163] clearbykeys           [181] luaK_exp2anyregup       [8] lua_newstate
+ [160] clearbyvalues         [132] luaK_exp2nextreg       [42] lua_newuserdatauv
+  [88] close_func            [219] luaK_finish           [254] lua_pcallk
+   [4] close_state           [182] luaK_fixline          [190] lua_pushboolean
+ [256] closepaux             [228] luaK_getlabel          [94] lua_pushcclosure
+ [149] codeABRK              [157] luaK_goiftrue         [104] lua_pushfstring
+ [121] codearith             [125] luaK_indexed          [226] lua_pushinteger
+ [217] constfolding          [151] luaK_infix            [232] lua_pushlightuserdata
+ [164] convergeephemerons    [154] luaK_int              [128] lua_pushlstring
+ [161] correctgraylist       [260] luaK_nil              [244] lua_pushnil
+ [248] correctstack          [229] luaK_patchtohere      [216] lua_pushnumber
+ [152] createlabel           [119] luaK_posfix            [39] lua_pushstring
+ [108] discharge2reg         [198] luaK_reserveregs      [180] lua_pushvalue
+ [155] docall                [188] luaK_ret              [214] lua_rawequal
+  [14] dothecall             [225] luaK_setoneret        [245] lua_rawget
+  [69] entergen              [206] luaK_setreturns       [255] lua_rawgeti
+ [257] enterinc              [124] luaK_storevar         [143] lua_rawseti
+ [109] exp2reg               [237] luaL_addvalue         [191] lua_rotate
+ [249] f_call                [238] luaL_buffinit         [171] lua_setfield
+  [58] f_gc                   [61] luaL_callmeta         [203] lua_setglobal
+  [67] f_luaopen             [239] luaL_checklstring     [112] lua_setmetatable
+  [29] f_parser              [240] luaL_checknumber      [174] lua_settop
+  [81] fieldsel              [261] luaL_checkstack       [267] lua_setwarnf
+ [130] finishbinexpneg       [101] luaL_checkudata       [204] lua_toboolean
+ [117] finishbinexpval       [207] luaL_checkversion_    [220] lua_tointegerx
+ [167] finishgencycle         [38] luaL_getsubtable      [199] lua_tolstring
+ [107] forbody               [138] luaL_len              [246] lua_tonumberx
+ [211] freeexps              [131] luaL_loadfilex        [209] lua_touserdata
+  [15] freeobj                [82] luaL_newmetatable     [221] lua_type
+  [53] funcargs                [7] luaL_newstate         [210] lua_version
+ [146] gctm                   [96] luaL_openlibs          [71] luaopen_base
+ [235] getF                  [213] luaL_prepbuffsize      [90] luaopen_coroutine
+ [153] getgeneric            [135] luaL_pushresult        [40] luaopen_debug
+ [178] inclinenumber          [33] luaL_requiref          [43] luaopen_io
+ [175] index2value            [48] luaL_setfuncs          [50] luaopen_math
+  [45] internshrstr          [116] luaL_setmetatable      [91] luaopen_os
+  [60] io_noclose            [102] luaL_testudata         [28] luaopen_package
+ [236] isSCnumber             [59] luaL_tolstring         [36] luaopen_string
+  [22] l_alloc                [21] luaM_free_             [41] luaopen_table
+ [115] leaveblock             [84] luaM_growaux_          [87] luaopen_utf8
+  [35] llex                   [20] luaM_malloc_          [126] new_localvar
+  [74] luaB_print             [65] luaM_realloc_         [222] open_func
+ [258] luaC_barrierback_     [134] luaM_saferealloc_     [223] os_clock
+  [70] luaC_changemode        [92] luaM_shrinkvector_    [224] patchlistaux
+ [113] luaC_checkfinalizer   [179] luaO_ceillog2          [57] pmain
+ [176] luaC_fix              [103] luaO_pushvfstring     [201] prepbuffsize
+   [5] luaC_freeallobjects   [189] luaO_str2num          [137] propagatemark
+  [16] luaC_newobj            [25] luaS_clearcache       [105] pushstr
+  [13] luaC_step             [241] luaS_eqlngstr         [158] read_numeral
+ [192] luaD_callnoyield      [262] luaS_hash             [162] reallymarkobject
+   [9] luaD_closeprotected   [202] luaS_hashlongstr      [205] removevalues
+ [250] luaD_growstack        [118] luaS_init              [52] restassign
+ [251] luaD_inctop            [46] luaS_new              [148] save
+ [218] luaD_pcall             [93] luaS_newlstr           [98] savelineinfo
+ [184] luaD_poscall          [106] luaS_newudata         [166] separatetobefnz
+  [11] luaD_precall          [169] luaS_remove            [66] setpath
+  [10] luaD_pretailcall      [147] luaS_resize           [268] singlestep
+ [114] luaD_protectedparser  [230] luaT_adjustvarargs     [51] singlevar
+  [27] luaD_rawrunprotected  [110] luaT_gettm            [269] skipcomment
+ [141] luaD_reallocstack     [231] luaT_gettmbyobj       [133] stack_init
+  [77] luaE_extendCI          [17] luaT_getvarargs        [37] statement
+ [173] luaE_incCstack         [85] luaT_init              [72] str_format
+ [165] luaE_setdebt          [183] luaV_equalobj          [55] subexpr
+ [259] luaF_close              [3] luaV_execute           [49] suffixedexp
+ [159] luaF_closeupval       [196] luaV_finishget         [99] sweep2old
+  [19] luaF_findupval         [63] luaV_finishset        [270] tablerehash
+  [78] luaF_freeproto        [139] luaV_objlen            [76] test_then_block
+ [120] luaF_initupvals        [23] luaV_tointeger        [247] tostringbuff
+  [95] luaF_newCclosure       [86] luaX_init              [62] warnfon
+  [18] luaF_newLclosure       [32] luaX_newstring          [2] <cycle 1>
+  [97] luaF_newproto          [34] luaX_next              [31] <cycle 2>
+ [185] luaG_traceexec        [123] luaX_setinput          [44] <cycle 3>
+ [168] luaH_finishset        [177] luaY_nvarstack         [56] <cycle 4>
+  [79] luaH_free              [30] luaY_parser

@@ -1,0 +1,248 @@
+Exercise Sheet 12 (final)
+=========================
+
+This exercise sheet about the Lua interpreter should be worked on **in groups**.  
+Perform all benchmarks on LCC3.
+
+
+A) Setup and Basic Execution
+----------------------------
+
+Get the latest stable baseline Lua interpreter sources here: https://www.lua.org/download.html
+Compile it, and use it to run the benchmarks in `lua/fib.lua` ["the benchmark"], i.e:
+
+```
+lua perf-oriented-dev/lua/fib.lua
+```
+
+Note the timing results you get for these initial runs, we will use them as our baseline.
+
+----------------------------
+----------------------------
+
+To get and build lua, you just have to execute the following steps:
+
+```
+curl -L -R -O https://www.lua.org/ftp/lua-5.4.6.tar.gz
+tar zxf lua-5.4.6.tar.gz
+cd lua-5.4.6
+make all test
+```
+
+Then you can execute the built lua-interpreter along with a given lua file, in our case fib.lua to run it.
+
+The initial output on a laptop was:
+```
+100 x fibonacci_naive(30)     time:   5.9065 s  --  832040
+10000000 x fibonacci_tail(30) time:   7.9226 s  --  832040
+25000000 x fibonacci_iter(30) time:  10.1237 s  --  832040
+```
+
+On LCC3 we got the following times (5 executions and mean):
+```
+100 x fibonacci_naive(30)     time:  12.3040 s  --  832040
+10000000 x fibonacci_tail(30) time:  12.6248 s  --  832040
+25000000 x fibonacci_iter(30) time:  10.8662 s  --  832040
+
+100 x fibonacci_naive(30)     time:  13.0221 s  --  832040
+10000000 x fibonacci_tail(30) time:  12.5408 s  --  832040
+25000000 x fibonacci_iter(30) time:  11.3255 s  --  832040
+
+100 x fibonacci_naive(30)     time:  12.3486 s  --  832040
+10000000 x fibonacci_tail(30) time:  12.6216 s  --  832040
+25000000 x fibonacci_iter(30) time:  10.9235 s  --  832040
+
+100 x fibonacci_naive(30)     time:  12.3545 s  --  832040
+10000000 x fibonacci_tail(30) time:  12.6437 s  --  832040
+25000000 x fibonacci_iter(30) time:  10.9221 s  --  832040
+
+100 x fibonacci_naive(30)     time:  12.2880 s  --  832040
+10000000 x fibonacci_tail(30) time:  12.5890 s  --  832040
+25000000 x fibonacci_iter(30) time:  10.8279 s  --  832040
+
+Mean:
+100 x fibonacci_naive(30)     time:  12.46344
+10000000 x fibonacci_tail(30) time:  12.60398
+25000000 x fibonacci_iter(30) time:  10.97304
+```
+
+The calculated mean will be our baseline for the optimization later.
+
+
+
+B) Profiling
+------------
+
+ * Apply a profiler of your choice to study the behaviour of the Lua interpreter while running the benchmark.
+ * Is the result sufficient to base optimization decisions on? Why? If not, use other tools or manually track and report additional information about the execution.
+
+Report and discuss your results.
+
+----------------------------
+----------------------------
+
+
+At first, we profiled the execution of the Lua interpreter with the fib.lua file using the gprof profiler. To make this work, we had to add the **-pg** flag to the following lines in the Makefile of the Lua interpreter:
+
+```
+CFLAGS= -pg -O2 -Wall -Wextra -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS)
+LDFLAGS= -pg $(SYSLDFLAGS) $(MYLDFLAGS)
+```
+
+After again executing the fib.lua file and receiving the gmon.out file, to obtain the analysis.txt file, we executed:
+
+```
+gprof ./lua gmon.out > analysis.txt
+```
+
+The results on a laptop were the following:
+
+```
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 87.14     18.83    18.83        1    18.83    20.72  luaV_execute
+  5.04     19.92     1.09 310000031    0.00     0.00  luaD_pretailcall
+  4.07     20.80     0.88 306946270    0.00     0.00  luaD_precall
+  1.90     21.21     0.41 271946189    0.00     0.00  luaH_getshortstr
+  0.37     21.29     0.08 20000290     0.00     0.00  freeobj
+  0.32     21.36     0.07 35000103     0.00     0.00  luaT_getvarargs
+  0.19     21.40     0.04   714299     0.00     0.00  dothecall
+  0.14     21.43     0.03 40000948     0.00     0.00  l_alloc
+  0.14     21.46     0.03 25000004     0.00     0.00  luaV_tointeger
+  0.14     21.49     0.03 20000364     0.00     0.00  luaM_malloc_
+  0.14     21.52     0.03 20000290     0.00     0.00  luaC_newobj
+  0.14     21.55     0.03 10000006     0.00     0.00  luaF_newLclosure
+  0.09     21.57     0.02 20000430     0.00     0.00  luaM_free_
+  0.09     21.59     0.02 10000001     0.00     0.00  luaF_findupval
+  0.05     21.60     0.01   142860     0.00     0.00  luaS_clearcache
+  0.05     21.61     0.01                             _init
+  0.00     21.61     0.00 10000002     0.00     0.00  luaF_closeupval
+  0.00     21.61     0.00   571440     0.00     0.00  clearbyvalues
+  0.00     21.61     0.00   571440     0.00     0.00  correctgraylist
+  0.00     21.61     0.00   286012     0.00     0.00  reallymarkobject
+  0.00     21.61     0.00   285781     0.00     0.00  propagatemark
+  0.00     21.61     0.00   285720     0.00     0.00  clearbykeys
+  0.00     21.61     0.00   285720     0.00     0.00  convergeephemerons
+  0.00     21.61     0.00   142868     0.00     0.00  luaE_setdebt
+  0.00     21.61     0.00   142866     0.00     0.00  luaC_step
+  0.00     21.61     0.00   142861     0.00     0.00  separatetobefnz
+  0.00     21.61     0.00   142860     0.00     0.00  atomic
+  0.00     21.61     0.00   142860     0.00     0.00  finishgencycle
+  0.00     21.61     0.00      676     0.00     0.00  save
+```
+
+For more details, including the call graph, see analysis.txt
+
+C) Code Understanding
+---------------------
+
+ * Describe the overall process of Lua execution in the interpreter. What are the major phases, and how much time do they take for the benchmark?
+ * What does the option `LUA_USE_JUMPTABLE` do? Measure its performance impact on the benchmark.
+
+
+----------------------------
+----------------------------
+
+The major phases include loading, parsing, compiling, and executing the Lua code.
+
+1. Loading
+The loading phase involves reading the Lua script from a file or another source (e.g., a string). This is handled by the Lua API functions such as luaL_loadfile or luaL_loadstring.
+
+2. Parsing
+During the parsing phase, the Lua interpreter reads the input source code and converts it into a syntax tree. This is done by the lexer and parser, which are responsible for:
+  - Lexical Analysis: Breaking the input into tokens (keywords, identifiers, operators, etc.).
+  - Syntax Analysis: Structuring these tokens into a syntax tree based on Lua's grammar rules.
+3. Compiling
+The syntax tree generated in the parsing phase is then compiled into Lua bytecode. This bytecode is an intermediate representation that the Lua virtual machine (VM) can execute. The compiler optimizes the code during this phase to some extent.
+
+4. Execution
+The execution phase involves running the compiled bytecode on the Lua virtual machine. The VM is a stack-based interpreter that performs the following tasks:
+
+  - Bytecode Fetching: Retrieving the next bytecode instruction to execute.
+  - Bytecode Decoding: Decoding the bytecode instruction to determine what operation to perform.
+  - Bytecode Execution: Performing the operation specified by the bytecode instruction. This may involve arithmetic operations, function calls, table manipulations, etc.
+
+
+Detailed Steps:
+
+1. Loading Phase:
+  - The Lua script is read into memory.
+  - Functions like luaL_loadfile or luaL_loadstring are used to handle this.
+
+2. Parsing Phase:
+  - Lexical Analysis: The lexer reads the script and converts it into a sequence of tokens.
+    - Example: The string local x = 10 is tokenized into local, x, =, 10.
+  - Syntax Analysis: The parser converts the sequence of tokens into a syntax tree.
+    - Example: The tokens are structured into a tree representing variable declaration and initialization.
+
+3. Compiling Phase:
+  - The syntax tree is transformed into Lua bytecode.
+    - Example: The syntax tree for local x = 10 is compiled into bytecode instructions for allocating a local variable and assigning it the value 10.
+
+4. Execution Phase:
+  - The Lua VM executes the bytecode.
+    - Fetching: The VM fetches the next instruction.
+    - Decoding: The VM decodes the instruction to determine what needs to be done.
+    - Executing: The VM performs the operation, such as loading a constant, performing an arithmetic operation, or calling a function.
+
+Additional Phases and Considerations
+  - Error Handling: At any stage, if there is a syntax error or runtime error, the interpreter needs to handle it appropriately. Syntax errors are typically caught during parsing, while runtime errors are caught during execution.
+
+  - Garbage Collection: Lua includes automatic memory management via garbage collection, which can occur at any point during execution. This is important for managing the memory used by Lua objects like tables, functions, and strings.
+
+
+**TODO Measure time for each phase**
+
+The option LUA_USE_JUMPTABLE in Lua is a compilation flag that enables the use of a jump table for executing bytecode instructions. This can improve the performance of the Lua interpreter by optimizing the dispatch mechanism for bytecode execution.
+
+Understanding Bytecode Dispatch Mechanisms:
+When the Lua virtual machine (VM) executes bytecode instructions, it needs to determine which operation to perform for each bytecode. The way the VM dispatches these instructions can significantly affect performance. There are typically two main dispatch mechanisms:
+
+1. Switch-Case Dispatch: 
+This is the default method used by many interpreters. The VM uses a switch statement (or a series of if-else statements) to select the appropriate action based on the current bytecode instruction.
+
+2. Direct Threading (Jump Table): 
+This method uses a table of function pointers (or labels in GCC) to directly jump to the code handling the specific bytecode instruction. This can be more efficient than a switch statement because it avoids the need for multiple comparisons and branches.
+
+Enabling LUA_USE_JUMPTABLE
+When LUA_USE_JUMPTABLE is defined, the Lua interpreter uses the jump table mechanism instead of the switch-case mechanism for bytecode execution. This can result in faster bytecode dispatch, reducing the overhead of interpreting instructions and thus improving overall performance.
+
+How to Enable LUA_USE_JUMPTABLE
+To enable LUA_USE_JUMPTABLE, you need to define it during the compilation of the Lua interpreter. This can be done by adding a #define directive in the appropriate place in the source code or by passing a compiler flag.
+
+Modifying the Source Code
+Add the following line to the top of the luaconf.h file or the relevant source file where you want to enable this option:
+> #define LUA_USE_JUMPTABLE
+
+Using Compiler Flags
+You can also define it through the compiler command line by adding -DLUA_USE_JUMPTABLE to the CFLAGS in the Makefile
+
+**TODO Measure impact of the LUA_USE_JUMPTABLE flag**
+
+D) Optimization
+---------------
+
+Optimize the Lua interpreter to more efficiently execute the benchmark.  
+Valid strategies include:
+
+ * Compiler optimizations or hints
+ * Any manual procedural or algorithmic optimizations
+ * Making suitable assumptions / implementing heuristics based on the properties of the benchmark
+
+**Invalid** strategies are:
+
+ * Anything which checks the source code (or its hash etc) against a table of pre-built or pre-optimized solutions
+ * Anything which touches the input program
+ * Obviously, anything which breaks the interpreter for any other valid Lua program
+
+Your tuned interpreters' best times for all 3 benchmarks will be compared against all other groups' times.
+
+
+Submission
+----------
+Please submit your solutions by email to peter.thoman at UIBK, using the string "[Perf2024-sheet12]" in the subject line, before the start of the next VU at the latest.
+Include your group composition in the email.  
+Try not to include attachments with a total size larger than 2 MiB.
