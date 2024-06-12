@@ -1,0 +1,7 @@
+Initialization time: 138 us
+Call preparation time: 0 us
+100 x fibonacci_naive(30)     time:  13.9555 s  --  832040
+10000000 x fibonacci_tail(30) time:  12.2248 s  --  832040
+25000000 x fibonacci_iter(30) time:  11.7243 s  --  832040
+Call time: 37969805 us
+Cleanup time: 35 us

@@ -146,81 +146,40 @@ C) Code Understanding
 ----------------------------
 ----------------------------
 
-The major phases include loading, parsing, compiling, and executing the Lua code.
-
-1. Loading
-The loading phase involves reading the Lua script from a file or another source (e.g., a string). This is handled by the Lua API functions such as luaL_loadfile or luaL_loadstring.
-
-2. Parsing
-During the parsing phase, the Lua interpreter reads the input source code and converts it into a syntax tree. This is done by the lexer and parser, which are responsible for:
-  - Lexical Analysis: Breaking the input into tokens (keywords, identifiers, operators, etc.).
-  - Syntax Analysis: Structuring these tokens into a syntax tree based on Lua's grammar rules.
-3. Compiling
-The syntax tree generated in the parsing phase is then compiled into Lua bytecode. This bytecode is an intermediate representation that the Lua virtual machine (VM) can execute. The compiler optimizes the code during this phase to some extent.
-
-4. Execution
-The execution phase involves running the compiled bytecode on the Lua virtual machine. The VM is a stack-based interpreter that performs the following tasks:
-
-  - Bytecode Fetching: Retrieving the next bytecode instruction to execute.
-  - Bytecode Decoding: Decoding the bytecode instruction to determine what operation to perform.
-  - Bytecode Execution: Performing the operation specified by the bytecode instruction. This may involve arithmetic operations, function calls, table manipulations, etc.
+The major phases include initialization, parsing and call preparation, execution and cleanup of the Lua code.
 
 
-Detailed Steps:
+![alt text](image.png)
+#### 1. Initialization  
+As we can see from the screenshot the first step is to create a new state before loading or parsing the functions
 
-1. Loading Phase:
-  - The Lua script is read into memory.
-  - Functions like luaL_loadfile or luaL_loadstring are used to handle this.
+#### 2. Parsing / Call preparation  
+In the second phase everything gets set up for the file/function to be executed. In this phase the Garbage Collector is stopped and the program arguments are passed on to the functions. Furthermore the function pmain parses the used function itself with the call dofile.
 
-2. Parsing Phase:
-  - Lexical Analysis: The lexer reads the script and converts it into a sequence of tokens.
-    - Example: The string local x = 10 is tokenized into local, x, =, 10.
-  - Syntax Analysis: The parser converts the sequence of tokens into a syntax tree.
-    - Example: The tokens are structured into a tree representing variable declaration and initialization.
+#### 3. Execution  
+With the function lua_pcall the actuall function is then executed.
 
-3. Compiling Phase:
-  - The syntax tree is transformed into Lua bytecode.
-    - Example: The syntax tree for local x = 10 is compiled into bytecode instructions for allocating a local variable and assigning it the value 10.
-
-4. Execution Phase:
-  - The Lua VM executes the bytecode.
-    - Fetching: The VM fetches the next instruction.
-    - Decoding: The VM decodes the instruction to determine what needs to be done.
-    - Executing: The VM performs the operation, such as loading a constant, performing an arithmetic operation, or calling a function.
-
-Additional Phases and Considerations
-  - Error Handling: At any stage, if there is a syntax error or runtime error, the interpreter needs to handle it appropriately. Syntax errors are typically caught during parsing, while runtime errors are caught during execution.
-
-  - Garbage Collection: Lua includes automatic memory management via garbage collection, which can occur at any point during execution. This is important for managing the memory used by Lua objects like tables, functions, and strings.
-
-
-**TODO Measure time for each phase**
+#### 4. Cleanup  
+After the function call the result of the function is handeled and reported. In the end the Lua State is closed.
 
 The option LUA_USE_JUMPTABLE in Lua is a compilation flag that enables the use of a jump table for executing bytecode instructions. This can improve the performance of the Lua interpreter by optimizing the dispatch mechanism for bytecode execution.
 
 Understanding Bytecode Dispatch Mechanisms:
 When the Lua virtual machine (VM) executes bytecode instructions, it needs to determine which operation to perform for each bytecode. The way the VM dispatches these instructions can significantly affect performance. There are typically two main dispatch mechanisms:
 
-1. Switch-Case Dispatch: 
+1. Switch-Case Dispatch:   
 This is the default method used by many interpreters. The VM uses a switch statement (or a series of if-else statements) to select the appropriate action based on the current bytecode instruction.
 
-2. Direct Threading (Jump Table): 
+2. Direct Threading (Jump Table):   
 This method uses a table of function pointers (or labels in GCC) to directly jump to the code handling the specific bytecode instruction. This can be more efficient than a switch statement because it avoids the need for multiple comparisons and branches.
 
-Enabling LUA_USE_JUMPTABLE
+#### Enabling LUA_USE_JUMPTABLE  
 When LUA_USE_JUMPTABLE is defined, the Lua interpreter uses the jump table mechanism instead of the switch-case mechanism for bytecode execution. This can result in faster bytecode dispatch, reducing the overhead of interpreting instructions and thus improving overall performance.
 
-How to Enable LUA_USE_JUMPTABLE
-To enable LUA_USE_JUMPTABLE, you need to define it during the compilation of the Lua interpreter. This can be done by adding a #define directive in the appropriate place in the source code or by passing a compiler flag.
+#### How to Enable LUA_USE_JUMPTABLE  
+The flag can be enabled when adding the option -DLUA_USE_JUMPTABLE in the Makefile in the src folder. Usually one just adds it to the MYCFLAGS variable.
 
-Modifying the Source Code
-Add the following line to the top of the luaconf.h file or the relevant source file where you want to enable this option:
-> #define LUA_USE_JUMPTABLE
-
-Using Compiler Flags
-You can also define it through the compiler command line by adding -DLUA_USE_JUMPTABLE to the CFLAGS in the Makefile
-
-**TODO Measure impact of the LUA_USE_JUMPTABLE flag**
+**TODO Add Measurements to this Markdown file**
 
 D) Optimization
 ---------------
