@@ -183,7 +183,7 @@ After the function call the result of the function is handeled and reported. In 
 The option LUA_USE_JUMPTABLE in Lua is a compilation flag that enables the use of a jump table for executing bytecode instructions. This can improve the performance of the Lua interpreter by optimizing the dispatch mechanism for bytecode execution.
 
 Understanding Bytecode Dispatch Mechanisms:
-When the Lua virtual machine (VM) executes bytecode instructions, it needs to determine which operation to perform for each bytecode. The way the VM dispatches these instructions can significantly affect performance. There are typically two main dispatch mechanisms:
+When the Lua virtual machine (VM) **see lvm.c** executes bytecode instructions, it needs to determine which operation to perform for each bytecode. The way the VM dispatches these instructions can significantly affect performance. There are typically two main dispatch mechanisms:
 
 1. Switch-Case Dispatch:   
 This is the default method used by many interpreters. The VM uses a switch statement (or a series of if-else statements) to select the appropriate action based on the current bytecode instruction.
@@ -192,12 +192,39 @@ This is the default method used by many interpreters. The VM uses a switch state
 This method uses a table of function pointers (or labels in GCC) to directly jump to the code handling the specific bytecode instruction. This can be more efficient than a switch statement because it avoids the need for multiple comparisons and branches.
 
 #### Enabling LUA_USE_JUMPTABLE  
-When LUA_USE_JUMPTABLE is defined, the Lua interpreter uses the jump table mechanism instead of the switch-case mechanism for bytecode execution. This can result in faster bytecode dispatch, reducing the overhead of interpreting instructions and thus improving overall performance.
+When LUA_USE_JUMPTABLE is defined, the Lua interpreter uses the jump table mechanism instead of the switch-case mechanism for bytecode execution. This can result in faster bytecode dispatch, reducing the overhead of interpreting instructions and thus improving overall performance. ljumptab.h gets included in luaV_execute.
 
 #### How to Enable LUA_USE_JUMPTABLE  
-The flag can be enabled when adding the option -DLUA_USE_JUMPTABLE in the Makefile in the src folder. Usually one just adds it to the MYCFLAGS variable.
+If not already set, it is enabled by default if you use a GNU compiler. You can set the macro either by passing it as a preprocessor directive directly to the compiler or modify the following lines of the lvm.c file to your needs (just using one of the two #define lines and removing everything else):
 
-**TODO Add Measurements to this Markdown file**
+```
+#if !defined(LUA_USE_JUMPTABLE)
+#if defined(__GNUC__)
+#define LUA_USE_JUMPTABLE 1
+#else
+#define LUA_USE_JUMPTABLE 0
+#endif
+#endif
+```
+
+However, we thought it would make more of an impact to set or unset this option, but it turns out, that for our program it depends on the function. Some are faster, while some are slower, but there is not much of a difference:
+
+LUA_USE_JUMPTABLE 1:
+
+```
+100 x fibonacci_naive(30)     time:  13.0088 s  --  832040
+10000000 x fibonacci_tail(30) time:  12.6484 s  --  832040
+25000000 x fibonacci_iter(30) time:  10.9184 s  --  832040
+```
+
+LUA_USE_JUMPTABLE 0:
+
+```
+100 x fibonacci_naive(30)     time:  12.9463 s  --  832040
+10000000 x fibonacci_tail(30) time:  12.7264 s  --  832040
+25000000 x fibonacci_iter(30) time:  11.7258 s  --  832040
+```
+
 
 D) Optimization
 ---------------
