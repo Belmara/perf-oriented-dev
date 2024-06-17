@@ -136,6 +136,22 @@ Each sample counts as 0.01 seconds.
 
 For more details, including the call graph, see analysis.txt
 
+So this is probably not sufficient to perform optimizations, we might still need to have a look at other aspects that can impact performance, but it is a good starting point to look for optimization opportunities in the parts of the interpreter that take the most amount of execution time. Now we also have to keep in mind that we want not the overall time spent in the interpreter to be the shortest, but rather that the time spent in the three benchmark functions inside the fib.lua file to be optimized. The fact, that the most of the time is spent inside **luaV_execute**, where then our fib.lua gets executed doesn't help that much, since we need a more detailed view of where the bottlenecks inside that function are located at.
+
+To also cover having a look at the memory consumption, we as well decided to use massif along with the massif-visualizer tool.
+
+To obtain the massiv.out file, we needed to compile the lua interpreter with the **-g** flag. To make profiling more accurate, we set the optimizations to **O0**.
+
+```
+CFLAGS= -g -O0 -Wall -Wextra -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS)
+```
+
+We got the following results from the massif visualizer
+
+![Massif-visualizer](massiv_visualizer_2.png)
+
+What we can see here is that the largest allocations happen in the **l_alloc** function with 32.6 KiB. The allocated memory changes frequently with jumps of about 4KB. The **l_alloc** function is also listed in our gprof output, but with only 0.03 seconds of overall execution time, we think we cannot consider starting to optimize that function for our exercise D, but overall when optimizing the interpreter, we might as well should have a look at the allocation patterns and check if the interpreter would profit from using a different general purpose memory allocator.
+
 C) Code Understanding
 ---------------------
 
@@ -149,7 +165,9 @@ C) Code Understanding
 The major phases include initialization, parsing and call preparation, execution and cleanup of the Lua code.
 
 
-![alt text](image.png)
+![Code of lua interpreter main function](lua_main.png)
+
+
 #### 1. Initialization  
 As we can see from the screenshot the first step is to create a new state before loading or parsing the functions
 
