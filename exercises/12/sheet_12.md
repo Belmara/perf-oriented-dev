@@ -217,6 +217,18 @@ Valid strategies include:
 
 Your tuned interpreters' best times for all 3 benchmarks will be compared against all other groups' times.
 
+----------------------------
+----------------------------
+
+What we tried so far:
+
+- various different kinds of flags and compiler optimizations
+- compiling all in one single lua file onelua.c
+- using mimalloc
+- move the position of the branches with add functions in the large switch statement to the top
+
+none of the above led to performance improvements
+
 
 Submission
 ----------
