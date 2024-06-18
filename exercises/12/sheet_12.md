@@ -224,7 +224,7 @@ This is the default method used by many interpreters. The VM uses a switch state
 This method uses a table of function pointers (or labels in GCC) to directly jump to the code handling the specific bytecode instruction. This can be more efficient than a switch statement because it avoids the need for multiple comparisons and branches.
 
 #### Enabling LUA_USE_JUMPTABLE  
-When LUA_USE_JUMPTABLE is defined, the Lua interpreter uses the jump table mechanism instead of the switch-case mechanism for bytecode execution. This can result in faster bytecode dispatch, reducing the overhead of interpreting instructions and thus improving overall performance. ljumptab.h gets included in luaV_execute.
+When LUA_USE_JUMPTABLE is defined as 1, the Lua interpreter uses the jump table mechanism instead of the switch-case mechanism for bytecode execution. This can result in faster bytecode dispatch, reducing the overhead of interpreting instructions and thus improving overall performance. ljumptab.h gets included in luaV_execute.
 
 #### How to Enable LUA_USE_JUMPTABLE  
 If not already set, it is enabled by default if you use a GNU compiler. You can set the macro either by passing it as a preprocessor directive directly to the compiler or modify the following lines of the lvm.c file to your needs (just using one of the two #define lines and removing everything else):
@@ -239,7 +239,7 @@ If not already set, it is enabled by default if you use a GNU compiler. You can 
 #endif
 ```
 
-However, we thought it would make more of an impact to set or unset this option, but it turns out, that for our program it depends on the function. Some are faster, while some are slower, but there is not much of a difference:
+However, we thought it would make more of an impact to set or unset this option, but it turns out, that for our program it depends on the function. Some are faster, while some are slower, but there is not much of a difference that goes beyond the inconsistencies of the measurements:
 
 LUA_USE_JUMPTABLE 1:
 
