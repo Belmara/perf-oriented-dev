@@ -251,6 +251,7 @@ What we tried so far:
 
 - various different kinds of flags and compiler optimizations
 - using mimalloc
+- simplify the build process and combine everything from the lua interpreter in one single file to benefit from better compiler optimizations 
 - move the positions of the cases in the large switch statements that handles the OPCODES around
 - try to move different OPCODES that are most frequently used according to a paper (like OP_ADD) in front of the switch statement into an if statement
 - tweaked various constants like 
