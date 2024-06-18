@@ -252,7 +252,10 @@ What we tried so far:
 - various different kinds of flags and compiler optimizations
 - using mimalloc
 - move the positions of the cases in the large switch statements that handles the OPCODES around
-- try to use different OPCODES that are most frequently used according to a paper (like OP_ADD) before the switch statement in an if statement
+- try to move different OPCODES that are most frequently used according to a paper (like OP_ADD) in front of the switch statement into an if statement
+- tweaked various constants like 
+	- LUAI_GCPAUSE (affects frequency of gc)
+	- LUAI_GCMUL (affects aggressiveness of gc)
 
 none of the above led to noticable performance improvements that go beyond the inconsistencies of the measurements.
 
