@@ -138,6 +138,7 @@ For more details, including the call graph, see analysis.txt
 
 So this is probably not sufficient to perform optimizations, we might still need to have a look at other aspects that can impact performance, but it is a good starting point to look for optimization opportunities in the parts of the interpreter that take the most amount of execution time. Now we also have to keep in mind that we want not the overall time spent in the interpreter to be the shortest, but rather that the time spent in the three benchmark functions inside the fib.lua file to be optimized. The fact, that the most of the time is spent inside **luaV_execute**, where then our fib.lua gets executed doesn't help that much, since we need a more detailed view of where the bottlenecks inside that function are located at.
 
+--- 
 To also cover having a look at the memory consumption, we as well decided to use massif along with the massif-visualizer tool.
 
 To obtain the massiv.out file, we needed to compile the lua interpreter with the **-g** flag. To make profiling more accurate, we set the optimizations to **O0**.
@@ -151,6 +152,37 @@ We got the following results from the massif visualizer
 ![Massif-visualizer](massiv_visualizer_2.png)
 
 What we can see here is that the largest allocations happen in the **l_alloc** function with 32.6 KiB. The allocated memory changes frequently with jumps of about 4KB. The **l_alloc** function is also listed in our gprof output, but with only 0.03 seconds of overall execution time, we think we cannot consider starting to optimize that function for our exercise D, but overall when optimizing the interpreter, we might as well should have a look at the allocation patterns and check if the interpreter would profit from using a different general purpose memory allocator.
+
+---
+Since recursion might impact the accuracy of branch prediction, we did a quick profile with perf stat, which showed the following:
+
+```
+ Performance counter stats for './lua-5.4.6/src/lua fib.lua':
+
+         11.808,02 msec task-clock:u                     #    1,000 CPUs utilized             
+                 0      context-switches:u               #    0,000 /sec                      
+                 0      cpu-migrations:u                 #    0,000 /sec                      
+                90      page-faults:u                    #    7,622 /sec                      
+    37.499.158.256      cpu_atom/cycles/u                #    3,176 GHz                         (0,17%)
+    56.860.097.114      cpu_core/cycles/u                #    4,815 GHz                         (99,83%)
+   150.269.814.670      cpu_atom/instructions/u          #    4,01  insn per cycle              (0,17%)
+   268.508.862.854      cpu_core/instructions/u          #    7,16  insn per cycle              (99,83%)
+    19.793.920.348      cpu_atom/branches/u              #    1,676 G/sec                       (0,17%)
+    38.815.226.176      cpu_core/branches/u              #    3,287 G/sec                       (99,83%)
+        40.625.881      cpu_atom/branch-misses/u         #    0,21% of all branches             (0,17%)
+        62.779.871      cpu_core/branch-misses/u         #    0,32% of all branches             (99,83%)
+             TopdownL1 (cpu_core)                 #     10,3 %  tma_backend_bound      
+                                                  #      3,6 %  tma_bad_speculation    
+                                                  #     13,2 %  tma_frontend_bound     
+                                                  #     72,9 %  tma_retiring             (99,83%)
+             TopdownL1 (cpu_atom)                 #      2,8 %  tma_bad_speculation    
+                                                  #     80,4 %  tma_retiring             (0,17%)
+                                                  #      0,1 %  tma_backend_bound      
+                                                  #      0,1 %  tma_backend_bound_aux  
+                                                  #     16,7 %  tma_frontend_bound       (0,17%)
+```
+
+As one can see, branch misses are at around 0.3%, so this should not have that big of an impact on performance. 
 
 C) Code Understanding
 ---------------------
