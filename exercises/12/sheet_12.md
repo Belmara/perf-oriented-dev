@@ -250,11 +250,11 @@ Your tuned interpreters' best times for all 3 benchmarks will be compared agains
 What we tried so far:
 
 - various different kinds of flags and compiler optimizations
-- compiling all in one single lua file onelua.c
 - using mimalloc
-- move the position of the branches with add functions in the large switch statement to the top
+- move the positions of the cases in the large switch statements that handles the OPCODES around
+- try to use different OPCODES that are most frequently used according to a paper (like OP_ADD) before the switch statement in an if statement
 
-none of the above led to performance improvements
+none of the above led to noticable performance improvements that go beyond the inconsistencies of the measurements.
 
 
 Submission
